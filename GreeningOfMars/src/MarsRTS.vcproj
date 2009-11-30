@@ -165,40 +165,16 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\Button.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Camera.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\DrawableObject.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HUD.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\KeyboardHandler.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Map.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Utilities.cpp"
 				>
 			</File>
 			<Filter
 				Name="Core"
 				>
+				<File
+					RelativePath=".\Utilities.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\Vector2f.cpp"
 					>
@@ -208,43 +184,55 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Game Components"
+				>
+				<File
+					RelativePath=".\Camera.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\DrawableObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Map.cpp"
+					>
+				</File>
+				<Filter
+					Name="UI"
+					>
+					<File
+						RelativePath=".\Button.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\HUD.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="Control"
+				>
+				<File
+					RelativePath=".\KeyboardHandler.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\Button.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Camera.h"
-				>
-			</File>
-			<File
-				RelativePath=".\DrawableObject.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HUD.h"
-				>
-			</File>
-			<File
-				RelativePath=".\KeyboardHandler.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Map.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Utilities.h"
-				>
-			</File>
 			<Filter
 				Name="Core"
 				>
+				<File
+					RelativePath=".\Utilities.h"
+					>
+				</File>
 				<File
 					RelativePath=".\Vector2f.h"
 					>
@@ -253,6 +241,42 @@
 					RelativePath=".\Vector3f.h"
 					>
 				</File>
+			</Filter>
+			<Filter
+				Name="Control"
+				>
+				<File
+					RelativePath=".\KeyboardHandler.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Game Components"
+				>
+				<File
+					RelativePath=".\Camera.h"
+					>
+				</File>
+				<File
+					RelativePath=".\DrawableObject.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Map.h"
+					>
+				</File>
+				<Filter
+					Name="UI"
+					>
+					<File
+						RelativePath=".\Button.h"
+						>
+					</File>
+					<File
+						RelativePath=".\HUD.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
