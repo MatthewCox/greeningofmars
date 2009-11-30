@@ -9,12 +9,12 @@
 #include "Camera.h"
 #include "KeyboardHandler.h"
 #include "HUD.h"
-#include "Button.h"
+#include "SwishyButton.h"
 
 using namespace std;
 
 bool fullscreen = false;
-int width = 1024, height = 768;
+int screenWidth = 1024, screenHeight = 768;
 
 int time = 0, timebase = 0;
 int dt, totaldt, frames;
@@ -26,7 +26,7 @@ float moveSpeed = 10.0f;
 
 Map* map;
 Camera* camera;
-Button* buttonTest;
+SwishyButton* buttonTest;
 
 // Initialize all of the various objects that are to be used
 void Init(char **argv)
@@ -34,7 +34,7 @@ void Init(char **argv)
 	map = new Map();
 	map->Load("land.txt");
 	camera = new Camera(Vector3f(7.5, 4, 7), 0, 0);
-	buttonTest = new Button(10, 10, 100, 25, "Test", "C:\\Windows\Fonts\tahoma.ttf");
+	buttonTest = new SwishyButton(0.0f, (float)(screenHeight / 2) - 25.0f, 200.0f, 50.0f, "Test", "C:\\Windows\\Fonts\\tahoma.ttf", 1);
 }
 
 // Render the scene
@@ -49,15 +49,7 @@ void Display(void)
 	
 	map->Draw();
 
-	HUD::Start(width, height);
-	glColor4f(1, 1, 1, 0.3f);
-	glBegin(GL_QUADS);
-	glVertex2f(0, height - 100);
-	glVertex2f(0, height);
-	glVertex2f(width, height);
-	glVertex2f(width, height - 100);
-	glEnd();
-
+	HUD::Start(screenWidth, screenHeight);
 	buttonTest->Draw();
 	HUD::End();
 
@@ -79,8 +71,8 @@ void Reshape(int w, int h)
 		(GLfloat)w / (GLfloat)h,	// width/height ratio
 		0.01, 1000.0	// near/far draw distances
 	);
-	width = w;
-	height = h;
+	screenWidth = w;
+	screenHeight = h;
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -107,6 +99,8 @@ void Idle(void)
 	
 	glutPostRedisplay();
 
+	buttonTest->Update(f_dt);
+
 	if (KeyboardHandler::KeyState('w'))
 	{
 		camera->MoveForwards(moveSpeed * f_dt);
@@ -132,7 +126,7 @@ void Idle(void)
 	{
 		if (fullscreen)
 		{
-			Reshape(width, height);
+			Reshape(screenWidth, screenHeight);
 			glutPositionWindow(100, 100);
 			fullscreen = false;
 		}
@@ -208,7 +202,7 @@ void EnterLeave(int state)
 // Initialize OpenGL settings
 void InitGL()
 {
-	Reshape(width, height);
+	Reshape(screenWidth, screenHeight);
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	
@@ -230,7 +224,7 @@ int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-	glutInitWindowSize(width, height);
+	glutInitWindowSize(screenWidth, screenHeight);
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("MarsRTS");
 	
