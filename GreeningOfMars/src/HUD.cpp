@@ -17,7 +17,7 @@ void HUD::Start(int p_width, int p_height)
 		glDisable(GL_DEPTH_TEST);
 		glDepthMask(GL_FALSE);
 		glScalef(1, -1, 1);
-		glTranslatef(0, -p_height, 0);
+		glTranslatef(0, (float)-p_height, 0);
 		glMatrixMode(GL_MODELVIEW);
 		glPushMatrix();
 		glLoadIdentity();

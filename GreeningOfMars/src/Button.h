@@ -9,7 +9,7 @@
 
 #include "DrawableObject.h"
 
-class Button : DrawableObject
+class Button : public DrawableObject
 {
 public:
 	Button();

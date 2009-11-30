@@ -210,6 +210,10 @@
 						RelativePath=".\HUD.cpp"
 						>
 					</File>
+					<File
+						RelativePath=".\SwishyButton.cpp"
+						>
+					</File>
 				</Filter>
 			</Filter>
 			<Filter
@@ -274,6 +278,10 @@
 					</File>
 					<File
 						RelativePath=".\HUD.h"
+						>
+					</File>
+					<File
+						RelativePath=".\SwishyButton.h"
 						>
 					</File>
 				</Filter>
