@@ -1,0 +1,16 @@
+#summary Potential changes or additions to be made.
+#labels Phase-Design
+
+= Introduction =
+
+This page is a simple list of things that need further looking into, for possible use in the project.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+  * http://www.sfml-dev.org/index.php - A possible replacement for freeglut, is cross platform, potentially faster and easier to use.
