@@ -1,12 +1,5 @@
 #pragma once
 
-#include <windows.h>
-#include <GL/GL.h>
-#include <GL/GLU.h>
-#include <GL/freeglut.h>
-
-#include <FTGL/ftgl.h>
-
 #include "DrawableObject.h"
 
 class Button : public DrawableObject

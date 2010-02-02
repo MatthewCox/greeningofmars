@@ -1,5 +1,11 @@
 #include "Camera.h"
 
+#include <math.h>
+#include <windows.h>
+
+#include <GL/gl.h>
+#include <GL/freeglut.h>
+
 Camera::Camera(void)
 {
 	m_position = Vector3f(0, 0, 0);

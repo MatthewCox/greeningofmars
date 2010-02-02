@@ -1,5 +1,12 @@
 #include "Button.h"
 
+#include <windows.h>
+#include <GL/GL.h>
+#include <GL/GLU.h>
+#include <GL/freeglut.h>
+
+#include <FTGL/ftgl.h>
+
 Button::Button(void)
 {
 	x = 0;

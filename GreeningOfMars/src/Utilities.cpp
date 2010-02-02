@@ -1,5 +1,8 @@
 #include "Utilities.h"
 
+#include <vector>
+#include <string>
+
 Utilities::Utilities(void)
 {
 }
@@ -8,9 +11,9 @@ Utilities::~Utilities(void)
 {
 }
 
-vector<string> Utilities::Split(const char* str, char delimit)
+std::vector<std::string> Utilities::Split(const char* str, char delimit)
 {
-	vector<string> result;
+	std::vector<std::string> result;
 
 	while(true)
 	{
@@ -21,7 +24,7 @@ vector<string> Utilities::Split(const char* str, char delimit)
 			str++;
 		}
 
-		result.push_back(string(begin, str));
+		result.push_back(std::string(begin, str));
 
 		if (0 == *str++)
 		{

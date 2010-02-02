@@ -1,5 +1,7 @@
 #include "Vector2f.h"
 
+#include <math.h>
+
 Vector2f::Vector2f(void)
 {
 	m_X = 0;
