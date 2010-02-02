@@ -1,22 +1,13 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <string>
+#include "DrawableObject.h"
+
 #include <vector>
 
-#include <windows.h>
-#include <GL/GL.h>
-
-#include "DrawableObject.h"
-#include "Utilities.h"
-
-using namespace std;
-
-class Map : DrawableObject
+class Map : public DrawableObject
 {
 private:
-	vector<int> m_map;
+	std::vector<int> m_map;
 	int m_width;
 	int m_height;
 

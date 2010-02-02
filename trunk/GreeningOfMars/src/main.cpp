@@ -11,8 +11,6 @@
 #include "HUD.h"
 #include "SwishyButton.h"
 
-using namespace std;
-
 bool fullscreen = false;
 int screenWidth = 1024, screenHeight = 768;
 
@@ -89,7 +87,7 @@ void Idle(void)
 	if (frames == 100)
 	{
 		frames = 0;
-		cout << "FPS: " << (int)(1000 / ((float)totaldt / 100)) << endl;
+		std::cout << "FPS: " << (int)(1000 / ((float)totaldt / 100)) << std::endl;
 		totaldt = 0;
 	}
 	else
@@ -120,6 +118,15 @@ void Idle(void)
 	if (KeyboardHandler::KeyState(27)) // Esc key
 	{
 		exit(0);
+	}
+
+	if (KeyboardHandler::KeyState('v'))
+	{
+		mouseLook = true;
+	}
+	if (KeyboardHandler::KeyState('b'))
+	{
+		mouseLook = false;
 	}
 
 	if (KeyboardHandler::SpecialKeyState(GLUT_KEY_F11))
@@ -165,7 +172,7 @@ void Mouse(int button, int state, int x, int y)
 {
 	if (buttonTest->CheckClicked(x, y, button, state))
 	{
-		cout << "Clicked" << endl;
+		std::cout << "Clicked" << std::endl;
 	}
 }
 

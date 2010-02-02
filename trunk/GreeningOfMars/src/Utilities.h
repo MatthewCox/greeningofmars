@@ -1,9 +1,7 @@
 #pragma once
 
-#include <string>
 #include <vector>
-
-using namespace std;
+#include <string>
 
 class Utilities
 {
@@ -11,5 +9,5 @@ public:
 	Utilities(void);
 	~Utilities(void);
 
-	static vector<string> Split(const char* str, char delimit = ' ');
+	static std::vector<std::string> Split(const char* str, char delimit = ' ');
 };

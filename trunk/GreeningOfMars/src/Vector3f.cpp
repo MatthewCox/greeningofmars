@@ -1,5 +1,7 @@
 #include "Vector3f.h"
 
+#include <math.h>
+
 Vector3f::Vector3f(void)
 {
 	m_X = 0;

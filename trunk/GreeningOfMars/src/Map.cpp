@@ -1,5 +1,15 @@
 #include "Map.h"
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+#include <windows.h>
+#include <GL/GL.h>
+
+#include "Utilities.h"
+
 Map::Map(void)
 {
 	m_width = 0;
@@ -47,13 +57,13 @@ void Map::Draw()
 
 bool Map::Load(char p_filepath[])
 {
-	string line, bit;
-	ifstream fin;
+	std::string line, bit;
+	std::ifstream fin;
 	fin.open(p_filepath);
 	if (fin.is_open())
 	{
-		string temp_s;
-		vector<string> temp_v;
+		std::string temp_s;
+		std::vector<std::string> temp_v;
 
 		int tile_id;
 
