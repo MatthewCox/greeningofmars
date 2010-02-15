@@ -34,6 +34,7 @@ Button::~Button(void)
 void Button::Draw()
 {
 	glBegin(GL_QUADS);
+	glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
 	glVertex2f(x, y);
 	glVertex2f(x, y + height);
 	glVertex2f(x + width, y + height);

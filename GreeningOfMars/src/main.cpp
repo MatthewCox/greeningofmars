@@ -5,34 +5,30 @@
 #include <GL/GLU.h>
 #include <GL/freeglut.h>
 
-#include "Map.h"
+#include "Settings.h"
 #include "Camera.h"
+#include "ScreenManager.h"
+#include "ScreenMenu.h"
 #include "KeyboardHandler.h"
-#include "HUD.h"
-#include "SwishyButton.h"
-
-bool fullscreen = false;
-int screenWidth = 1024, screenHeight = 768;
 
 int time = 0, timebase = 0;
 int dt, totaldt, frames;
 float f_dt;
 
 bool mouseLook = false;
-float mouseLookMovementRatio = 0.3f;
-float moveSpeed = 10.0f;
 
-Map* map;
 Camera* camera;
-SwishyButton* buttonTest;
+Screen* menu;
+ScreenManager* screenManager;
 
 // Initialize all of the various objects that are to be used
 void Init(char **argv)
 {
-	map = new Map();
-	map->Load("land.txt");
+	//screenManager = ScreenManager::GetInstance();
+	//menu = new ScreenMenu();
+	//screenManager->ChangeScreen(menu);
 	camera = new Camera(Vector3f(7.5, 4, 7), 0, 0);
-	buttonTest = new SwishyButton(0.0f, (float)(screenHeight / 2) - 25.0f, 200.0f, 50.0f, "Test", "C:\\Windows\\Fonts\\tahoma.ttf", 1);
+	//buttonTest = new SwishyButton(0.0f, (float)(screenHeight / 2) - 25.0f, 200.0f, 50.0f, "Test", "C:\\Windows\\Fonts\\tahoma.ttf", 1);
 }
 
 // Render the scene
@@ -44,12 +40,8 @@ void Display(void)
 	glLoadIdentity();
 
 	camera->Display();
-	
-	map->Draw();
 
-	HUD::Start(screenWidth, screenHeight);
-	buttonTest->Draw();
-	HUD::End();
+	//screenManager->Draw();
 
 	glutSwapBuffers();
 }
@@ -65,12 +57,12 @@ void Reshape(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(
-		90,	// fov
+		Settings::View::FOV,	// fov
 		(GLfloat)w / (GLfloat)h,	// width/height ratio
 		0.01, 1000.0	// near/far draw distances
 	);
-	screenWidth = w;
-	screenHeight = h;
+	//screenWidth = w;
+	//screenHeight = h;
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -96,8 +88,6 @@ void Idle(void)
 	}
 	
 	glutPostRedisplay();
-
-	buttonTest->Update(f_dt);
 
 	if (KeyboardHandler::KeyState('w'))
 	{
@@ -129,18 +119,29 @@ void Idle(void)
 		mouseLook = false;
 	}
 
+	if (KeyboardHandler::KeyState('q'))
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glDisable(GL_CULL_FACE);
+	}
+	if (KeyboardHandler::KeyState('e'))
+	{
+		glPolygonMode(GL_FRONT, GL_FILL);
+		glEnable(GL_CULL_FACE);
+	}
+
 	if (KeyboardHandler::SpecialKeyState(GLUT_KEY_F11))
 	{
-		if (fullscreen)
+		if (Settings::View::Fullscreen)
 		{
-			Reshape(screenWidth, screenHeight);
+			Reshape(Settings::View::Width, Settings::View::Height);
 			glutPositionWindow(100, 100);
-			fullscreen = false;
+			Settings::View::Fullscreen = false;
 		}
 		else
 		{
 			glutFullScreen();
-			fullscreen = true;
+			Settings::View::Fullscreen = true;
 		}
 	}
 }
@@ -170,10 +171,10 @@ void SpecialKeyboardUp(int key, int x, int y)
 // Called when the mouse is clicked
 void Mouse(int button, int state, int x, int y)
 {
-	if (buttonTest->CheckClicked(x, y, button, state))
-	{
-		std::cout << "Clicked" << std::endl;
-	}
+	//if (buttonTest->CheckClicked(x, y, button, state))
+	//{
+	//	std::cout << "Clicked" << std::endl;
+	//}
 }
 
 // Called when the mouse is moved while a button is held down
@@ -181,7 +182,7 @@ void Motion(int x, int y)
 {
 	if (mouseLook)
 	{
-		camera->MouseLook(x, y, mouseLookMovementRatio);
+		camera->MouseLook(x, y, Settings::Mouse::MovementRatio);
 	}
 }
 
@@ -190,7 +191,7 @@ void PassiveMotion(int x, int y)
 {
 	if (mouseLook)
 	{
-		camera->MouseLook(x, y, mouseLookMovementRatio);
+		camera->MouseLook(x, y, Settings::Mouse::MovementRatio...);
 	}
 }
 
@@ -209,7 +210,7 @@ void EnterLeave(int state)
 // Initialize OpenGL settings
 void InitGL()
 {
-	Reshape(screenWidth, screenHeight);
+	Reshape(Settings::View::Width, Settings::View::Height);
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	
@@ -231,7 +232,7 @@ int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-	glutInitWindowSize(screenWidth, screenHeight);
+	glutInitWindowSize(Settings::View::Width, Settings::View::Height);
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("MarsRTS");
 	
