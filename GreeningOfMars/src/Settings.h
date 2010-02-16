@@ -3,9 +3,6 @@
 class Settings
 {
 public:
-	Settings(void);
-	~Settings(void);
-
 	static struct View 
 	{
 		static int Width;
@@ -17,5 +14,10 @@ public:
 	static struct Mouse
 	{
 		static float MovementRatio;
+	};
+
+	static struct Movement
+	{
+		static float Speed;
 	};
 };

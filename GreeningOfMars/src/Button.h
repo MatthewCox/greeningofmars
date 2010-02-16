@@ -12,7 +12,7 @@ public:
 	~Button(void);
 
 	void Draw(void);
-	bool CheckClicked(const int &p_x, const int &p_y, const int p_button, const int p_state) const;
+	bool CheckClicked(const int &p_x, const int &p_y) const;
 
 protected:
 	float x, y, width, height;

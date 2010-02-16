@@ -7,10 +7,4 @@ bool Settings::View::Fullscreen = false;
 
 float Settings::Mouse::MovementRatio = 0.3f;
 
-Settings::Settings(void)
-{
-}
-
-Settings::~Settings(void)
-{
-}
+float Settings::Movement::Speed = 10.0f;

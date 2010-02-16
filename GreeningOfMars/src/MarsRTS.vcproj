@@ -245,6 +245,10 @@
 						RelativePath=".\ScreenMenu.cpp"
 						>
 					</File>
+					<File
+						RelativePath=".\ScreenTest.cpp"
+						>
+					</File>
 				</Filter>
 			</Filter>
 			<Filter
@@ -252,6 +256,10 @@
 				>
 				<File
 					RelativePath=".\KeyboardHandler.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\MouseHandler.cpp"
 					>
 				</File>
 			</Filter>
@@ -286,6 +294,10 @@
 				>
 				<File
 					RelativePath=".\KeyboardHandler.h"
+					>
+				</File>
+				<File
+					RelativePath=".\MouseHandler.h"
 					>
 				</File>
 			</Filter>
@@ -341,6 +353,10 @@
 					</File>
 					<File
 						RelativePath=".\ScreenMenu.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ScreenTest.h"
 						>
 					</File>
 				</Filter>

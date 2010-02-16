@@ -12,5 +12,5 @@ public:
 	Conditions(void);
 	~Conditions(void);
 
-	void Update(float p_dt);
+	void Update(float f_dt);
 };
