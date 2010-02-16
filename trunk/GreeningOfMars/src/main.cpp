@@ -9,7 +9,9 @@
 #include "Camera.h"
 #include "ScreenManager.h"
 #include "ScreenMenu.h"
+#include "ScreenTest.h"
 #include "KeyboardHandler.h"
+#include "MouseHandler.h"
 
 int time = 0, timebase = 0;
 int dt, totaldt, frames;
@@ -18,17 +20,14 @@ float f_dt;
 bool mouseLook = false;
 
 Camera* camera;
-Screen* menu;
 ScreenManager* screenManager;
 
 // Initialize all of the various objects that are to be used
 void Init(char **argv)
 {
-	//screenManager = ScreenManager::GetInstance();
-	//menu = new ScreenMenu();
-	//screenManager->ChangeScreen(menu);
+	screenManager = ScreenManager::GetInstance();
+	screenManager->ChangeScreen(new ScreenMenu());
 	camera = new Camera(Vector3f(7.5, 4, 7), 0, 0);
-	//buttonTest = new SwishyButton(0.0f, (float)(screenHeight / 2) - 25.0f, 200.0f, 50.0f, "Test", "C:\\Windows\\Fonts\\tahoma.ttf", 1);
 }
 
 // Render the scene
@@ -41,7 +40,7 @@ void Display(void)
 
 	camera->Display();
 
-	//screenManager->Draw();
+	screenManager->Draw();
 
 	glutSwapBuffers();
 }
@@ -61,8 +60,8 @@ void Reshape(int w, int h)
 		(GLfloat)w / (GLfloat)h,	// width/height ratio
 		0.01, 1000.0	// near/far draw distances
 	);
-	//screenWidth = w;
-	//screenHeight = h;
+	Settings::View::Width = w;
+	Settings::View::Height = h;
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -89,21 +88,23 @@ void Idle(void)
 	
 	glutPostRedisplay();
 
+	screenManager->Update(f_dt);
+
 	if (KeyboardHandler::KeyState('w'))
 	{
-		camera->MoveForwards(moveSpeed * f_dt);
+		camera->MoveForwards(Settings::Movement::Speed * f_dt);
 	}
 	if (KeyboardHandler::KeyState('s'))
 	{
-		camera->MoveBackwards(moveSpeed * f_dt);
+		camera->MoveBackwards(Settings::Movement::Speed * f_dt);
 	}
 	if (KeyboardHandler::KeyState('a'))
 	{
-		camera->MoveLeft(moveSpeed * f_dt);
+		camera->MoveLeft(Settings::Movement::Speed * f_dt);
 	}
 	if (KeyboardHandler::KeyState('d'))
 	{
-		camera->MoveRight(moveSpeed * f_dt);
+		camera->MoveRight(Settings::Movement::Speed * f_dt);
 	}
 	if (KeyboardHandler::KeyState(27)) // Esc key
 	{
@@ -119,6 +120,15 @@ void Idle(void)
 		mouseLook = false;
 	}
 
+	if (KeyboardHandler::KeyState('t'))
+	{
+		screenManager->ChangeScreen(new ScreenTest());
+	}
+	if (KeyboardHandler::KeyState('m'))
+	{
+		screenManager->ChangeScreen(new ScreenMenu());
+	}
+
 	if (KeyboardHandler::KeyState('q'))
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -128,6 +138,14 @@ void Idle(void)
 	{
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glEnable(GL_CULL_FACE);
+	}
+
+	if (mouseLook)
+	{
+		int mouseX = 0;
+		int mouseY = 0;
+		MouseHandler::GetPosition(mouseX, mouseY);
+		camera->MouseLook(mouseX, mouseY, Settings::Mouse::MovementRatio);
 	}
 
 	if (KeyboardHandler::SpecialKeyState(GLUT_KEY_F11))
@@ -171,28 +189,29 @@ void SpecialKeyboardUp(int key, int x, int y)
 // Called when the mouse is clicked
 void Mouse(int button, int state, int x, int y)
 {
-	//if (buttonTest->CheckClicked(x, y, button, state))
-	//{
-	//	std::cout << "Clicked" << std::endl;
-	//}
+	bool bState;
+	if (state == 0)
+	{
+		bState = true;
+	}
+	else
+	{
+		bState = false;
+	}
+	MouseHandler::SetState(button, bState);
+	MouseHandler::SetPosition(x, y);
 }
 
 // Called when the mouse is moved while a button is held down
 void Motion(int x, int y)
 {
-	if (mouseLook)
-	{
-		camera->MouseLook(x, y, Settings::Mouse::MovementRatio);
-	}
+	MouseHandler::SetPosition(x, y);
 }
 
 // Called when the mouse is moved without a button held down
 void PassiveMotion(int x, int y)
 {
-	if (mouseLook)
-	{
-		camera->MouseLook(x, y, Settings::Mouse::MovementRatio...);
-	}
+	MouseHandler::SetPosition(x, y);
 }
 
 // Called when the mouse enters or leaves the window

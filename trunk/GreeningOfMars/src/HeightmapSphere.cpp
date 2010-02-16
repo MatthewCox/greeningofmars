@@ -13,7 +13,7 @@ HeightmapSphere::~HeightmapSphere(void)
 
 void HeightmapSphere::Draw()
 {
-	glColor4f(1.0f, 1.0f, 0.0f, 0.5f);
+	glColor4f(0.5f, 0.2f, 0.05f, 1.0f);
 	GLUquadric* quadric = gluNewQuadric();
 	gluSphere(quadric, 5, 36, 36);
 }

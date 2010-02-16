@@ -8,7 +8,7 @@ Conditions::~Conditions(void)
 {
 }
 
-void Conditions::Update(float p_dt)
+void Conditions::Update(float f_dt)
 {
 	
 }

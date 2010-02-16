@@ -14,7 +14,7 @@ public:
 
 	static ScreenManager* GetInstance();
 
-	void Update(float p_dt);
+	void Update(float f_dt);
 	void Draw();
 
 	void ChangeScreen(Screen* newScreen);

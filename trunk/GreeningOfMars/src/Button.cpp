@@ -52,12 +52,10 @@ void Button::Draw()
 	font.Render(name);
 }
 
-bool Button::CheckClicked(const int &p_x, const int &p_y,
-						  const int p_button, const int p_state) const
+bool Button::CheckClicked(const int &p_x, const int &p_y) const
 {
 	if (p_x >= x && p_x <= x + width &&
-		p_y >= y && p_y <= y + height &&
-		p_button == GLUT_LEFT_BUTTON && p_state == GLUT_UP)
+		p_y >= y && p_y <= y + height)
 	{
 		return true;
 	}
