@@ -20,4 +20,7 @@ public:
 	{
 		static float Speed;
 	};
+
+	static void Load(char* filepath);
+	static void Save(char* filepath);
 };

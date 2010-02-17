@@ -3,14 +3,6 @@
 #include <vector>
 #include <string>
 
-Utilities::Utilities(void)
-{
-}
-
-Utilities::~Utilities(void)
-{
-}
-
 std::vector<std::string> Utilities::Split(const char* str, char delimit)
 {
 	std::vector<std::string> result;

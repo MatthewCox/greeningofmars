@@ -27,6 +27,7 @@ void ScreenMenu::Update(float f_dt)
 		MouseHandler::GetPosition(mouseX, mouseY);
 		if (buttonQuit->CheckClicked(mouseX, mouseY))
 		{
+			Settings::Save(".\\settings.ini");
 			exit(0);
 		}
 	}
