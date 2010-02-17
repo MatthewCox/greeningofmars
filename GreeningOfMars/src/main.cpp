@@ -85,8 +85,6 @@ void Idle(void)
 	{
 		totaldt += dt;
 	}
-	
-	glutPostRedisplay();
 
 	screenManager->Update(f_dt);
 
@@ -106,7 +104,7 @@ void Idle(void)
 	{
 		camera->MoveRight(Settings::Movement::Speed * f_dt);
 	}
-	if (KeyboardHandler::KeyState(27)) // Esc key
+	if (KeyboardHandler::KeyState(27)) // Esc Key
 	{
 		exit(0);
 	}
@@ -162,6 +160,8 @@ void Idle(void)
 			Settings::View::Fullscreen = true;
 		}
 	}
+
+	glutPostRedisplay();
 }
 
 // Called when a regular (character-producing) key is pressed
@@ -237,8 +237,6 @@ void InitGL()
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_NORMALIZE);
 
-	//glPolygonMode(GL_FRONT, GL_LINE);
-
 	glEnable(GL_LINE_SMOOTH);
 	glEnable(GL_POLYGON_SMOOTH);
 
@@ -249,6 +247,8 @@ void InitGL()
 // enters the opengl event loop
 int main(int argc, char **argv)
 {
+	Settings::Load(".\\settings.ini");
+
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(Settings::View::Width, Settings::View::Height);
@@ -265,7 +265,6 @@ int main(int argc, char **argv)
 	glutMouseFunc(Mouse);
 	glutMotionFunc(Motion);
 	glutPassiveMotionFunc(PassiveMotion);
-	//glutEntryFunc(EnterLeave);
 
 	glutIgnoreKeyRepeat(true);
 	//glutSetCursor(GLUT_CURSOR_NONE);
@@ -274,9 +273,9 @@ int main(int argc, char **argv)
 
 	Init(argv);
 
-	//FreeConsole();
+	FreeConsole();
 	
 	glutMainLoop();
-	
+
 	return 0;
 }

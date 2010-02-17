@@ -1,5 +1,7 @@
 #include "ScreenTest.h"
 
+#include <iostream>
+
 #include "Settings.h"
 
 ScreenTest::ScreenTest(void)
