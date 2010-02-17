@@ -383,6 +383,10 @@
 				RelativePath=".\rings.txt"
 				>
 			</File>
+			<File
+				RelativePath=".\settings.ini"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
