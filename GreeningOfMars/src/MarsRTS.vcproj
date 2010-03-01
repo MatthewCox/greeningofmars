@@ -168,20 +168,16 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\IniHandler.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Settings.cpp"
 				>
 			</File>
 			<Filter
 				Name="Core"
 				>
+				<File
+					RelativePath=".\IniHandler.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\Utilities.cpp"
 					>
@@ -218,6 +214,10 @@
 					RelativePath=".\Map.cpp"
 					>
 				</File>
+				<File
+					RelativePath=".\Settings.cpp"
+					>
+				</File>
 				<Filter
 					Name="UI"
 					>
@@ -242,15 +242,15 @@
 						>
 					</File>
 					<File
+						RelativePath=".\ScreenGame.cpp"
+						>
+					</File>
+					<File
 						RelativePath=".\ScreenManager.cpp"
 						>
 					</File>
 					<File
 						RelativePath=".\ScreenMenu.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\ScreenTest.cpp"
 						>
 					</File>
 				</Filter>
@@ -273,17 +273,13 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\IniHandler.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Settings.h"
-				>
-			</File>
 			<Filter
 				Name="Core"
 				>
+				<File
+					RelativePath=".\IniHandler.h"
+					>
+				</File>
 				<File
 					RelativePath=".\Utilities.h"
 					>
@@ -332,6 +328,10 @@
 					RelativePath=".\Map.h"
 					>
 				</File>
+				<File
+					RelativePath=".\Settings.h"
+					>
+				</File>
 				<Filter
 					Name="UI"
 					>
@@ -356,6 +356,10 @@
 						>
 					</File>
 					<File
+						RelativePath=".\ScreenGame.h"
+						>
+					</File>
+					<File
 						RelativePath=".\ScreenManager.h"
 						>
 					</File>
@@ -364,7 +368,7 @@
 						>
 					</File>
 					<File
-						RelativePath=".\ScreenTest.h"
+						RelativePath=".\Screens.h"
 						>
 					</File>
 				</Filter>

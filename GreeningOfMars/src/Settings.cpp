@@ -29,7 +29,7 @@ void Settings::Save(char* filepath)
 	IniHandler::SetFileName(".\\settings.ini");
 	IniHandler::WriteInt("View", "Width", View::Width);
 	IniHandler::WriteInt("View", "Height", View::Height);
-	IniHandler::WriteFloat("View", "FOV", View::FOV);
+	IniHandler::WriteFloat("View", "FOV", (float)View::FOV);
 	IniHandler::WriteInt("View", "Fullscreen", View::Fullscreen);
 
 	IniHandler::WriteFloat("Mouse", "MovementRatio", Mouse::MovementRatio);

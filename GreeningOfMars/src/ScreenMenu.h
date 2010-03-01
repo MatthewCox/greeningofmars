@@ -2,6 +2,8 @@
 
 #include "Screen.h"
 
+#include <vector>
+
 #include "SwishyButton.h"
 #include "HeightmapSphere.h"
 
@@ -18,6 +20,8 @@ public:
 	void Unload();
 
 private:
+	std::vector<Button*>* buttons;
+	SwishyButton* buttonStart;
 	SwishyButton* buttonQuit;
 	HeightmapSphere* sphere;
 };

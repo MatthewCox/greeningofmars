@@ -51,7 +51,7 @@ void SwishyButton::Update(float f_dt)
 	case 0:
 		if (x < targetX)
 		{
-			x += 100 * f_dt;
+			x += 400 * f_dt;
 		}
 		if (x > targetX)
 		{
@@ -61,7 +61,7 @@ void SwishyButton::Update(float f_dt)
 	case 1:
 		if (x > targetX)
 		{
-			x -= 100 * f_dt;
+			x -= 400 * f_dt;
 		}
 		if (x < targetX)
 		{
@@ -71,7 +71,7 @@ void SwishyButton::Update(float f_dt)
 	case 2:
 		if (y < targetY)
 		{
-			y += 100 * f_dt;
+			y += 400 * f_dt;
 		}
 		if (y > targetY)
 		{
@@ -81,7 +81,7 @@ void SwishyButton::Update(float f_dt)
 	case 3:
 		if (y > targetY)
 		{
-			y -= 100 * f_dt;
+			y -= 400 * f_dt;
 		}
 		if (y > targetY)
 		{

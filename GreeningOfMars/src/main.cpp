@@ -7,9 +7,7 @@
 
 #include "Settings.h"
 #include "Camera.h"
-#include "ScreenManager.h"
-#include "ScreenMenu.h"
-#include "ScreenTest.h"
+#include "Screens.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
 
@@ -27,7 +25,7 @@ void Init(char **argv)
 {
 	screenManager = ScreenManager::GetInstance();
 	screenManager->ChangeScreen(new ScreenMenu());
-	camera = new Camera(Vector3f(7.5, 4, 7), 0, 0);
+	camera = new Camera(Vector3f(0, 0, 0), 0, 0);
 }
 
 // Render the scene
@@ -118,13 +116,13 @@ void Idle(void)
 		mouseLook = false;
 	}
 
-	if (KeyboardHandler::KeyState('t'))
-	{
-		screenManager->ChangeScreen(new ScreenTest());
-	}
-	if (KeyboardHandler::KeyState('m'))
+	if (KeyboardHandler::KeyState('1'))
 	{
 		screenManager->ChangeScreen(new ScreenMenu());
+	}
+	if (KeyboardHandler::KeyState('2'))
+	{
+		screenManager->ChangeScreen(new ScreenGame());
 	}
 
 	if (KeyboardHandler::KeyState('q'))
