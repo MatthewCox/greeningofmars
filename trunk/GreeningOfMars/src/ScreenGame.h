@@ -2,13 +2,14 @@
 
 #include "Screen.h"
 
+#include "HeightmapSphere.h"
 #include "Map.h"
 
-class ScreenTest : public Screen
+class ScreenGame : public Screen
 {
 public:
-	ScreenTest(void);
-	~ScreenTest(void);
+	ScreenGame(void);
+	~ScreenGame(void);
 
 	void Update(float f_dt);
 	void Draw();
@@ -17,5 +18,6 @@ public:
 	void Unload();
 
 private:
+	HeightmapSphere* sphere;
 	Map* map;
 };

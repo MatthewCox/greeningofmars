@@ -31,6 +31,11 @@ Button::~Button(void)
 {
 }
 
+void Button::Update(float f_dt)
+{
+
+}
+
 void Button::Draw()
 {
 	glBegin(GL_QUADS);

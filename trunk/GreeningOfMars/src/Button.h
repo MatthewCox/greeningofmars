@@ -11,6 +11,7 @@ public:
 		char* p_name, char* p_fontPath);
 	~Button(void);
 
+	virtual void Update(float f_dt);
 	void Draw(void);
 	bool CheckClicked(const int &p_x, const int &p_y) const;
 

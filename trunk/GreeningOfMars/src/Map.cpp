@@ -23,10 +23,12 @@ Map::~Map(void)
 
 void Map::Draw()
 {
-	for (int j = 0; j < m_height; j++)
+	for (int j = 0; j < m_height - 1; j++)
 	{
-		for (int i = 0; i < m_width; i++)
+		glBegin(GL_TRIANGLE_STRIP);
+		for (int i = 0; i < m_width - 1; i++)
 		{
+			glColor3f(1.0f/(float)Tile(i, j), 1.0f/(float)Tile(i, j), 1.0f/(float)Tile(i, j));
 			switch (Tile(i,j))
 			{
 			case 0:
@@ -38,20 +40,52 @@ void Map::Draw()
 			case 2:
 				glColor3f(0,0.5f,0);
 				break;
-			default:
-				glColor3f(1,0,1);
+			}
+			glVertex3d(i, Tile(i,j), j);
+			glColor3f(1.0f/(float)Tile(i, j+1), 1.0f/(float)Tile(i, j+1), 1.0f/(float)Tile(i, j+1));
+			switch (Tile(i,j+1))
+			{
+			case 0:
+				glColor3f(0,0,1);
+				break;
+			case 1:
+				glColor3f(0,0.8f,0);
+				break;
+			case 2:
+				glColor3f(0,0.5f,0);
 				break;
 			}
-			glPushMatrix();
-			glTranslatef((float)i,(float)Tile(i,j)/2,(float)j);
-			glBegin(GL_QUADS);
-			glVertex3d(0,0,0);
-			glVertex3d(0,0,1);
-			glVertex3d(1,0,1);
-			glVertex3d(1,0,0);
-			glEnd();
-			glPopMatrix();
+			glVertex3d(i, Tile(i, j+1), j+1);
+			glColor3f(1.0f/(float)Tile(i+1, j), 1.0f/(float)Tile(i+1, j), 1.0f/(float)Tile(i+1, j));
+			switch (Tile(i+1,j))
+			{
+			case 0:
+				glColor3f(0,0,1);
+				break;
+			case 1:
+				glColor3f(0,0.8f,0);
+				break;
+			case 2:
+				glColor3f(0,0.5f,0);
+				break;
+			}
+			glVertex3d(i+1, Tile(i+1, j), j);
+			glColor3f(1.0f/(float)Tile(i+1, j+1), 1.0f/(float)Tile(i+1, j+1), 1.0f/(float)Tile(i+1, j+1));
+			switch (Tile(i+1,j+1))
+			{
+			case 0:
+				glColor3f(0,0,1);
+				break;
+			case 1:
+				glColor3f(0,0.8f,0);
+				break;
+			case 2:
+				glColor3f(0,0.5f,0);
+				break;
+			}
+			glVertex3d(i+1, Tile(i+1, j+1), j+1);
 		}
+		glEnd();
 	}
 }
 
