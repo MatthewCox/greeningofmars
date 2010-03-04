@@ -1,5 +1,7 @@
 #pragma once
 
+#include "TextureLoader/TextureLoader.h"
+
 class HeightmapSphere
 {
 public:
@@ -7,4 +9,8 @@ public:
 	~HeightmapSphere(void);
 
 	void Draw();
+private:
+	TextureLoader* texLoader;
+	glTexture* texture;
+	GLUquadric* quadric;
 };

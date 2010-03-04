@@ -28,61 +28,13 @@ void Map::Draw()
 		glBegin(GL_TRIANGLE_STRIP);
 		for (int i = 0; i < m_width - 1; i++)
 		{
-			glColor3f(1.0f/(float)Tile(i, j), 1.0f/(float)Tile(i, j), 1.0f/(float)Tile(i, j));
-			switch (Tile(i,j))
-			{
-			case 0:
-				glColor3f(0,0,1);
-				break;
-			case 1:
-				glColor3f(0,0.8f,0);
-				break;
-			case 2:
-				glColor3f(0,0.5f,0);
-				break;
-			}
+			SetDrawColour(i, j);
 			glVertex3d(i, Tile(i,j), j);
-			glColor3f(1.0f/(float)Tile(i, j+1), 1.0f/(float)Tile(i, j+1), 1.0f/(float)Tile(i, j+1));
-			switch (Tile(i,j+1))
-			{
-			case 0:
-				glColor3f(0,0,1);
-				break;
-			case 1:
-				glColor3f(0,0.8f,0);
-				break;
-			case 2:
-				glColor3f(0,0.5f,0);
-				break;
-			}
+			SetDrawColour(i, j+1);
 			glVertex3d(i, Tile(i, j+1), j+1);
-			glColor3f(1.0f/(float)Tile(i+1, j), 1.0f/(float)Tile(i+1, j), 1.0f/(float)Tile(i+1, j));
-			switch (Tile(i+1,j))
-			{
-			case 0:
-				glColor3f(0,0,1);
-				break;
-			case 1:
-				glColor3f(0,0.8f,0);
-				break;
-			case 2:
-				glColor3f(0,0.5f,0);
-				break;
-			}
+			SetDrawColour(i+1, j);
 			glVertex3d(i+1, Tile(i+1, j), j);
-			glColor3f(1.0f/(float)Tile(i+1, j+1), 1.0f/(float)Tile(i+1, j+1), 1.0f/(float)Tile(i+1, j+1));
-			switch (Tile(i+1,j+1))
-			{
-			case 0:
-				glColor3f(0,0,1);
-				break;
-			case 1:
-				glColor3f(0,0.8f,0);
-				break;
-			case 2:
-				glColor3f(0,0.5f,0);
-				break;
-			}
+			SetDrawColour(i+1, j+1);
 			glVertex3d(i+1, Tile(i+1, j+1), j+1);
 		}
 		glEnd();
@@ -136,4 +88,29 @@ bool Map::Load(char p_filepath[])
 int Map::Tile(int p_X, int p_Y)
 {
 	return m_map[p_X+(p_Y*m_width)];
+}
+
+void Map::SetDrawColour(int p_X, int p_Y)
+{
+	if (Tile(p_X, p_Y) >= 3)
+	{
+		glColor3f(0.9f, 0.9f, 0.9f);
+	}
+	else
+	{
+		float colour = 1.0f/(float)Tile(p_X, p_Y);
+		glColor3f(colour, colour, colour);
+	}
+	switch (Tile(p_X, p_Y))
+	{
+	case 0:
+		glColor3f(0,0,1);
+		break;
+	case 1:
+		glColor3f(0,0.8f,0);
+		break;
+	case 2:
+		glColor3f(0,0.5f,0);
+		break;
+	}
 }

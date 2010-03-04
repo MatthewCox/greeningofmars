@@ -229,14 +229,18 @@ void InitGL()
 {
 	Reshape(Settings::View::Width, Settings::View::Height);
 
-	glClearColor(0.0, 0.0, 0.0, 1.0);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearDepth(1.0f);
 	
 	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_NORMALIZE);
 
 	glEnable(GL_LINE_SMOOTH);
 	glEnable(GL_POLYGON_SMOOTH);
+
+	glEnable(GL_TEXTURE_2D);
 
     //glEnable(GL_LIGHTING);
 }

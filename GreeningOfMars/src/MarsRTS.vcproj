@@ -179,6 +179,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\TextureLoader\TextureLoader.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Utilities.cpp"
 					>
 				</File>
@@ -278,6 +282,10 @@
 				>
 				<File
 					RelativePath=".\IniHandler.h"
+					>
+				</File>
+				<File
+					RelativePath=".\TextureLoader\TextureLoader.h"
 					>
 				</File>
 				<File
