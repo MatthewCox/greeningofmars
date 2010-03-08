@@ -24,4 +24,7 @@ private:
 	SwishyButton* buttonStart;
 	SwishyButton* buttonQuit;
 	HeightmapSphere* sphere;
+	
+	float planetPosition;
+	bool transitioning;
 };

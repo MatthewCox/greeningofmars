@@ -58,7 +58,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ftgl.lib"
+				AdditionalDependencies="ftgl.lib glew32.lib"
 				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
@@ -129,7 +129,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ftgl.lib"
+				AdditionalDependencies="ftgl.lib glew32.lib"
 				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
@@ -175,7 +175,15 @@
 				Name="Core"
 				>
 				<File
+					RelativePath=".\Files.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\IniHandler.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Shader.cpp"
 					>
 				</File>
 				<File
@@ -281,7 +289,15 @@
 				Name="Core"
 				>
 				<File
+					RelativePath=".\Files.h"
+					>
+				</File>
+				<File
 					RelativePath=".\IniHandler.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shader.h"
 					>
 				</File>
 				<File
@@ -392,11 +408,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MarsHeight.bmp"
+				>
+			</File>
+			<File
 				RelativePath=".\rings.txt"
 				>
 			</File>
 			<File
 				RelativePath=".\settings.ini"
+				>
+			</File>
+			<File
+				RelativePath=".\shader.frag"
+				>
+			</File>
+			<File
+				RelativePath=".\shader.vert"
 				>
 			</File>
 		</Filter>
