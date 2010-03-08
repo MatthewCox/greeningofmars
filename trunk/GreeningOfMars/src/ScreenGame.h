@@ -3,7 +3,6 @@
 #include "Screen.h"
 
 #include "HeightmapSphere.h"
-#include "Map.h"
 
 class ScreenGame : public Screen
 {
@@ -19,5 +18,4 @@ public:
 
 private:
 	HeightmapSphere* sphere;
-	Map* map;
 };

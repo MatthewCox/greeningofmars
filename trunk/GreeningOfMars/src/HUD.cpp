@@ -1,9 +1,8 @@
 #include "HUD.h"
 
-#include <windows.h>
+#include <stdlib.h>
 
-#include "GL/gl.h"
-#include "GL/freeglut.h"
+#include <GL\freeglut.h>
 
 HUD::HUD(void)
 {

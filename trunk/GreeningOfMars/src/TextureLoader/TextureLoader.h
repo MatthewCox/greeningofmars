@@ -1,12 +1,12 @@
 #ifndef _TEXTURE_LOADER_H_
 #define _TEXTURE_LOADER_H_
 
-#include <windows.h>										// Header File For Windows
-#include <gl\gl.h>											// Header File For The OpenGL32 Library
-#include <gl\glu.h>											// Header File For The GLu32 Library
-#include <olectl.h>											// Header File For The OLE Controls Library
-#include <math.h>											// Header File For The Math Library
-#include <STDIO.H>											// Header File For I/O Library
+#include <stdlib.h>
+#include <GL\glew.h>
+#include <GL\freeglut.h>
+#include <olectl.h>
+#include <math.h>
+#include <stdio.h>
 
 // Define Interface Data Types / Structures
 //

@@ -1,9 +1,8 @@
 #include <iostream>
-#include <windows.h>
+#include <stdlib.h>
 
-#include <GL/GL.h>
-#include <GL/GLU.h>
-#include <GL/freeglut.h>
+#include <GL\glew.h>
+#include <GL\freeglut.h>
 
 #include "Settings.h"
 #include "Camera.h"
@@ -256,6 +255,7 @@ int main(int argc, char **argv)
 	glutInitWindowSize(Settings::View::Width, Settings::View::Height);
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("MarsRTS");
+	glewInit();
 	
 	glutDisplayFunc(Display);
 	glutIdleFunc(Idle);
@@ -275,7 +275,7 @@ int main(int argc, char **argv)
 
 	Init(argv);
 
-	FreeConsole();
+	//FreeConsole();
 	
 	glutMainLoop();
 

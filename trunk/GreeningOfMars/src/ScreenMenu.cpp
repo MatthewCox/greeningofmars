@@ -1,9 +1,9 @@
 #include "ScreenMenu.h"
 
 #include <vector>
-#include <windows.h>
+#include <stdlib.h>
 
-#include <GL/GL.h>
+#include <GL\freeglut.h>
 
 #include "Screens.h"
 #include "Settings.h"
@@ -22,32 +22,53 @@ ScreenMenu::~ScreenMenu(void)
 
 void ScreenMenu::Update(float f_dt)
 {
-	for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
+	if (!transitioning)
 	{
-		(*i)->Update(f_dt);
-	}
+		for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
+		{
+			(*i)->Update(f_dt);
+		}
 
-	if (MouseHandler::GetState(0))
+		if (MouseHandler::Pressed(0))
+		{
+			int mouseX = 0;
+			int mouseY = 0;
+			MouseHandler::GetPosition(mouseX, mouseY);
+			if (buttonStart->CheckClicked(mouseX, mouseY))
+			{
+				transitioning = true;
+			}
+			else if (buttonQuit->CheckClicked(mouseX, mouseY))
+			{
+				Settings::Save(".\\settings.ini");
+				exit(0);
+			}
+		}
+	}
+	else
 	{
-		int mouseX = 0;
-		int mouseY = 0;
-		MouseHandler::GetPosition(mouseX, mouseY);
-		if (buttonStart->CheckClicked(mouseX, mouseY))
+		if (planetPosition <= -10.0f)
+		{
+			planetPosition += 50.0f * f_dt;
+		}
+		else
 		{
 			ScreenManager* screenManager = ScreenManager::GetInstance();
 			screenManager->ChangeScreen(new ScreenGame());
-		}
-		else if (buttonQuit->CheckClicked(mouseX, mouseY))
-		{
-			Settings::Save(".\\settings.ini");
-			exit(0);
 		}
 	}
 }
 
 void ScreenMenu::Draw()
 {
-	glTranslatef(0.0f, 0.0f, -100.0f);
+	if (planetPosition > -10.0f)
+	{
+		glTranslatef(0.0f, 0.0f, -10.0f);
+	}
+	else
+	{
+		glTranslatef(0.0f, 0.0f, planetPosition);
+	}
 	sphere->Draw();
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
@@ -62,6 +83,8 @@ void ScreenMenu::Draw()
 
 void ScreenMenu::Load()
 {
+	transitioning = false;
+
 	buttons = new std::vector<Button*>();
 
 	buttonStart = new SwishyButton(
@@ -79,6 +102,8 @@ void ScreenMenu::Load()
 	buttons->push_back(buttonQuit);
 
 	sphere = new HeightmapSphere();
+
+	planetPosition = -200.0f;
 }
 
 void ScreenMenu::Unload()

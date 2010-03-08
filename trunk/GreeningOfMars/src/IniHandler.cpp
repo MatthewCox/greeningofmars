@@ -1,6 +1,6 @@
 #include "IniHandler.h"
 
-#include <Windows.h>
+#include <windows.h>
 
 #include "Utilities.h"
 

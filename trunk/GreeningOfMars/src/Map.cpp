@@ -5,8 +5,9 @@
 #include <string>
 #include <vector>
 
-#include <windows.h>
-#include <GL/GL.h>
+#include <stdlib.h>
+
+#include <GL\freeglut.h>
 
 #include "Utilities.h"
 
@@ -92,7 +93,7 @@ int Map::Tile(int p_X, int p_Y)
 
 void Map::SetDrawColour(int p_X, int p_Y)
 {
-	if (Tile(p_X, p_Y) >= 3)
+	if (Tile(p_X, p_Y) >= 5)
 	{
 		glColor3f(0.9f, 0.9f, 0.9f);
 	}

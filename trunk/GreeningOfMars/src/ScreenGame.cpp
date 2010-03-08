@@ -1,8 +1,8 @@
 #include "ScreenGame.h"
 
-#include <windows.h>
+#include <stdlib.h>
 
-#include <GL/GL.h>
+#include <GL\freeglut.h>
 
 #include "Settings.h"
 
@@ -23,18 +23,14 @@ void ScreenGame::Draw()
 {
 	glTranslatef(0.0f, 0.0f, -10.0f);
 	sphere->Draw();
-	map->Draw();
 }
 
 void ScreenGame::Load()
 {
 	sphere = new HeightmapSphere();
-	map = new Map();
-	map->Load("land.txt");
 }
 
 void ScreenGame::Unload()
 {
 	delete sphere;
-	delete map;
 }
