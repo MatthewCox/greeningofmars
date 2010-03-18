@@ -54,7 +54,7 @@ void ScreenMenu::Update(float f_dt)
 		else
 		{
 			ScreenManager* screenManager = ScreenManager::GetInstance();
-			screenManager->ChangeScreen(new ScreenGame());
+			screenManager->ChangeScreen(new ScreenChoice());
 		}
 	}
 }
@@ -75,6 +75,7 @@ void ScreenMenu::Draw()
 
 	for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
 	{
+		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 		(*i)->Draw();
 	}
 
@@ -88,15 +89,15 @@ void ScreenMenu::Load()
 	buttons = new std::vector<Button*>();
 
 	buttonStart = new SwishyButton(
-		0.0f, (float)(Settings::View::Height / 2) - 50.0f,
-		200.0f, 50.0f,
+		-20.0f, (float)(Settings::View::Height / 2) - 45.0f,
+		110.0f, 40.0f,
 		"Start", "C:\\Windows\\Fonts\\tahoma.ttf",
 		0);
 	buttons->push_back(buttonStart);
 
 	buttonQuit = new SwishyButton(
-		0.0f, (float)(Settings::View::Height / 2) + 50.0f,
-		200.0f, 50.0f,
+		-20.0f, (float)(Settings::View::Height / 2) + 5.0f,
+		100.0f, 40.0f,
 		"Quit", "C:\\Windows\\Fonts\\tahoma.ttf",
 		0);
 	buttons->push_back(buttonQuit);

@@ -123,6 +123,10 @@ void Idle(void)
 	{
 		screenManager->ChangeScreen(new ScreenGame());
 	}
+	if (KeyboardHandler::KeyState('3'))
+	{
+		screenManager->ChangeScreen(new ScreenChoice());
+	}
 
 	if (KeyboardHandler::KeyState('q'))
 	{
@@ -241,7 +245,12 @@ void InitGL()
 
 	glEnable(GL_TEXTURE_2D);
 
-    //glEnable(GL_LIGHTING);
+	GLfloat DiffuseLight[] = {1.0, 1.0, 1.0};
+	GLfloat AmbientLight[] = {0.0, 0.0, 0.0};
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, DiffuseLight);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, AmbientLight);
+	GLfloat LightPosition[] = {0.0, 1.0, 1.0, 0.0};
+	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 }
 
 // Initialize (free)glut settings, registers the callback functions,

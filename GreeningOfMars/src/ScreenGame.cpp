@@ -4,8 +4,6 @@
 
 #include <GL\freeglut.h>
 
-#include "Settings.h"
-
 ScreenGame::ScreenGame(void)
 {
 }
@@ -28,12 +26,6 @@ void ScreenGame::Draw()
 void ScreenGame::Load()
 {
 	sphere = new HeightmapSphere();
-	GLfloat DiffuseLight[] = {1.0, 1.0, 1.0};
-	GLfloat AmbientLight[] = {0.0, 0.0, 0.0};
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, DiffuseLight);
-	glLightfv(GL_LIGHT0, GL_AMBIENT, AmbientLight);
-	GLfloat LightPosition[] = {0.0, 1.0, 1.0, 0.0};
-	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 }
 
 void ScreenGame::Unload()
