@@ -242,6 +242,14 @@
 						>
 					</File>
 					<File
+						RelativePath=".\Label.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\Panel.cpp"
+						>
+					</File>
+					<File
 						RelativePath=".\SwishyButton.cpp"
 						>
 					</File>
@@ -251,6 +259,10 @@
 					>
 					<File
 						RelativePath=".\Screen.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ScreenChoice.cpp"
 						>
 					</File>
 					<File
@@ -368,6 +380,14 @@
 						>
 					</File>
 					<File
+						RelativePath=".\Label.h"
+						>
+					</File>
+					<File
+						RelativePath=".\Panel.h"
+						>
+					</File>
+					<File
 						RelativePath=".\SwishyButton.h"
 						>
 					</File>
@@ -377,6 +397,10 @@
 					>
 					<File
 						RelativePath=".\Screen.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ScreenChoice.h"
 						>
 					</File>
 					<File

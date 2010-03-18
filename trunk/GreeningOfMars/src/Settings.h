@@ -3,7 +3,7 @@
 class Settings
 {
 public:
-	static struct View 
+	static struct View
 	{
 		static int Width;
 		static int Height;
