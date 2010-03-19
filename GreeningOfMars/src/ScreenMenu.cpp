@@ -22,13 +22,13 @@ ScreenMenu::~ScreenMenu(void)
 
 void ScreenMenu::Update(float f_dt)
 {
+	for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
+	{
+		(*i)->Update(f_dt);
+	}
+
 	if (!transitioning)
 	{
-		for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
-		{
-			(*i)->Update(f_dt);
-		}
-
 		if (MouseHandler::Pressed(0))
 		{
 			int mouseX = 0;
@@ -37,6 +37,8 @@ void ScreenMenu::Update(float f_dt)
 			if (buttonStart->CheckClicked(mouseX, mouseY))
 			{
 				transitioning = true;
+				buttonStart->SwishOff();
+				buttonQuit->SwishOff();
 			}
 			else if (buttonQuit->CheckClicked(mouseX, mouseY))
 			{
@@ -73,6 +75,15 @@ void ScreenMenu::Draw()
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	labelThe->Draw();
+	glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+	labelGreening->Draw();
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	labelOf->Draw();
+	glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+	labelMars->Draw();
+
 	for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
 	{
 		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
@@ -84,6 +95,24 @@ void ScreenMenu::Draw()
 
 void ScreenMenu::Load()
 {
+	float titleSpacing = Settings::View::Height / 25.0f;
+	labelThe = new Label(
+		Settings::View::Width / 2, titleSpacing,
+		"The", "C:\\Windows\\Fonts\\tahoma.ttf",
+		true);
+	labelGreening = new Label(
+		Settings::View::Width / 2, 2 * titleSpacing,
+		"Greening", "C:\\Windows\\Fonts\\tahoma.ttf",
+		true);
+	labelOf = new Label(
+		Settings::View::Width / 2, 3 * titleSpacing,
+		"Of", "C:\\Windows\\Fonts\\tahoma.ttf",
+		true);
+	labelMars = new Label(
+		Settings::View::Width / 2, 4 * titleSpacing,
+		"Mars", "C:\\Windows\\Fonts\\tahoma.ttf",
+		true);
+
 	transitioning = false;
 
 	buttons = new std::vector<Button*>();
@@ -93,6 +122,7 @@ void ScreenMenu::Load()
 		110.0f, 40.0f,
 		"Start", "C:\\Windows\\Fonts\\tahoma.ttf",
 		0);
+	buttonStart->SwishOn();
 	buttons->push_back(buttonStart);
 
 	buttonQuit = new SwishyButton(
@@ -100,6 +130,7 @@ void ScreenMenu::Load()
 		100.0f, 40.0f,
 		"Quit", "C:\\Windows\\Fonts\\tahoma.ttf",
 		0);
+	buttonQuit->SwishOn();
 	buttons->push_back(buttonQuit);
 
 	sphere = new HeightmapSphere();
@@ -109,6 +140,10 @@ void ScreenMenu::Load()
 
 void ScreenMenu::Unload()
 {
+	delete labelThe;
+	delete labelGreening;
+	delete labelOf;
+	delete labelMars;
 	delete buttonStart;
 	delete buttonQuit;
 	delete buttons;

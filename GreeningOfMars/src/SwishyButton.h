@@ -14,7 +14,13 @@ public:
 	~SwishyButton(void);
 
 	void Update(float f_dt);
+
+	void SwishOn();
+	void SwishOff();
 private:
+	float originX, originY;
 	float targetX, targetY;
 	int swishDir;
+	int originSwishDir;
+	bool swishing;
 };
