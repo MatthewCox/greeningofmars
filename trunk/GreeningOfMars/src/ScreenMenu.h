@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "SwishyButton.h"
+#include "Label.h"
 #include "HeightmapSphere.h"
 
 class ScreenMenu : public Screen
@@ -21,6 +22,10 @@ public:
 
 private:
 	std::vector<Button*>* buttons;
+	Label* labelThe;
+	Label* labelGreening;
+	Label* labelOf;
+	Label* labelMars;
 	SwishyButton* buttonStart;
 	SwishyButton* buttonQuit;
 	HeightmapSphere* sphere;
