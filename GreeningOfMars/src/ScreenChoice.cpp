@@ -71,46 +71,46 @@ void ScreenChoice::Load()
 	float horzSpacing = Settings::View::Width / 40.0f;
 	float vertSpacing = Settings::View::Height / 40.0f;
 	panelChoice = new Panel(
-		6 * horzSpacing, 6 * vertSpacing,
-		28 * horzSpacing, 10 * vertSpacing,
+		Vector2f(6 * horzSpacing, 6 * vertSpacing),
+		Vector2f(28 * horzSpacing, 10 * vertSpacing),
 		20.0f);
 	labelChoiceTitle = new Label(
-		20 * horzSpacing, 7 * vertSpacing,
+		Vector2f(20 * horzSpacing, 7 * vertSpacing),
 		"<STAGE NAME>", fontPath, true);
 	buttonChoice1 = new Button(
-		7 * horzSpacing, 8 * vertSpacing,
-		5 * horzSpacing, 5 * vertSpacing,
+		Vector2f(7 * horzSpacing, 8 * vertSpacing),
+		Vector2f(5 * horzSpacing, 5 * vertSpacing),
 		"<CHOICE 1>", fontPath);
 	buttonChoice2 = new Button(
-		14 * horzSpacing, 8 * vertSpacing,
-		5 * horzSpacing, 5 * vertSpacing,
+		Vector2f(14 * horzSpacing, 8 * vertSpacing),
+		Vector2f(5 * horzSpacing, 5 * vertSpacing),
 		"<CHOICE 2>", fontPath);
 	buttonChoice3 = new Button(
-		21 * horzSpacing, 8 * vertSpacing,
-		5 * horzSpacing, 5 * vertSpacing,
+		Vector2f(21 * horzSpacing, 8 * vertSpacing),
+		Vector2f(5 * horzSpacing, 5 * vertSpacing),
 		"<CHOICE 3>", fontPath);
 	buttonChoice4 = new Button(
-		28 * horzSpacing, 8 * vertSpacing,
-		5 * horzSpacing, 5 * vertSpacing,
+		Vector2f(28 * horzSpacing, 8 * vertSpacing),
+		Vector2f(5 * horzSpacing, 5 * vertSpacing),
 		"<CHOICE 4>", fontPath);
 	panelTitle = new Panel(
-		6 * horzSpacing, 18 * vertSpacing,
-		28 * horzSpacing, 4 * vertSpacing,
+		Vector2f(6 * horzSpacing, 18 * vertSpacing),
+		Vector2f(28 * horzSpacing, 4 * vertSpacing),
 		20.0f);
 	labelTitle = new Label(
-		20 * horzSpacing, 20 * vertSpacing,
+		Vector2f(20 * horzSpacing, 20 * vertSpacing),
 		"<CHOICE TITLE>", fontPath, true);
 	panelDescription = new Panel(
-		6 * horzSpacing, 24 * vertSpacing,
-		8 * horzSpacing, 10 * vertSpacing,
+		Vector2f(6 * horzSpacing, 24 * vertSpacing),
+		Vector2f(8 * horzSpacing, 10 * vertSpacing),
 		20.0f);
 	panelStat = new Panel(
-		16 * horzSpacing, 24 * vertSpacing,
-		8 * horzSpacing, 10 * vertSpacing,
+		Vector2f(16 * horzSpacing, 24 * vertSpacing),
+		Vector2f(8 * horzSpacing, 10 * vertSpacing),
 		20.0f);
 	buttonGo = new Button(
-		26 * horzSpacing, 24 * vertSpacing,
-		8 * horzSpacing, 10 * vertSpacing,
+		Vector2f(26 * horzSpacing, 24 * vertSpacing),
+		Vector2f(8 * horzSpacing, 10 * vertSpacing),
 		"GO!", fontPath);
 }
 

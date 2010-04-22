@@ -10,12 +10,12 @@ Button::Button(void)
 {
 }
 
-Button::Button(float p_x, float p_y,
-			   float p_width, float p_height,
-			   char* p_name, char* p_fontPath) : Panel(p_x, p_y, p_width, p_height, 20.0f)
+Button::Button(Vector2f p_position,
+			   Vector2f p_size,
+			   char* p_name, char* p_fontPath) : Panel(p_position, p_size, 20.0f)
 {
 	label = new Label(
-		p_x + (p_width / 2), p_y + (p_height / 2),
+		Vector2f(p_position.X() + (p_size.X() / 2), p_position.Y() + (p_size.Y() / 2)),
 		p_name, p_fontPath,
 		true);
 }
@@ -39,8 +39,8 @@ void Button::Draw()
 
 bool Button::CheckClicked(const int &p_x, const int &p_y) const
 {
-	if (p_x >= x && p_x <= x + width &&
-		p_y >= y && p_y <= y + height)
+	if (p_x >= position.X() && position.X() <= position.X() + size.X() &&
+		p_y >= position.Y() && p_y <= position.Y() + size.Y())
 	{
 		return true;
 	}

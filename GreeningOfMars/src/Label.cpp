@@ -8,20 +8,18 @@
 
 Label::Label(void)
 {
-	x = 0.0f;
-	y = 0.0f;
+	position = Vector2f(0.0f, 0.0f);
 	name = "<label>";
 	center = false;
 	font = new FTPolygonFont("C:\\Windows\\Fonts\\tahoma.ttf");
 	font->FaceSize(24);
 }
 
-Label::Label(float p_x, float p_y,
+Label::Label(Vector2f p_position,
 			 char* p_name, char* p_fontPath,
 			 bool p_center)
 {
-	x = p_x;
-	y = p_y;
+	position = p_position;
 	name = p_name;
 	center = p_center;
 	font = new FTPolygonFont(p_fontPath);
@@ -46,13 +44,13 @@ void Label::Draw()
 		float strWidth = font->BBox(name).Upper().Xf() - font->BBox(name).Lower().Xf();
 		float strHeight = font->BBox(name).Upper().Yf() - font->BBox(name).Lower().Yf();
 		glTranslatef(
-			x - (strWidth / 2),
-			y + (strHeight / 2),
+			position.X() - (strWidth / 2),
+			position.Y() + (strHeight / 2),
 			0.0f);
 	} 
 	else
 	{
-		glTranslatef(x, y, 0.0f);
+		glTranslatef(position.X(), position.Y(), 0.0f);
 	}
 	glScalef(1.0f, -1.0f, 1.0f);
 	font->Render(name);

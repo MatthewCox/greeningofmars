@@ -9,8 +9,8 @@ class Button : public Panel
 public:
 	Button();
 	Button(
-		float p_x, float p_y,
-		float p_width, float p_height,
+		Vector2f p_position,
+		Vector2f p_size,
 		char* p_name, char* p_fontPath);
 	~Button(void);
 

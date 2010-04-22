@@ -207,6 +207,10 @@
 				Name="Game Components"
 				>
 				<File
+					RelativePath=".\Asteroid.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Camera.cpp"
 					>
 				</File>
@@ -345,6 +349,10 @@
 				Name="Game Components"
 				>
 				<File
+					RelativePath=".\Asteroid.h"
+					>
+				</File>
+				<File
 					RelativePath=".\Camera.h"
 					>
 				</File>
@@ -366,6 +374,10 @@
 				</File>
 				<File
 					RelativePath=".\Settings.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Documents and Settings\Tyranic-Moron\My Documents\Uni\08356\CubeSHMUP-current\src\Timer.cpp"
 					>
 				</File>
 				<Filter
