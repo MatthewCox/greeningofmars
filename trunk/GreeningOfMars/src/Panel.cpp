@@ -6,19 +6,15 @@
 
 Panel::Panel(void)
 {
-	x = 0.0f;
-	y = 0.0f;
-	width = 100.0f;
-	height = 100.0f;
+	position = Vector2f(0.0f, 0.0f);
+	size = Vector2f(100.0f, 100.0f);
 	cornerInset = 20.0f;
 }
 
-Panel::Panel(float p_x, float p_y, float p_width, float p_height, float p_cornerInset)
+Panel::Panel(Vector2f p_position, Vector2f p_size, float p_cornerInset)
 {
-	x = p_x;
-	y = p_y;
-	width = p_width;
-	height = p_height;
+	position = p_position;
+	size = p_size;
 	cornerInset = p_cornerInset;
 }
 
@@ -34,11 +30,11 @@ void Panel::Update(float f_dt)
 void Panel::Draw()
 {
 	glBegin(GL_TRIANGLE_FAN);
-		glVertex2f(x, y + cornerInset);
-		glVertex2f(x, y + height);
-		glVertex2f(x + width - cornerInset, y + height);
-		glVertex2f(x + width, y + height - cornerInset);
-		glVertex2f(x + width, y);
-		glVertex2f(x + cornerInset, y);
+		glVertex2f(position.X(), position.Y() + cornerInset);
+		glVertex2f(position.X(), position.Y() + size.Y());
+		glVertex2f(position.X() + size.X() - cornerInset, position.Y() + size.Y());
+		glVertex2f(position.X() + size.X(), position.Y() + size.Y() - cornerInset);
+		glVertex2f(position.X() + size.X(), position.Y());
+		glVertex2f(position.X() + cornerInset, position.Y());
 	glEnd();
 }

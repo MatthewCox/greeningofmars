@@ -13,34 +13,32 @@ SwishyButton::SwishyButton(void)
 	swishDir = 0;
 	originSwishDir = 0;
 }
-SwishyButton::SwishyButton(float p_x, float p_y,
-						   float p_width, float p_height,
-						   char *p_name, char *p_fontPath,
+SwishyButton::SwishyButton(Vector2f p_position,
+						   Vector2f p_size,
+						   char* p_name, char* p_fontPath,
 						   int p_swishDir) : Button(
-						   p_x, p_y,
-						   p_width, p_height,
+						   p_position,
+						   p_size,
 						   p_name, p_fontPath)
 {
 	swishDir = p_swishDir;
 	originSwishDir = p_swishDir;
-	originX = x;
-	originY = y;
-	targetX = originX;
-	targetY = originY;
+	origin = position;
+	target = origin;
 
 	switch (swishDir)
 	{
 	case 0:
-		x = -width * 2.0f;
+		position = Vector2f(-size.X() * 2.0f, 0.0f);
 		break;
 	case 1:
-		x = Settings::View::Width + width;
+		position = Vector2f(Settings::View::Width + size.X(), 0.0f);
 		break;
 	case 2:
-		y = -height * 2.0f;
+		position = Vector2f(0.0f, -size.Y() * 2.0f);
 		break;
 	case 3:
-		y = Settings::View::Height + height;
+		position = Vector2f(0.0f, Settings::View::Height + size.Y());
 		break;
 	}
 
@@ -58,46 +56,46 @@ void SwishyButton::Update(float f_dt)
 		switch (swishDir)
 		{
 		case 0:
-			if (x < targetX)
+			if (position.X() < target.X())
 			{
-				x += 100 * f_dt;
+				position = position + Vector2f(100.0f * f_dt, 0.0f);
 			}
-			if (x > targetX)
+			if (position.X() > target.X())
 			{
-				x = targetX;
+				position = target;
 				swishing = false;
 			}
 			break;
 		case 1:
-			if (x > targetX)
+			if (position.X() > target.X())
 			{
-				x -= 100 * f_dt;
+				position = position - Vector2f(100.0f * f_dt, 0.0f);
 			}
-			if (x < targetX)
+			if (position.X() < target.X())
 			{
-				x = targetX;
+				position = target;
 				swishing = false;
 			}
 			break;
 		case 2:
-			if (y < targetY)
+			if (position.Y() < target.Y())
 			{
-				y += 100 * f_dt;
+				position = position + Vector2f(0.0f, 100.0f * f_dt);
 			}
-			if (y > targetY)
+			if (position.Y() > target.Y())
 			{
-				y = targetY;
+				position = target;
 				swishing = false;
 			}
 			break;
 		case 3:
-			if (y > targetY)
+			if (position.Y() > target.Y())
 			{
-				y -= 100 * f_dt;
+				position = position - Vector2f(0.0f, 100.0f * f_dt);
 			}
-			if (y > targetY)
+			if (position.Y() < target.Y())
 			{
-				y = targetY;
+				position = target;
 				swishing = false;
 			}
 			break;
@@ -107,22 +105,21 @@ void SwishyButton::Update(float f_dt)
 
 void SwishyButton::SwishOn()
 {
-	targetX = originX;
-	targetY = originY;
+	target = origin;
 
 	switch (originSwishDir)
 	{
 	case 0:
-		x = -width * 2.0f;
+		position = Vector2f(-size.X() * 2.0f, 0.0f);
 		break;
 	case 1:
-		x = Settings::View::Width + width;
+		position = Vector2f(Settings::View::Width + size.X(), 0.0f);
 		break;
 	case 2:
-		y = -height * 2.0f;
+		position = Vector2f(0.0f, -size.Y() * 2.0f);
 		break;
 	case 3:
-		y = Settings::View::Height + height;
+		position = Vector2f(0.0f, Settings::View::Height + size.Y());
 		break;
 	}
 
@@ -136,19 +133,19 @@ void SwishyButton::SwishOff()
 	{
 	case 0:
 		swishDir = 1;
-		targetX = -width * 2.0f;
+		target = Vector2f(-size.X() * 2.0f, 0.0f);
 		break;
 	case 1:
 		swishDir = 0;
-		targetX = Settings::View::Width + width;
+		target = Vector2f(Settings::View::Width + size.X(), 0.0f);
 		break;
 	case 2:
 		swishDir = 3;
-		targetY = -height * 2.0f;
+		target = Vector2f(0.0f, -size.Y() * 2.0f);
 		break;
 	case 3:
 		swishDir = 2;
-		targetY = Settings::View::Height + height;
+		target = Vector2f(0.0f, Settings::View::Height + size.Y());
 		break;
 	}
 
