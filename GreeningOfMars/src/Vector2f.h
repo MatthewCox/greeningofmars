@@ -3,22 +3,24 @@
 class Vector2f
 {
 private:
-	float m_X, m_Y;
+	float x, y;
 
 public:
 	Vector2f(void);
-	Vector2f(float p_X, float p_Y);
+	Vector2f(float p_xy);
+	Vector2f(float p_x, float p_y);
 
 	~Vector2f(void);
 
-	float X() const;
-	float Y() const;
+	float X(void) const;
+	float Y(void) const;
 
-	Vector2f operator+(const Vector2f& p_V);
-	Vector2f operator-(const Vector2f& p_V);
+	Vector2f operator+(const Vector2f& p_v) const;
+	Vector2f operator-(const Vector2f& p_v) const;
+	Vector2f operator*(const float& p_scalar) const;
 
-	float dot(const Vector2f& p_V) const;
-	Vector2f scaledBy(const float& p_Scalar) const;
-	float length() const;
-	Vector2f normalise() const;
+	float dot(const Vector2f& p_v) const;
+	float length(void) const;
+	float length2(void) const;
+	Vector2f normalise(void) const;
 };

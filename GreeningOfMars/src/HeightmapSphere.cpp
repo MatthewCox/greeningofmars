@@ -2,9 +2,9 @@
 
 #include <stdlib.h>
 
-#include <GL\glew.h>
-#include <GL\freeglut.h>
-#include <GL\glext.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
+#include <GL/glext.h>
 
 #include "Shader.h"
 

@@ -3,11 +3,11 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include <GL\freeglut.h>
+#include <GL/freeglut.h>
 
 Camera::Camera(void)
 {
-	m_position = Vector3f(0, 0, 0);
+	m_position = Vector3f(0.0f);
 	m_rotationX = 0;
 	m_rotationY = 0;
 	m_lastX = -1;
@@ -175,17 +175,9 @@ void Camera::MouseLook(int p_x, int p_y, float p_movement_ratio)
 	int windowRight = glutGet(GLUT_WINDOW_WIDTH);
 	int windowBottom = glutGet(GLUT_WINDOW_HEIGHT);
 
-	//if (
-	//	p_x <= windowLeft + 100 ||
-	//	p_y <= windowTop + 100 ||
-	//	p_x >= windowRight - 100 ||
-	//	p_y >= windowBottom - 100
-	//)
-	//{
-		m_lastX = windowRight/2;
-		m_lastY = windowBottom/2;
-		glutWarpPointer(m_lastX, m_lastY);
-	//}
+	m_lastX = windowRight/2;
+	m_lastY = windowBottom/2;
+	glutWarpPointer(m_lastX, m_lastY);
 
 	m_rotationX += (float)dy * p_movement_ratio;
 	m_rotationY += (float)dx * p_movement_ratio;
