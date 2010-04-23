@@ -4,84 +4,114 @@
 
 Vector3f::Vector3f(void)
 {
-	m_X = 0;
-	m_Y = 0;
-	m_Z = 0;
+    x = 0;
+    y = 0;
+    z = 0;
 }
 
-Vector3f::Vector3f(float p_X, float p_Y, float p_Z)
+Vector3f::Vector3f(float p_xyz)
 {
-	m_X = p_X;
-	m_Y = p_Y;
-	m_Z = p_Z;
+	x = p_xyz;
+	y = p_xyz;
+	z = p_xyz;
+}
+
+Vector3f::Vector3f(float p_x, float p_y, float p_z)
+{
+    x = p_x;
+    y = p_y;
+    z = p_z;
 }
 
 Vector3f::~Vector3f(void)
 {
 }
 
-float Vector3f::X() const
+float Vector3f::X(void) const
 {
-	return m_X;
+    return x;
 }
 
-float Vector3f::Y() const
+float Vector3f::Y(void) const
 {
-	return m_Y;
+    return y;
 }
 
-float Vector3f::Z() const
+float Vector3f::Z(void) const
 {
-	return m_Z;
+    return z;
 }
 
-Vector3f Vector3f::operator+(const Vector3f& v)
+bool Vector3f::operator==(const Vector3f& p_v) const
 {
-	return Vector3f(
-		m_X + v.X(),
-		m_Y + v.Y(),
-		m_Z + v.Z()
-		);
+    return (x == p_v.X() && y == p_v.Y() && z == p_v.Z());
 }
 
-Vector3f Vector3f::operator-(const Vector3f& v)
+bool Vector3f::operator!=(const Vector3f& p_v) const
 {
-	return Vector3f(
-		m_X - v.X(),
-		m_Y - v.Y(),
-		m_Z - v.Z()
-		);
+    return !(*this == p_v);
 }
 
-float Vector3f::dot(const Vector3f& v) const
+Vector3f Vector3f::operator-() const
 {
-	return (m_X * v.X()) + (m_Y * v.Y()) + (m_Z * v.Z());
+    return Vector3f(-x, -y, -z);
 }
 
-Vector3f Vector3f::cross(const Vector3f& v) const
+Vector3f Vector3f::operator+(const Vector3f& p_v) const
 {
-	return Vector3f(
-		(m_Y * v.Z()) - (m_Z * v.Y()),
-		(m_Z * v.X()) - (m_X * v.Z()),
-		(m_X * v.Y()) - (m_Y * v.X())
-		);
+    Vector3f temp = Vector3f(x, y, z);
+    temp += p_v;
+    return temp;
 }
 
-Vector3f Vector3f::scaledBy(const float& scalar) const
+Vector3f Vector3f::operator-(const Vector3f& p_v) const
 {
-	return Vector3f(
-		(m_X * scalar),
-		(m_Y * scalar),
-		(m_Z * scalar)
-		);
+    Vector3f temp = Vector3f(x, y, z);
+    temp -= p_v;
+    return temp;
 }
 
-float Vector3f::length() const
+Vector3f& Vector3f::operator+=(const Vector3f& p_v)
 {
-	return sqrt((m_X * m_X) + (m_Y * m_Y) + (m_Z * m_Z));
+    x += p_v.X();
+    y += p_v.Y();
+    z += p_v.Z();
+    return *this;
 }
 
-Vector3f Vector3f::normalise() const
+Vector3f& Vector3f::operator-=(const Vector3f& p_v)
 {
-	return scaledBy(1 / length());
+    x -= p_v.X();
+    y -= p_v.Y();
+    z -= p_v.Z();
+    return *this;
+}
+
+float Vector3f::dot(const Vector3f& p_v) const
+{
+    return (x * p_v.X()) + (y * p_v.Y()) + (z * p_v.Z());
+}
+
+Vector3f Vector3f::cross(const Vector3f& p_v) const
+{
+    return Vector3f(
+        (y * p_v.Z()) - (z * p_v.Y()),
+        (z * p_v.X()) - (x * p_v.Z()),
+        (x * p_v.Y()) - (y * p_v.X())
+    );
+}
+
+float Vector3f::length(void) const
+{
+    return sqrt((x * x) + (y * y) + (z * z));
+}
+
+float Vector3f::length2(void) const
+{
+    return (x * x) + (y * y) + (z * z);
+}
+
+Vector3f Vector3f::normalize(void) const
+{
+    return *this * (1 / length());
 }

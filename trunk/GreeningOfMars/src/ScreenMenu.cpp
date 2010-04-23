@@ -97,19 +97,19 @@ void ScreenMenu::Load()
 {
 	float titleSpacing = Settings::View::Height / 25.0f;
 	labelThe = new Label(
-		Vector2f(Settings::View::Width / 2, titleSpacing),
+		Vector2f(Settings::View::Width / 2.0f, titleSpacing),
 		"The", "C:\\Windows\\Fonts\\tahoma.ttf",
 		true);
 	labelGreening = new Label(
-		Vector2f(Settings::View::Width / 2, 2 * titleSpacing),
+		Vector2f(Settings::View::Width / 2.0f, 2 * titleSpacing),
 		"Greening", "C:\\Windows\\Fonts\\tahoma.ttf",
 		true);
 	labelOf = new Label(
-		Vector2f(Settings::View::Width / 2, 3 * titleSpacing),
+		Vector2f(Settings::View::Width / 2.0f, 3 * titleSpacing),
 		"Of", "C:\\Windows\\Fonts\\tahoma.ttf",
 		true);
 	labelMars = new Label(
-		Vector2f(Settings::View::Width / 2, 4 * titleSpacing),
+		Vector2f(Settings::View::Width / 2.0f, 4 * titleSpacing),
 		"Mars", "C:\\Windows\\Fonts\\tahoma.ttf",
 		true);
 

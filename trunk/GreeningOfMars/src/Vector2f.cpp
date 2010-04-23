@@ -4,65 +4,76 @@
 
 Vector2f::Vector2f(void)
 {
-	m_X = 0;
-	m_Y = 0;
+    x = 0;
+    y = 0;
 }
 
-Vector2f::Vector2f(float p_X, float p_Y)
+Vector2f::Vector2f(float p_xy)
 {
-	m_X = p_X;
-	m_Y = p_Y;
+	x = p_xy;
+	y = p_xy;
+}
+
+Vector2f::Vector2f(float p_x, float p_y)
+{
+    x = p_x;
+    y = p_y;
 }
 
 Vector2f::~Vector2f(void)
 {
 }
 
-float Vector2f::X() const
+float Vector2f::X(void) const
 {
-	return m_X;
+    return x;
 }
 
-float Vector2f::Y() const
+float Vector2f::Y(void) const
 {
-	return m_Y;
+    return y;
 }
 
-Vector2f Vector2f::operator+(const Vector2f& v)
+Vector2f Vector2f::operator+(const Vector2f& p_v) const
 {
-	return Vector2f(
-		m_X + v.X(),
-		m_Y + v.Y()
-		);
+    return Vector2f(
+               x + p_v.X(),
+               y + p_v.Y()
+           );
 }
 
-Vector2f Vector2f::operator-(const Vector2f& v)
+Vector2f Vector2f::operator-(const Vector2f& p_v) const
 {
-	return Vector2f(
-		m_X - v.X(),
-		m_Y - v.Y()
-		);
+    return Vector2f(
+               x - p_v.X(),
+               y - p_v.Y()
+           );
 }
 
-float Vector2f::dot(const Vector2f& v) const
+Vector2f Vector2f::operator*(const float& p_scalar) const
 {
-	return (m_X * v.X()) + (m_Y * v.Y());
+    return Vector2f(
+               x * p_scalar,
+               y * p_scalar
+           );
 }
 
-Vector2f Vector2f::scaledBy(const float& scalar) const
+float Vector2f::dot(const Vector2f& p_v) const
 {
-	return Vector2f(
-		(m_X * scalar),
-		(m_Y * scalar)
-		);
+    return (x * p_v.X()) + (y * p_v.Y());
 }
 
-float Vector2f::length() const
+float Vector2f::length(void) const
 {
-	return sqrt((m_X * m_X) + (m_Y * m_Y));
+    return sqrt((x * x) + (y * y));
 }
 
-Vector2f Vector2f::normalise() const
+float Vector2f::length2(void) const
 {
-	return scaledBy(1 / length());
+    return (x * x) + (y * y);
+}
+
+Vector2f Vector2f::normalise(void) const
+{
+    return *this * (1 / length());
 }

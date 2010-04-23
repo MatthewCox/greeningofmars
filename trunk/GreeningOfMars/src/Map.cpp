@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include <GL\freeglut.h>
+#include <GL/freeglut.h>
 
 #include "Utilities.h"
 

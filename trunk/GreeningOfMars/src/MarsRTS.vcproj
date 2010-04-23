@@ -223,11 +223,19 @@
 					>
 				</File>
 				<File
+					RelativePath=".\GameObject.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\HeightmapSphere.cpp"
 					>
 				</File>
 				<File
 					RelativePath=".\Map.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\MousePick.cpp"
 					>
 				</File>
 				<File
@@ -255,6 +263,10 @@
 					</File>
 					<File
 						RelativePath=".\SwishyButton.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\UIObject.cpp"
 						>
 					</File>
 				</Filter>
@@ -365,6 +377,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\GameObject.h"
+					>
+				</File>
+				<File
 					RelativePath=".\HeightmapSphere.h"
 					>
 				</File>
@@ -373,11 +389,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Settings.h"
+					RelativePath=".\MousePick.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\..\..\Documents and Settings\Tyranic-Moron\My Documents\Uni\08356\CubeSHMUP-current\src\Timer.cpp"
+					RelativePath=".\Settings.h"
 					>
 				</File>
 				<Filter
@@ -401,6 +417,10 @@
 					</File>
 					<File
 						RelativePath=".\SwishyButton.h"
+						>
+					</File>
+					<File
+						RelativePath=".\UIObject.h"
 						>
 					</File>
 				</Filter>

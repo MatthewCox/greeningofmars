@@ -1,8 +1,8 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include <GL\glew.h>
-#include <GL\freeglut.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 
 #include "Settings.h"
 #include "Camera.h"
@@ -24,7 +24,7 @@ void Init(char **argv)
 {
 	screenManager = ScreenManager::GetInstance();
 	screenManager->ChangeScreen(new ScreenMenu());
-	camera = new Camera(Vector3f(0, 0, 0), 0, 0);
+	camera = new Camera(Vector3f(0.0f), 0, 0);
 }
 
 // Render the scene
