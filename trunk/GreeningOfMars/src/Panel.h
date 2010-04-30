@@ -1,10 +1,10 @@
 #pragma once
 
-#include "DrawableObject.h"
+#include "UIObject.h"
 
 #include "Vector2f.h"
 
-class Panel : public DrawableObject
+class Panel : public UIObject
 {
 public:
 	Panel();
@@ -16,6 +16,6 @@ public:
 	void Draw(void);
 
 protected:
-	Vector2f position, size;
+	Vector2f size;
 	float cornerInset;
 };
