@@ -1,11 +1,11 @@
 #pragma once
 
-#include "DrawableObject.h"
+#include "GameObject.h"
 
 #include "TextureLoader\TextureLoader.h"
 #include "Shader.h"
 
-class HeightmapSphere : public DrawableObject
+class HeightmapSphere : public GameObject
 {
 public:
 	HeightmapSphere(void);

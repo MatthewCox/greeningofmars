@@ -1,12 +1,12 @@
 #pragma once
 
-#include "DrawableObject.h"
+#include "UIObject.h"
 
 #include "Vector2f.h"
 
-#include <FTGL\ftgl.h>
+#include <FTGL/ftgl.h>
 
-class Label : public DrawableObject
+class Label : public UIObject
 {
 public:
 	Label();
@@ -20,7 +20,6 @@ public:
 	void Draw();
 
 protected:
-	Vector2f position;
 	char* name;
 	bool center;
 	FTPolygonFont* font;
