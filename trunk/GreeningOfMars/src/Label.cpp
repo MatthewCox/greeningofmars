@@ -2,9 +2,9 @@
 
 #include <stdlib.h>
 
-#include <GL\freeglut.h>
+#include <GL/freeglut.h>
 
-#include <FTGL\ftgl.h>
+#include <FTGL/ftgl.h>
 
 Label::Label(void)
 {

@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-#include <GL\freeglut.h>
+#include <GL/freeglut.h>
 
 Panel::Panel(void)
 {

@@ -2,8 +2,8 @@
 #define _TEXTURE_LOADER_H_
 
 #include <stdlib.h>
-#include <GL\glew.h>
-#include <GL\freeglut.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 #include <olectl.h>
 #include <math.h>
 #include <stdio.h>
