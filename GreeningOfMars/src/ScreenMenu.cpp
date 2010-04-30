@@ -3,7 +3,7 @@
 #include <vector>
 #include <stdlib.h>
 
-#include <GL\freeglut.h>
+#include <GL/freeglut.h>
 
 #include "Screens.h"
 #include "Settings.h"

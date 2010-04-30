@@ -2,7 +2,7 @@
 
 #include "GameObject.h"
 
-#include "TextureLoader\TextureLoader.h"
+#include "TextureLoader/TextureLoader.h"
 #include "Shader.h"
 
 class HeightmapSphere : public GameObject

@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <iostream>
 
-#include <GL\glew.h>
-#include <GL\freeglut.h>
-#include <GL\glext.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
+#include <GL/glext.h>
 
 #include "Files.h"
 
