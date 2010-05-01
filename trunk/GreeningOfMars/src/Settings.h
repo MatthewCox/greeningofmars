@@ -21,6 +21,11 @@ public:
 		static float Speed;
 	};
 
+	static struct UI
+	{
+		static char* FontPath;
+	};
+
 	static void Load(char* filepath);
 	static void Save(char* filepath);
 };

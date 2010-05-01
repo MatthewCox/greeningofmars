@@ -25,6 +25,11 @@ HeightmapSphere::~HeightmapSphere(void)
 	delete shader;
 }
 
+void HeightmapSphere::Update(float f_dt)
+{
+
+}
+
 void HeightmapSphere::Draw()
 {
 	shader->Bind();

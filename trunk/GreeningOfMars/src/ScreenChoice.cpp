@@ -66,7 +66,7 @@ void ScreenChoice::Draw()
 
 void ScreenChoice::Load()
 {
-	char* fontPath = "C:\\Windows\\Fonts\\tahoma.ttf";
+	char* fontPath = Settings::UI::FontPath;
 	sphere = new HeightmapSphere();
 	float horzSpacing = Settings::View::Width / 40.0f;
 	float vertSpacing = Settings::View::Height / 40.0f;

@@ -11,7 +11,9 @@ public:
 	HeightmapSphere(void);
 	~HeightmapSphere(void);
 
+	void Update(float f_dt);
 	void Draw();
+
 private:
 	TextureLoader* texLoader;
 	glTexture* texture;

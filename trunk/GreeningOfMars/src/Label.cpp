@@ -1,17 +1,25 @@
 #include "Label.h"
 
 #include <stdlib.h>
+#include <iostream>
 
 #include <GL/freeglut.h>
 
 #include <FTGL/ftgl.h>
 
+#include "Settings.h"
+
 Label::Label(void)
 {
-	position = Vector2f(0.0f, 0.0f);
 	name = "<label>";
 	center = false;
-	font = new FTPolygonFont("C:\\Windows\\Fonts\\tahoma.ttf");
+	font = new FTPolygonFont(Settings::UI::FontPath);
+	if (font->Error() != 0)
+	{
+		delete font;
+		font = new FTPolygonFont("C:\\Windows\\Fonts\\tahoma.ttf");
+		std::cout << "Error loading font, the default font has been used instead. Error Code: " << font->Error() << std::endl;
+	}
 	font->FaceSize(24);
 }
 
@@ -23,6 +31,12 @@ Label::Label(Vector2f p_position,
 	name = p_name;
 	center = p_center;
 	font = new FTPolygonFont(p_fontPath);
+	if (font->Error() != 0)
+	{
+		delete font;
+		font = new FTPolygonFont("C:\\Windows\\Fonts\\tahoma.ttf");
+		std::cout << "Error loading font, the default font has been used instead. Error Code: " << font->Error() << std::endl;
+	}
 	font->FaceSize(24);
 }
 

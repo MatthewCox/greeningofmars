@@ -97,20 +97,20 @@ void ScreenMenu::Load()
 {
 	float titleSpacing = Settings::View::Height / 25.0f;
 	labelThe = new Label(
-		Vector2f(Settings::View::Width / 2.0f, titleSpacing),
-		"The", "C:\\Windows\\Fonts\\tahoma.ttf",
+		Vector2f(Settings::View::Width * 0.5f, titleSpacing),
+		"The", Settings::UI::FontPath,
 		true);
 	labelGreening = new Label(
-		Vector2f(Settings::View::Width / 2.0f, 2 * titleSpacing),
-		"Greening", "C:\\Windows\\Fonts\\tahoma.ttf",
+		Vector2f(Settings::View::Width * 0.5f, 2 * titleSpacing),
+		"Greening", Settings::UI::FontPath,
 		true);
 	labelOf = new Label(
-		Vector2f(Settings::View::Width / 2.0f, 3 * titleSpacing),
-		"Of", "C:\\Windows\\Fonts\\tahoma.ttf",
+		Vector2f(Settings::View::Width * 0.5f, 3 * titleSpacing),
+		"Of", Settings::UI::FontPath,
 		true);
 	labelMars = new Label(
-		Vector2f(Settings::View::Width / 2.0f, 4 * titleSpacing),
-		"Mars", "C:\\Windows\\Fonts\\tahoma.ttf",
+		Vector2f(Settings::View::Width * 0.5f, 4 * titleSpacing),
+		"Mars", Settings::UI::FontPath,
 		true);
 
 	transitioning = false;
@@ -120,7 +120,7 @@ void ScreenMenu::Load()
 	buttonStart = new SwishyButton(
 		Vector2f(-20.0f, (float)(Settings::View::Height / 2) - 45.0f),
 		Vector2f(110.0f, 40.0f),
-		"Start", "C:\\Windows\\Fonts\\tahoma.ttf",
+		"Start", Settings::UI::FontPath,
 		0);
 	buttonStart->SwishOn();
 	buttons->push_back(buttonStart);
@@ -128,7 +128,7 @@ void ScreenMenu::Load()
 	buttonQuit = new SwishyButton(
 		Vector2f(-20.0f, (float)(Settings::View::Height / 2) + 5.0f),
 		Vector2f(100.0f, 40.0f),
-		"Quit", "C:\\Windows\\Fonts\\tahoma.ttf",
+		"Quit", Settings::UI::FontPath,
 		0);
 	buttonQuit->SwishOn();
 	buttons->push_back(buttonQuit);

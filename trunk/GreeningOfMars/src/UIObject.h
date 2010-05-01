@@ -10,6 +10,8 @@ public:
 	UIObject(void);
 	~UIObject(void);
 
+	void SetPosition(Vector2f p_position);
+
 protected:
 	Vector2f position;
 };
