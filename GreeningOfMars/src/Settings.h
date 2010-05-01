@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ColourA.h"
+
 class Settings
 {
 public:
@@ -24,6 +26,9 @@ public:
 	static struct UI
 	{
 		static char* FontPath;
+		static ColourA LabelColour;
+		static ColourA PanelColour;
+		static ColourA ButtonColour;
 	};
 
 	static void Load(char* filepath);

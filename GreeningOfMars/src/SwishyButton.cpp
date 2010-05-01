@@ -16,10 +16,12 @@ SwishyButton::SwishyButton(void)
 SwishyButton::SwishyButton(Vector2f p_position,
 						   Vector2f p_size,
 						   char* p_name, char* p_fontPath,
+						   ColourA p_colour,
 						   int p_swishDir) : Button(
 						   p_position,
 						   p_size,
-						   p_name, p_fontPath)
+						   p_name, p_fontPath,
+						   p_colour)
 {
 	swishDir = p_swishDir;
 	originSwishDir = p_swishDir;

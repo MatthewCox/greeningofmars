@@ -9,7 +9,8 @@ class Panel : public UIObject
 public:
 	Panel();
 	Panel(Vector2f p_position, Vector2f p_size,
-		float p_cornerInset);
+		float p_cornerInset,
+		ColourA p_colour);
 	~Panel(void);
 
 	virtual void Update(float f_dt);

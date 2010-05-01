@@ -6,14 +6,18 @@
 
 Panel::Panel(void)
 {
-	position = Vector2f(0.0f, 0.0f);
+	SetPosition(Vector2f(0.0f));
+	SetColour(ColourA(1.0f));
 	size = Vector2f(100.0f, 100.0f);
 	cornerInset = 20.0f;
 }
 
-Panel::Panel(Vector2f p_position, Vector2f p_size, float p_cornerInset)
+Panel::Panel(Vector2f p_position, Vector2f p_size,
+			 float p_cornerInset,
+			 ColourA p_colour)
 {
-	position = p_position;
+	SetPosition(p_position);
+	SetColour(p_colour);
 	size = p_size;
 	cornerInset = p_cornerInset;
 }
@@ -29,6 +33,7 @@ void Panel::Update(float f_dt)
 
 void Panel::Draw()
 {
+	colour.Apply();
 	glBegin(GL_TRIANGLE_FAN);
 		glVertex2f(position.X(), position.Y() + cornerInset);
 		glVertex2f(position.X(), position.Y() + size.Y());

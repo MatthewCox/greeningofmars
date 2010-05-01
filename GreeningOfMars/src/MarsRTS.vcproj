@@ -175,6 +175,14 @@
 				Name="Core"
 				>
 				<File
+					RelativePath=".\Colour.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\ColourA.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Files.cpp"
 					>
 				</File>
@@ -316,6 +324,14 @@
 			<Filter
 				Name="Core"
 				>
+				<File
+					RelativePath=".\Colour.h"
+					>
+				</File>
+				<File
+					RelativePath=".\ColourA.h"
+					>
+				</File>
 				<File
 					RelativePath=".\Files.h"
 					>

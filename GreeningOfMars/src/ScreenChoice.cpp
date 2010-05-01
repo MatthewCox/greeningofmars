@@ -34,84 +34,91 @@ void ScreenChoice::Update(float f_dt)
 
 void ScreenChoice::Draw()
 {
-	glTranslatef(0.0f, 0.0f, -10.0f);
-	sphere->Draw();
+	glPushMatrix();
+		glTranslatef(0.0f, 0.0f, -10.0f);
+		sphere->Draw();
+	glPopMatrix();
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
-	glColor4f(0.0f, 0.2f, 0.4f, 0.8f);
 	panelChoice->Draw();
-		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		labelChoiceTitle->Draw();
-		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 		buttonChoice1->Draw();
-		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 		buttonChoice2->Draw();
-		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 		buttonChoice3->Draw();
-		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 		buttonChoice4->Draw();
-	glColor4f(0.0f, 0.2f, 0.4f, 0.8f);
 	panelTitle->Draw();
-		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		labelTitle->Draw();
-	glColor4f(0.0f, 0.2f, 0.4f, 0.8f);
 	panelDescription->Draw();
-	glColor4f(0.0f, 0.2f, 0.4f, 0.8f);
 	panelStat->Draw();
 
-	glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 	buttonGo->Draw();
 	HUD::End();
 }
 
 void ScreenChoice::Load()
 {
-	char* fontPath = Settings::UI::FontPath;
 	sphere = new HeightmapSphere();
+
+	char* fontPath = Settings::UI::FontPath;
+
 	float horzSpacing = Settings::View::Width / 40.0f;
 	float vertSpacing = Settings::View::Height / 40.0f;
+
 	panelChoice = new Panel(
 		Vector2f(6 * horzSpacing, 6 * vertSpacing),
 		Vector2f(28 * horzSpacing, 10 * vertSpacing),
-		20.0f);
+		20.0f,
+		Settings::UI::PanelColour);
 	labelChoiceTitle = new Label(
 		Vector2f(20 * horzSpacing, 7 * vertSpacing),
-		"<STAGE NAME>", fontPath, true);
+		"<STAGE NAME>", fontPath,
+		Settings::UI::LabelColour,
+		true);
 	buttonChoice1 = new Button(
 		Vector2f(7 * horzSpacing, 8 * vertSpacing),
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
-		"<CHOICE 1>", fontPath);
+		"<CHOICE 1>", fontPath,
+		Settings::UI::ButtonColour);
 	buttonChoice2 = new Button(
 		Vector2f(14 * horzSpacing, 8 * vertSpacing),
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
-		"<CHOICE 2>", fontPath);
+		"<CHOICE 2>", fontPath,
+		Settings::UI::ButtonColour);
 	buttonChoice3 = new Button(
 		Vector2f(21 * horzSpacing, 8 * vertSpacing),
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
-		"<CHOICE 3>", fontPath);
+		"<CHOICE 3>", fontPath,
+		Settings::UI::ButtonColour);
 	buttonChoice4 = new Button(
 		Vector2f(28 * horzSpacing, 8 * vertSpacing),
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
-		"<CHOICE 4>", fontPath);
+		"<CHOICE 4>", fontPath,
+		Settings::UI::ButtonColour);
 	panelTitle = new Panel(
 		Vector2f(6 * horzSpacing, 18 * vertSpacing),
 		Vector2f(28 * horzSpacing, 4 * vertSpacing),
-		20.0f);
+		20.0f,
+		Settings::UI::PanelColour);
 	labelTitle = new Label(
 		Vector2f(20 * horzSpacing, 20 * vertSpacing),
-		"<CHOICE TITLE>", fontPath, true);
+		"<CHOICE TITLE>", fontPath,
+		Settings::UI::LabelColour,
+		true);
 	panelDescription = new Panel(
 		Vector2f(6 * horzSpacing, 24 * vertSpacing),
 		Vector2f(8 * horzSpacing, 10 * vertSpacing),
-		20.0f);
+		20.0f,
+		Settings::UI::PanelColour);
 	panelStat = new Panel(
 		Vector2f(16 * horzSpacing, 24 * vertSpacing),
 		Vector2f(8 * horzSpacing, 10 * vertSpacing),
-		20.0f);
+		20.0f,
+		Settings::UI::PanelColour);
 	buttonGo = new Button(
 		Vector2f(26 * horzSpacing, 24 * vertSpacing),
 		Vector2f(8 * horzSpacing, 10 * vertSpacing),
-		"GO!", fontPath);
+		"GO!", fontPath,
+		Settings::UI::ButtonColour);
 }
 
 void ScreenChoice::Unload()
