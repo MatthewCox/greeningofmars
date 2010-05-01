@@ -11,6 +11,8 @@ float Settings::Mouse::MovementRatio = 0.3f;
 
 float Settings::Movement::Speed = 10.0f;
 
+char* Settings::UI::FontPath = "C:\\Windows\\Fonts\\tahoma.ttf";
+
 void Settings::Load(char* filepath)
 {
 	IniHandler::SetFileName(".\\settings.ini");
@@ -22,6 +24,8 @@ void Settings::Load(char* filepath)
 	Mouse::MovementRatio = IniHandler::ReadFloat("Mouse", "MovementRatio", 0.3f);
 
 	Movement::Speed = IniHandler::ReadFloat("Movement", "Speed", 10.0f);
+
+	UI::FontPath = IniHandler::ReadString("UI", "FontPath", "C:\\Windows\\Fonts\\tahoma.ttf");
 }
 
 void Settings::Save(char* filepath)
@@ -35,5 +39,7 @@ void Settings::Save(char* filepath)
 	IniHandler::WriteFloat("Mouse", "MovementRatio", Mouse::MovementRatio);
 
 	IniHandler::WriteFloat("Movement", "Speed", Movement::Speed);
+
+	IniHandler::WriteString("UI", "FontPath", UI::FontPath);
 
 }
