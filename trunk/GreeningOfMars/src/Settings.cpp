@@ -12,6 +12,9 @@ float Settings::Mouse::MovementRatio = 0.3f;
 float Settings::Movement::Speed = 10.0f;
 
 char* Settings::UI::FontPath = "C:\\Windows\\Fonts\\tahoma.ttf";
+ColourA Settings::UI::LabelColour = ColourA(1.0f);
+ColourA Settings::UI::PanelColour = ColourA(0.0f, 0.2f, 0.4f, 0.8f);
+ColourA Settings::UI::ButtonColour = ColourA(0.2f, 0.4f, 0.6f, 1.0f);
 
 void Settings::Load(char* filepath)
 {

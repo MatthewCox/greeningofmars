@@ -75,18 +75,13 @@ void ScreenMenu::Draw()
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 
-	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	labelThe->Draw();
-	glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
 	labelGreening->Draw();
-	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	labelOf->Draw();
-	glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
 	labelMars->Draw();
 
 	for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
 	{
-		glColor4f(0.2f, 0.4f, 0.6f, 0.8f);
 		(*i)->Draw();
 	}
 
@@ -96,21 +91,26 @@ void ScreenMenu::Draw()
 void ScreenMenu::Load()
 {
 	float titleSpacing = Settings::View::Height / 25.0f;
+
 	labelThe = new Label(
 		Vector2f(Settings::View::Width * 0.5f, titleSpacing),
 		"The", Settings::UI::FontPath,
+		Settings::UI::LabelColour,
 		true);
 	labelGreening = new Label(
 		Vector2f(Settings::View::Width * 0.5f, 2 * titleSpacing),
 		"Greening", Settings::UI::FontPath,
+		ColourA(0.0f, 1.0f, 0.0f, 1.0f),
 		true);
 	labelOf = new Label(
 		Vector2f(Settings::View::Width * 0.5f, 3 * titleSpacing),
 		"Of", Settings::UI::FontPath,
+		Settings::UI::LabelColour,
 		true);
 	labelMars = new Label(
 		Vector2f(Settings::View::Width * 0.5f, 4 * titleSpacing),
 		"Mars", Settings::UI::FontPath,
+		ColourA(1.0f, 0.0f, 0.0f, 1.0f),
 		true);
 
 	transitioning = false;
@@ -121,6 +121,7 @@ void ScreenMenu::Load()
 		Vector2f(-20.0f, (float)(Settings::View::Height / 2) - 45.0f),
 		Vector2f(110.0f, 40.0f),
 		"Start", Settings::UI::FontPath,
+		Settings::UI::ButtonColour,
 		0);
 	buttonStart->SwishOn();
 	buttons->push_back(buttonStart);
@@ -129,6 +130,7 @@ void ScreenMenu::Load()
 		Vector2f(-20.0f, (float)(Settings::View::Height / 2) + 5.0f),
 		Vector2f(100.0f, 40.0f),
 		"Quit", Settings::UI::FontPath,
+		Settings::UI::ButtonColour,
 		0);
 	buttonQuit->SwishOn();
 	buttons->push_back(buttonQuit);

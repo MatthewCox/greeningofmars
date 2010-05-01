@@ -25,9 +25,11 @@ Label::Label(void)
 
 Label::Label(Vector2f p_position,
 			 char* p_name, char* p_fontPath,
+			 ColourA p_colour,
 			 bool p_center)
 {
-	position = p_position;
+	SetPosition(p_position);
+	SetColour(p_colour);
 	name = p_name;
 	center = p_center;
 	font = new FTPolygonFont(p_fontPath);
@@ -67,6 +69,7 @@ void Label::Draw()
 		glTranslatef(position.X(), position.Y(), 0.0f);
 	}
 	glScalef(1.0f, -1.0f, 1.0f);
+	colour.Apply();
 	font->Render(name);
 	glPopMatrix();
 }

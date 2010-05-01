@@ -12,11 +12,13 @@ Button::Button(void)
 
 Button::Button(Vector2f p_position,
 			   Vector2f p_size,
-			   char* p_name, char* p_fontPath) : Panel(p_position, p_size, 20.0f)
+			   char* p_name, char* p_fontPath,
+			   ColourA p_colour) : Panel(p_position, p_size, 20.0f, p_colour)
 {
 	label = new Label(
 		Vector2f(p_position.X() + (p_size.X() / 2), p_position.Y() + (p_size.Y() / 2)),
 		p_name, p_fontPath,
+		ColourA(1.0f),
 		true);
 }
 
@@ -33,7 +35,6 @@ void Button::Update(float f_dt)
 void Button::Draw()
 {
 	Panel::Draw();
-	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	label->Draw();
 }
 
