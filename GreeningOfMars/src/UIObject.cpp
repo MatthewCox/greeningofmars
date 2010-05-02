@@ -10,6 +10,11 @@ UIObject::~UIObject(void)
 {
 }
 
+void UIObject::Update(float f_dt)
+{
+
+}
+
 void UIObject::SetPosition(Vector2f p_position)
 {
 	position = p_position;

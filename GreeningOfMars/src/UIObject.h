@@ -11,6 +11,8 @@ public:
 	UIObject(void);
 	~UIObject(void);
 
+	virtual void Update(float f_dt) = 0;
+
 	void SetPosition(Vector2f p_position);
 	void SetColour(ColourA p_colour);
 

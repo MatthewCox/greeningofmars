@@ -24,7 +24,7 @@ void Init(char **argv)
 {
 	screenManager = ScreenManager::GetInstance();
 	screenManager->ChangeScreen(new ScreenMenu());
-	camera = new Camera(Vector3f(0.0f), 0, 0);
+	camera = new Camera(Vector3f(0.0f), 0.0f, 0.0f);
 }
 
 // Render the scene
