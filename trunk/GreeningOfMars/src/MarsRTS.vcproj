@@ -500,6 +500,18 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="Class Diagrams"
+			>
+			<File
+				RelativePath=".\UI Classes.cd"
+				>
+			</File>
+			<File
+				RelativePath=".\Whole Project.cd"
+				>
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

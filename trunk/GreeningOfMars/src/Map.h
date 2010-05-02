@@ -1,10 +1,10 @@
 #pragma once
 
-#include "DrawableObject.h"
+#include "GameObject.h"
 
 #include <vector>
 
-class Map : public DrawableObject
+class Map : public GameObject
 {
 private:
 	std::vector<int> m_map;

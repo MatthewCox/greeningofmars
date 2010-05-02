@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Files" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IniHandler" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAgAQAAAAAABAAQAAAEACgAAAAAA=</HashCode>
+      <FileName>IniHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACgAAAQAAAAAAAAAAAAAAAAAAAAAAABAAGAAAEAgA=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureLoader" Collapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAAAAAQCAAAAAYAABQQAigAAAAAAAAAAKBABABBgBQ=</HashCode>
+      <FileName>TextureLoader\TextureLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utilities" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAA=</HashCode>
+      <FileName>Utilities.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector2f" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GgAIAAAAAAAAAAAAYEEIAAEAAAAAAAAAAABgQAAAYiI=</HashCode>
+      <FileName>Vector2f.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector3f" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GgAAAAAAAAAQAAQAYEEIAAEAAAAAAIAAAABggQAAYiE=</HashCode>
+      <FileName>Vector3f.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Colour" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAkAAQAAAAAAAABBAAAAAIAQABCBEAAQA=</HashCode>
+      <FileName>Colour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColourA" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAgAAAAAAAAAgABAAAAAgCAAAIAAAAAA=</HashCode>
+      <FileName>ColourA.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyboardHandler" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAgQIAAAgCAAAAQAAAAAAAACAAABAAAAA=</HashCode>
+      <FileName>KeyboardHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseHandler" Collapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACQAAAAABAAAAEAAAAAAAiCAAAAAEAAEAAA=</HashCode>
+      <FileName>MouseHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Asteroid" Collapsed="true">
+    <Position X="5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgABAAAAAAAAAAAAAAABAAQAAAAAAAA=</HashCode>
+      <FileName>Asteroid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACgAAIAgQAAAAQAAAAEMgAAIQBAAAACiIAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Conditions" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIQAAAAAAEAAhBAAAAAAAAAAEAAAAAAgAAAACAw=</HashCode>
+      <FileName>Conditions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DrawableObject" Collapsed="true">
+    <Position X="3.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DrawableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeightmapSphere" Collapsed="true">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAgABAAAAAAAIAAAAAgAACAAAAEAAAAA=</HashCode>
+      <FileName>HeightmapSphere.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Map" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCAAABAAAgABAAAAAAAAAAAAAACAAAAKAAAAAQA=</HashCode>
+      <FileName>Map.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MousePick" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>MousePick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Settings" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Settings::View" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Settings.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="Settings::Mouse" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Settings.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="Settings::Movement" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Settings.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="Settings::UI" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Settings.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Settings.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAAAAAhAAAAAAAAAAEAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HUD" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HUD.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Label" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AA4AAAAAEAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Label.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Panel" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAAAAAAgAAAIAIAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Panel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SwishyButton" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAEAAQCAAAAAAAIAAAAAAAAAAAAAAgAIAJAAAAAAA=</HashCode>
+      <FileName>SwishyButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIObject" Collapsed="true">
+    <Position X="1.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQgAAAAAAAAAAAAAAAAIAAAABQAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>UIObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Screen" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAgACAAAAAAgAABAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Screen.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenChoice" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ANQCgBCAAgAABhCAAAAAABAAAAAAAAADAAQACAAAAAA=</HashCode>
+      <FileName>ScreenChoice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenGame" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAgACAAAAABgAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>ScreenGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenManager" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAABAAgBAAAAAAAAABAAAAAAAAAAoAAAAAAQ=</HashCode>
+      <FileName>ScreenManager.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="currentScreen" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ScreenMenu" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgACBBAgADgAAIABAAAAEAAAAAAAAAAAAAAGgAAA=</HashCode>
+      <FileName>ScreenMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

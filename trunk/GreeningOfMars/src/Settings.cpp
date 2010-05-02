@@ -29,6 +29,23 @@ void Settings::Load(char* filepath)
 	Movement::Speed = IniHandler::ReadFloat("Movement", "Speed", 10.0f);
 
 	UI::FontPath = IniHandler::ReadString("UI", "FontPath", "C:\\Windows\\Fonts\\tahoma.ttf");
+
+	float r, g, b, a;
+	r = IniHandler::ReadFloat("UI", "LabelColourR", 1.0f);
+	g = IniHandler::ReadFloat("UI", "LabelColourG", 1.0f);
+	b = IniHandler::ReadFloat("UI", "LabelColourB", 1.0f);
+	a = IniHandler::ReadFloat("UI", "LabelColourA", 1.0f);
+	UI::LabelColour = ColourA(r, g, b, a);
+	r = IniHandler::ReadFloat("UI", "PanelColourR", 0.0f);
+	g = IniHandler::ReadFloat("UI", "PanelColourG", 0.2f);
+	b = IniHandler::ReadFloat("UI", "PanelColourB", 0.4f);
+	a = IniHandler::ReadFloat("UI", "PanelColourA", 0.8f);
+	UI::PanelColour = ColourA(r, g, b, a);
+	r = IniHandler::ReadFloat("UI", "ButtonColourR", 0.2f);
+	g = IniHandler::ReadFloat("UI", "ButtonColourG", 0.4f);
+	b = IniHandler::ReadFloat("UI", "ButtonColourB", 0.6f);
+	a = IniHandler::ReadFloat("UI", "ButtonColourA", 1.0f);
+	UI::ButtonColour = ColourA(r, g, b, a);
 }
 
 void Settings::Save(char* filepath)
@@ -45,4 +62,18 @@ void Settings::Save(char* filepath)
 
 	IniHandler::WriteString("UI", "FontPath", UI::FontPath);
 
+	IniHandler::WriteFloat("UI", "LabelColourR", UI::LabelColour.R());
+	IniHandler::WriteFloat("UI", "LabelColourG", UI::LabelColour.G());
+	IniHandler::WriteFloat("UI", "LabelColourB", UI::LabelColour.B());
+	IniHandler::WriteFloat("UI", "LabelColourA", UI::LabelColour.A());
+
+	IniHandler::WriteFloat("UI", "PanelColourR", UI::PanelColour.R());
+	IniHandler::WriteFloat("UI", "PanelColourG", UI::PanelColour.G());
+	IniHandler::WriteFloat("UI", "PanelColourB", UI::PanelColour.B());
+	IniHandler::WriteFloat("UI", "PanelColourA", UI::PanelColour.A());
+
+	IniHandler::WriteFloat("UI", "ButtonColourR", UI::ButtonColour.R());
+	IniHandler::WriteFloat("UI", "ButtonColourG", UI::ButtonColour.G());
+	IniHandler::WriteFloat("UI", "ButtonColourB", UI::ButtonColour.B());
+	IniHandler::WriteFloat("UI", "ButtonColourA", UI::ButtonColour.A());
 }

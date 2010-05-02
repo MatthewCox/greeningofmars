@@ -92,6 +92,9 @@ void ScreenMenu::Load()
 {
 	float titleSpacing = Settings::View::Height / 25.0f;
 
+	ColourA red = ColourA(1.0f, 0.0f, 0.0f, 1.0f);
+	ColourA green = ColourA(0.0f, 1.0f, 0.0f, 1.0f);
+
 	labelThe = new Label(
 		Vector2f(Settings::View::Width * 0.5f, titleSpacing),
 		"The", Settings::UI::FontPath,
@@ -100,7 +103,7 @@ void ScreenMenu::Load()
 	labelGreening = new Label(
 		Vector2f(Settings::View::Width * 0.5f, 2 * titleSpacing),
 		"Greening", Settings::UI::FontPath,
-		ColourA(0.0f, 1.0f, 0.0f, 1.0f),
+		green,
 		true);
 	labelOf = new Label(
 		Vector2f(Settings::View::Width * 0.5f, 3 * titleSpacing),
@@ -110,7 +113,7 @@ void ScreenMenu::Load()
 	labelMars = new Label(
 		Vector2f(Settings::View::Width * 0.5f, 4 * titleSpacing),
 		"Mars", Settings::UI::FontPath,
-		ColourA(1.0f, 0.0f, 0.0f, 1.0f),
+		red,
 		true);
 
 	transitioning = false;
