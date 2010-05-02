@@ -1,6 +1,7 @@
 #include "MousePick.h"
 
-void MousePick::Pick(int p_mouseX, int p_mouseY)
+Vector3f MousePick::MouseRay(int p_mouseX, int p_mouseY,
+							 Vector3f &out_startPoint, Vector3f &out_endPoint)
 {
 	double x, y, z;
 
@@ -19,5 +20,7 @@ void MousePick::Pick(int p_mouseX, int p_mouseY)
 	gluUnProject(p_mouseX, p_mouseY, 1.0f,
 		modelViewMatrix, projectionMatrix, viewport,
 		&x, &y, &z);
-	mouseRay = Vector3f((float)x, (float)y, (float)z) - mouseRay;
+	out_startPoint = mouseRay;
+	out_endPoint = Vector3f((float)x, (float)y, (float)z);
+	return out_endPoint - out_startPoint;
 }

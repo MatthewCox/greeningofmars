@@ -40,7 +40,7 @@ void Button::Draw()
 
 bool Button::CheckClicked(const int &p_x, const int &p_y) const
 {
-	if (p_x >= position.X() && position.X() <= position.X() + size.X() &&
+	if (p_x >= position.X() && p_x <= position.X() + size.X() &&
 		p_y >= position.Y() && p_y <= position.Y() + size.Y())
 	{
 		return true;

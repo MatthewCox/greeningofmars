@@ -91,11 +91,11 @@
       <FileName>Camera.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Conditions" Collapsed="true">
+  <Class Name="CConditions" Collapsed="true">
     <Position X="12.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIQAAAAAAEAAhBAAAAAAAAAAEAAAAAAgAAAACAw=</HashCode>
-      <FileName>Conditions.h</FileName>
+      <HashCode>AIYIQIQABEAAAEIEJAAQACAAEASAMQQAAAAgAABEKAw=</HashCode>
+      <FileName>CConditions.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DrawableObject" Collapsed="true">
@@ -112,11 +112,12 @@
       <FileName>GameObject.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HeightmapSphere" Collapsed="true">
+  <Class Name="WaterSphere" Collapsed="true">
     <Position X="5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQBAAAAAAAAAgABAAAAAAAIAAAAAgAACAAAAEAAAAA=</HashCode>
-      <FileName>HeightmapSphere.h</FileName>
+      <HashCode>AAQIAAQACAAAAgAAAAAAAAAIABAAAgAACAAAAEAAAAA=</HashCode>
+      <FileName>WaterSphere.h</FileName>
+      <NewMemberFileName>HeightmapSphere.h</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Map" Collapsed="true">
@@ -135,28 +136,6 @@
   </Class>
   <Class Name="Settings" Collapsed="true">
     <Position X="12.25" Y="2.5" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="Settings::View" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Settings::Mouse" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Settings::Movement" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Settings::UI" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Settings.h</FileName>
@@ -217,7 +196,7 @@
   <Class Name="ScreenChoice" Collapsed="true">
     <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ANQCgBCAAgAABhCAAAAAABAAAAAAAAADAAQACAAAAAA=</HashCode>
+      <HashCode>ANQCgBCAAgAAAhCAAAAAABAAAAAAAAADAAQACAAAAAA=</HashCode>
       <FileName>ScreenChoice.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -241,7 +220,7 @@
   <Class Name="ScreenMenu" Collapsed="true">
     <Position X="1.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgACBBAgADgAAIABAAAAEAAAAAAAAAAAAAAGgAAA=</HashCode>
+      <HashCode>AIQAgACBFggACgAAIABAAAAAAAAAAAAAAAAAAAGgAAA=</HashCode>
       <FileName>ScreenMenu.h</FileName>
     </TypeIdentifier>
   </Class>

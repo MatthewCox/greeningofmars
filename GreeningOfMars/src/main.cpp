@@ -14,9 +14,6 @@ int time = 0, timebase = 0;
 int dt, totaldt, frames;
 float f_dt;
 
-bool mouseLook = false;
-
-Camera* camera;
 ScreenManager* screenManager;
 
 // Initialize all of the various objects that are to be used
@@ -24,7 +21,6 @@ void Init(char **argv)
 {
 	screenManager = ScreenManager::GetInstance();
 	screenManager->ChangeScreen(new ScreenMenu());
-	camera = new Camera(Vector3f(0.0f), 0.0f, 0.0f);
 }
 
 // Render the scene
@@ -34,8 +30,6 @@ void Display(void)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // normal transparency
 	glLoadIdentity();
-
-	camera->Display();
 
 	screenManager->Draw();
 
@@ -85,34 +79,9 @@ void Idle(void)
 
 	screenManager->Update(f_dt);
 
-	if (KeyboardHandler::KeyState('w'))
-	{
-		camera->MoveForwards(Settings::Movement::Speed * f_dt);
-	}
-	if (KeyboardHandler::KeyState('s'))
-	{
-		camera->MoveBackwards(Settings::Movement::Speed * f_dt);
-	}
-	if (KeyboardHandler::KeyState('a'))
-	{
-		camera->MoveLeft(Settings::Movement::Speed * f_dt);
-	}
-	if (KeyboardHandler::KeyState('d'))
-	{
-		camera->MoveRight(Settings::Movement::Speed * f_dt);
-	}
 	if (KeyboardHandler::KeyState(27)) // Esc Key
 	{
 		exit(0);
-	}
-
-	if (KeyboardHandler::KeyState('v'))
-	{
-		mouseLook = true;
-	}
-	if (KeyboardHandler::KeyState('b'))
-	{
-		mouseLook = false;
 	}
 
 	if (KeyboardHandler::KeyState('1'))
@@ -137,14 +106,6 @@ void Idle(void)
 	{
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glEnable(GL_CULL_FACE);
-	}
-
-	if (mouseLook)
-	{
-		int mouseX = 0;
-		int mouseY = 0;
-		MouseHandler::GetPosition(mouseX, mouseY);
-		camera->MouseLook(mouseX, mouseY, Settings::Mouse::MovementRatio);
 	}
 
 	if (KeyboardHandler::SpecialKeyState(GLUT_KEY_F11))

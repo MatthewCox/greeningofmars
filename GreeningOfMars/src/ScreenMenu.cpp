@@ -10,7 +10,7 @@
 #include "HUD.h"
 #include "MouseHandler.h"
 #include "SwishyButton.h"
-#include "HeightmapSphere.h"
+#include "Mars.h"
 
 ScreenMenu::ScreenMenu(void)
 {
@@ -49,29 +49,33 @@ void ScreenMenu::Update(float f_dt)
 	}
 	else
 	{
-		if (planetPosition <= -10.0f)
+		if (camera->Position().Z() < 10.0f)
 		{
-			planetPosition += 50.0f * f_dt;
+			camera->Position(
+				Vector3f(0.0f, 0.0f, 10.0f));
+
+			ScreenManager* screenManager = ScreenManager::GetInstance();
+			screenManager->ChangeScreen(new ScreenChoice());
 		}
 		else
 		{
-			ScreenManager* screenManager = ScreenManager::GetInstance();
-			screenManager->ChangeScreen(new ScreenChoice());
+			if (camera->Position().Z() < 100.0f)
+			{
+				if (moveSpeed > 5.0f)
+				{
+					moveSpeed -= 15.0f * f_dt;
+				}
+			}
+			camera->MoveForwards(moveSpeed * f_dt);
 		}
 	}
 }
 
 void ScreenMenu::Draw()
 {
-	if (planetPosition > -10.0f)
-	{
-		glTranslatef(0.0f, 0.0f, -10.0f);
-	}
-	else
-	{
-		glTranslatef(0.0f, 0.0f, planetPosition);
-	}
-	sphere->Draw();
+	camera->Display();
+
+	mars->Draw();
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 
@@ -90,6 +94,15 @@ void ScreenMenu::Draw()
 
 void ScreenMenu::Load()
 {
+	mars = new Mars();
+
+	camera = new Camera(
+		Vector3f(0.0f, 0.0f, 200.0f),
+		0.0f, 0.0f);
+
+	transitioning = false;
+	moveSpeed = 50.0f;
+
 	float titleSpacing = Settings::View::Height / 25.0f;
 
 	ColourA red = ColourA(1.0f, 0.0f, 0.0f, 1.0f);
@@ -116,8 +129,6 @@ void ScreenMenu::Load()
 		red,
 		true);
 
-	transitioning = false;
-
 	buttons = new std::vector<Button*>();
 
 	buttonStart = new SwishyButton(
@@ -137,14 +148,13 @@ void ScreenMenu::Load()
 		0);
 	buttonQuit->SwishOn();
 	buttons->push_back(buttonQuit);
-
-	sphere = new HeightmapSphere();
-
-	planetPosition = -200.0f;
 }
 
 void ScreenMenu::Unload()
 {
+	delete mars;
+	delete camera;
+
 	delete labelThe;
 	delete labelGreening;
 	delete labelOf;
@@ -152,5 +162,4 @@ void ScreenMenu::Unload()
 	delete buttonStart;
 	delete buttonQuit;
 	delete buttons;
-	delete sphere;
 }

@@ -5,11 +5,11 @@
 #include "TextureLoader/TextureLoader.h"
 #include "Shader.h"
 
-class HeightmapSphere : public GameObject
+class WaterSphere : public GameObject
 {
 public:
-	HeightmapSphere(void);
-	~HeightmapSphere(void);
+	WaterSphere(void);
+	~WaterSphere(void);
 
 	void Update(float f_dt);
 	void Draw();
@@ -18,6 +18,7 @@ public:
 	void Radius(float p_radius);
 
 private:
+	float time;
 	float radius;
 	TextureLoader* texLoader;
 	glTexture* texture;
