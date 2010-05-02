@@ -2,7 +2,8 @@
 
 #include "Screen.h"
 
-#include "HeightmapSphere.h"
+#include "Camera.h"
+#include "Mars.h"
 
 class ScreenGame : public Screen
 {
@@ -17,5 +18,8 @@ public:
 	void Unload();
 
 private:
-	HeightmapSphere* sphere;
+	Camera *camera;
+	Mars *mars;
+
+	Vector3f startPoint, endPoint, intersectionPoint;
 };

@@ -4,9 +4,10 @@
 
 #include <vector>
 
+#include "Mars.h"
+#include "Camera.h"
 #include "SwishyButton.h"
 #include "Label.h"
-#include "HeightmapSphere.h"
 
 class ScreenMenu : public Screen
 {
@@ -21,6 +22,9 @@ public:
 	void Unload();
 
 private:
+	Mars* mars;
+	Camera* camera;
+
 	std::vector<Button*>* buttons;
 	Label* labelThe;
 	Label* labelGreening;
@@ -28,8 +32,7 @@ private:
 	Label* labelMars;
 	SwishyButton* buttonStart;
 	SwishyButton* buttonQuit;
-	HeightmapSphere* sphere;
 	
-	float planetPosition;
 	bool transitioning;
+	float moveSpeed;
 };

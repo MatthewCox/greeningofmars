@@ -34,10 +34,9 @@ void ScreenChoice::Update(float f_dt)
 
 void ScreenChoice::Draw()
 {
-	glPushMatrix();
-		glTranslatef(0.0f, 0.0f, -10.0f);
-		sphere->Draw();
-	glPopMatrix();
+	camera->Display();
+
+	mars->Draw();
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 	panelChoice->Draw();
@@ -57,7 +56,11 @@ void ScreenChoice::Draw()
 
 void ScreenChoice::Load()
 {
-	sphere = new HeightmapSphere();
+	camera = new Camera(
+		Vector3f(0.0f, 0.0f, 10.0f),
+		0.0f, 0.0f);
+
+	mars = new Mars();
 
 	char* fontPath = Settings::UI::FontPath;
 
@@ -123,7 +126,9 @@ void ScreenChoice::Load()
 
 void ScreenChoice::Unload()
 {
-	delete sphere;
+	delete camera;
+	delete mars;
+
 	delete panelChoice;
 	delete labelChoiceTitle;
 	delete buttonChoice1;

@@ -9,5 +9,6 @@ class MousePick
 {
 public:
 	MousePick();
-	static void Pick(int p_mouseX, int p_mouseY);
+	static Vector3f MouseRay(int p_mouseX, int p_mouseY,
+		Vector3f &out_startPoint, Vector3f &out_endPoint);
 };

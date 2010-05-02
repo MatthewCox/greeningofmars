@@ -223,7 +223,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Conditions.cpp"
+					RelativePath=".\CConditions.cpp"
 					>
 				</File>
 				<File
@@ -243,11 +243,19 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Mars.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\MousePick.cpp"
 					>
 				</File>
 				<File
 					RelativePath=".\Settings.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\WaterSphere.cpp"
 					>
 				</File>
 				<Filter
@@ -385,7 +393,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Conditions.h"
+					RelativePath=".\CConditions.h"
 					>
 				</File>
 				<File
@@ -405,11 +413,19 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Mars.h"
+					>
+				</File>
+				<File
 					RelativePath=".\MousePick.h"
 					>
 				</File>
 				<File
 					RelativePath=".\Settings.h"
+					>
+				</File>
+				<File
+					RelativePath=".\WaterSphere.h"
 					>
 				</File>
 				<Filter
@@ -492,13 +508,29 @@
 				>
 			</File>
 			<File
-				RelativePath=".\shader.frag"
+				RelativePath=".\WaterNormal.bmp"
 				>
 			</File>
-			<File
-				RelativePath=".\shader.vert"
+			<Filter
+				Name="Shaders"
 				>
-			</File>
+				<File
+					RelativePath=".\sphereDeform.frag"
+					>
+				</File>
+				<File
+					RelativePath=".\sphereDeform.vert"
+					>
+				</File>
+				<File
+					RelativePath=".\water.frag"
+					>
+				</File>
+				<File
+					RelativePath=".\water.vert"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Class Diagrams"

@@ -1,6 +1,7 @@
-#include "HeightmapSphere.h"
+#include "WaterSphere.h"
 
 #include <stdlib.h>
+#include <iostream>
 
 #include <GL/glew.h>
 #include <GL/freeglut.h>
@@ -8,16 +9,17 @@
 
 #include "Shader.h"
 
-HeightmapSphere::HeightmapSphere(void)
+WaterSphere::WaterSphere(void)
 {
+	time = 0.0f;
 	texture = new glTexture;
 	texLoader = new TextureLoader();
-	texLoader->LoadTextureFromDisk(".\\MarsHeight.bmp", texture);
+	texLoader->LoadTextureFromDisk(".\\WaterNormal.bmp", texture);
 	quadric = gluNewQuadric();
-	shader = new Shader(".\\sphereDeform.vert", ".\\sphereDeform.frag");
+	shader = new Shader(".\\water.vert", ".\\water.frag");
 }
 
-HeightmapSphere::~HeightmapSphere(void)
+WaterSphere::~WaterSphere(void)
 {
 	texLoader->FreeTexture(texture);
 	delete texLoader;
@@ -25,12 +27,12 @@ HeightmapSphere::~HeightmapSphere(void)
 	delete shader;
 }
 
-void HeightmapSphere::Update(float f_dt)
+void WaterSphere::Update(float f_dt)
 {
-
+	time += f_dt;
 }
 
-void HeightmapSphere::Draw()
+void WaterSphere::Draw()
 {
 	shader->Bind();
 	glPushMatrix();
@@ -38,8 +40,10 @@ void HeightmapSphere::Draw()
 		gluQuadricTexture(quadric, GL_TRUE);
 		gluQuadricNormals(quadric, GL_TRUE);
 		glActiveTexture(GL_TEXTURE0);
-		int textureLocation = glGetUniformLocation(shader->Id(), "marsHeightmap");
+		int textureLocation = glGetUniformLocation(shader->Id(), "waterNormal");
 		glUniform1i(textureLocation, 0);
+		int timeLocation = glGetUniformLocation(shader->Id(), "Time");
+		glUniform1f(timeLocation, time);
 		glBindTexture(GL_TEXTURE_2D, texture->TextureID);
 		glActiveTexture(GL_TEXTURE0);
 		glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
@@ -49,12 +53,12 @@ void HeightmapSphere::Draw()
 	shader->Unbind();
 }
 
-float HeightmapSphere::Radius() const
+float WaterSphere::Radius() const
 {
 	return radius;
 }
 
-void HeightmapSphere::Radius(float p_radius)
+void WaterSphere::Radius(float p_radius)
 {
 	radius = p_radius;
 }
