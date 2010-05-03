@@ -1,4 +1,4 @@
-#include "ScreenChoiceStage1.h"
+#include "ScreenChoice.h"
 
 #include <stdlib.h>
 
@@ -16,15 +16,15 @@
 #include "HUD.h"
 #include "MouseHandler.h"
 
-ScreenChoiceStage1::ScreenChoiceStage1(void)
+ScreenChoice::ScreenChoice(void)
 {
 }
 
-ScreenChoiceStage1::~ScreenChoiceStage1(void)
+ScreenChoice::~ScreenChoice(void)
 {
 }
 
-void ScreenChoiceStage1::Update(float f_dt)
+void ScreenChoice::Update(float f_dt)
 {
 	mars->Update(f_dt);
 
@@ -35,23 +35,24 @@ void ScreenChoiceStage1::Update(float f_dt)
 		MouseHandler::GetPosition(mouseX, mouseY);
 		if (buttonChoice1->CheckClicked(mouseX, mouseY))
 		{
-			labelTitle->Name(buttonChoice1->Name());
+			labelChoiceTitle->Name(buttonChoice1->Name());
 		}
-		if (buttonGo->CheckClicked(mouseX, mouseY))
+		if (buttonChoice2->CheckClicked(mouseX, mouseY))
 		{
-			if (labelTitle->Name() == buttonChoice1->Name())
-			{
-				ScreenManager::GetInstance()->ChangeScreen(new ScreenStage1Asteroid());
-			}
-			else
-			{
-				labelTitle->Name("Please choose a method.");
-			}
+			labelChoiceTitle->Name(buttonChoice2->Name());
+		}
+		if (buttonChoice3->CheckClicked(mouseX, mouseY))
+		{
+			labelChoiceTitle->Name(buttonChoice3->Name());
+		}
+		if (buttonChoice4->CheckClicked(mouseX, mouseY))
+		{
+			labelChoiceTitle->Name(buttonChoice4->Name());
 		}
 	}
 }
 
-void ScreenChoiceStage1::Draw()
+void ScreenChoice::Draw()
 {
 	camera->Display();
 
@@ -59,13 +60,13 @@ void ScreenChoiceStage1::Draw()
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 	panelChoice->Draw();
-		labelChoiceTitle->Draw();
+		labelTitle->Draw();
 		buttonChoice1->Draw();
 		buttonChoice2->Draw();
 		buttonChoice3->Draw();
 		buttonChoice4->Draw();
-	panelTitle->Draw();
-		labelTitle->Draw();
+	panelChoiceTitle->Draw();
+		labelChoiceTitle->Draw();
 	panelDescription->Draw();
 	panelStat->Draw();
 
@@ -73,7 +74,7 @@ void ScreenChoiceStage1::Draw()
 	HUD::End();
 }
 
-void ScreenChoiceStage1::Load()
+void ScreenChoice::Load()
 {
 	camera = new Camera(
 		Vector3f(0.0f, 0.0f, 15.0f),
@@ -91,15 +92,15 @@ void ScreenChoiceStage1::Load()
 		Vector2f(28 * horzSpacing, 10 * vertSpacing),
 		20.0f,
 		Settings::UI::PanelColour);
-	labelChoiceTitle = new Label(
+	labelTitle = new Label(
 		Vector2f(20 * horzSpacing, 7 * vertSpacing),
-		"Heat and Atmosphere", fontPath,
+		"<STAGE NAME>", fontPath,
 		Settings::UI::LabelColour,
 		true);
 	buttonChoice1 = new Button(
 		Vector2f(7 * horzSpacing, 8 * vertSpacing),
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
-		"Asteroid", fontPath,
+		"<CHOICE 1>", fontPath,
 		Settings::UI::ButtonColour);
 	buttonChoice2 = new Button(
 		Vector2f(14 * horzSpacing, 8 * vertSpacing),
@@ -116,12 +117,12 @@ void ScreenChoiceStage1::Load()
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
 		"<CHOICE 4>", fontPath,
 		Settings::UI::ButtonColour);
-	panelTitle = new Panel(
+	panelChoiceTitle = new Panel(
 		Vector2f(6 * horzSpacing, 18 * vertSpacing),
 		Vector2f(28 * horzSpacing, 4 * vertSpacing),
 		20.0f,
 		Settings::UI::PanelColour);
-	labelTitle = new Label(
+	labelChoiceTitle = new Label(
 		Vector2f(20 * horzSpacing, 20 * vertSpacing),
 		"Please choose a method.", fontPath,
 		Settings::UI::LabelColour,
@@ -143,19 +144,19 @@ void ScreenChoiceStage1::Load()
 		Settings::UI::ButtonColour);
 }
 
-void ScreenChoiceStage1::Unload()
+void ScreenChoice::Unload()
 {
 	delete camera;
 	delete mars;
 
 	delete panelChoice;
-	delete labelChoiceTitle;
+	delete labelTitle;
 	delete buttonChoice1;
 	delete buttonChoice2;
 	delete buttonChoice3;
 	delete buttonChoice4;
-	delete panelTitle;
-	delete labelTitle;
+	delete panelChoiceTitle;
+	delete labelChoiceTitle;
 	delete panelDescription;
 	delete panelStat;
 	delete buttonGo;

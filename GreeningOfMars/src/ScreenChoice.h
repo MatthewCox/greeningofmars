@@ -2,6 +2,8 @@
 
 #include "Screen.h"
 
+#include <vector>
+
 #include "Camera.h"
 #include "Mars.h"
 
@@ -9,30 +11,30 @@
 #include "Label.h"
 #include "Button.h"
 
-class ScreenChoiceStage1 : public Screen
+class ScreenChoice : public Screen
 {
 public:
-	ScreenChoiceStage1(void);
-	~ScreenChoiceStage1(void);
+	ScreenChoice(void);
+	~ScreenChoice(void);
 
-	void Update(float f_dt);
-	void Draw();
+	virtual void Update(float f_dt);
+	virtual void Draw();
 
-	void Load();
-	void Unload();
+	virtual void Load();
+	virtual void Unload();
 
-private:
+protected:
 	Camera *camera;
 	Mars *mars;
 
 	Panel *panelChoice;
-	Label *labelChoiceTitle;
+	Label *labelTitle;
 	Button *buttonChoice1;
 	Button *buttonChoice2;
 	Button *buttonChoice3;
 	Button *buttonChoice4;
-	Panel *panelTitle;
-	Label *labelTitle;
+	Panel *panelChoiceTitle;
+	Label *labelChoiceTitle;
 	Panel *panelDescription;
 	Panel *panelStat;
 	Button *buttonGo;

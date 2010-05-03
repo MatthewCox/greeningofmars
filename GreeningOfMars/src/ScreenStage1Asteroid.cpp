@@ -1,7 +1,5 @@
 #include "ScreenStage1Asteroid.h"
 
-#include <stdlib.h>
-
 #include <GL/freeglut.h>
 
 #include "Camera.h"
@@ -83,11 +81,15 @@ void ScreenStage1Asteroid::Draw()
 	asteroid->Draw();
 
 	glColor3f(1.0f, 0.0f, 0.0f);
-	glPointSize(10.0f);
-	glBegin(GL_POINTS);
-	glVertex3f(intersectionPoint.X(),
+	glBegin(GL_LINES);
+	glVertex3f(
+		intersectionPoint.X(),
 		intersectionPoint.Y(),
 		intersectionPoint.Z());
+	glVertex3f(
+		intersectionPoint.X() * 2.0f,
+		intersectionPoint.Y() * 2.0f,
+		intersectionPoint.Z() * 2.0f);
 	glEnd();
 }
 
