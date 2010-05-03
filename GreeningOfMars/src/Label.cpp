@@ -73,3 +73,13 @@ void Label::Draw()
 	font->Render(name);
 	glPopMatrix();
 }
+
+char* Label::Name() const
+{
+	return name;
+}
+
+void Label::Name(char* p_name)
+{
+	name = p_name;
+}

@@ -9,11 +9,11 @@
 #include "Label.h"
 #include "Button.h"
 
-class ScreenChoice : public Screen
+class ScreenChoiceStage1 : public Screen
 {
 public:
-	ScreenChoice(void);
-	~ScreenChoice(void);
+	ScreenChoiceStage1(void);
+	~ScreenChoiceStage1(void);
 
 	void Update(float f_dt);
 	void Draw();
@@ -36,4 +36,6 @@ private:
 	Panel *panelDescription;
 	Panel *panelStat;
 	Button *buttonGo;
+
+	char *methodChosen;
 };

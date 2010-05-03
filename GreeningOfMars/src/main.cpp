@@ -90,11 +90,11 @@ void Idle(void)
 	}
 	if (KeyboardHandler::KeyState('2'))
 	{
-		screenManager->ChangeScreen(new ScreenGame());
+		screenManager->ChangeScreen(new ScreenChoiceStage1());
 	}
 	if (KeyboardHandler::KeyState('3'))
 	{
-		screenManager->ChangeScreen(new ScreenChoice());
+		screenManager->ChangeScreen(new ScreenStage1Asteroid());
 	}
 
 	if (KeyboardHandler::KeyState('q'))

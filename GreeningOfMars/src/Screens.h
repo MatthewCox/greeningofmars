@@ -3,5 +3,5 @@
 #include "ScreenManager.h"
 #include "Screen.h"
 #include "ScreenMenu.h"
-#include "ScreenGame.h"
-#include "ScreenChoice.h"
+#include "ScreenStage1Asteroid.h"
+#include "ScreenChoiceStage1.h"

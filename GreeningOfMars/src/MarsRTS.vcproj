@@ -191,6 +191,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Intersect.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Shader.cpp"
 					>
 				</File>
@@ -294,11 +298,7 @@
 						>
 					</File>
 					<File
-						RelativePath=".\ScreenChoice.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\ScreenGame.cpp"
+						RelativePath=".\ScreenChoiceStage1.cpp"
 						>
 					</File>
 					<File
@@ -307,6 +307,10 @@
 					</File>
 					<File
 						RelativePath=".\ScreenMenu.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ScreenStage1Asteroid.cpp"
 						>
 					</File>
 				</Filter>
@@ -346,6 +350,10 @@
 				</File>
 				<File
 					RelativePath=".\IniHandler.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Intersect.h"
 					>
 				</File>
 				<File
@@ -464,11 +472,7 @@
 						>
 					</File>
 					<File
-						RelativePath=".\ScreenChoice.h"
-						>
-					</File>
-					<File
-						RelativePath=".\ScreenGame.h"
+						RelativePath=".\ScreenChoiceStage1.h"
 						>
 					</File>
 					<File
@@ -481,6 +485,10 @@
 					</File>
 					<File
 						RelativePath=".\Screens.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ScreenStage1Asteroid.h"
 						>
 					</File>
 				</Filter>

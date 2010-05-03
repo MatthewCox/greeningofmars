@@ -1,3 +1,5 @@
+uniform float radius;
+
 varying vec3 LightDirection;
 varying vec3 ViewDirection;
 varying vec3 Normal;
@@ -11,7 +13,7 @@ void main()
 	float freqx = 1.0 + sin(factor * 1.2) * 25.0;
     float freqy = 1.0 + sin(factor * 1.2) * 25.0;
     float freqz = 1.0 + sin(factor * 1.2) * 25.0;
-    float amp = 0.3 + sin(factor) * 0.5;
+    float amp = radius*0.06 + sin(factor) * radius*0.1;
     
     vec3 disp = vec3(0.0);
     float f = sin(Normal.x*freqx + factor) * sin(Normal.y*freqy + factor) * sin(Normal.z*freqz + factor);

@@ -4,12 +4,13 @@
 
 #include "Camera.h"
 #include "Mars.h"
+#include "Asteroid.h"
 
-class ScreenGame : public Screen
+class ScreenStage1Asteroid : public Screen
 {
 public:
-	ScreenGame(void);
-	~ScreenGame(void);
+	ScreenStage1Asteroid(void);
+	~ScreenStage1Asteroid(void);
 
 	void Update(float f_dt);
 	void Draw();
@@ -20,6 +21,7 @@ public:
 private:
 	Camera *camera;
 	Mars *mars;
+	Asteroid *asteroid;
 
-	Vector3f startPoint, endPoint, intersectionPoint;
+	Vector3f intersectionPoint;
 };
