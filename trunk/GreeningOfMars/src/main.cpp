@@ -90,7 +90,7 @@ void Idle(void)
 	}
 	if (KeyboardHandler::KeyState('2'))
 	{
-		screenManager->ChangeScreen(new ScreenChoiceStage1());
+		screenManager->ChangeScreen(new ScreenChoiceHeat());
 	}
 	if (KeyboardHandler::KeyState('3'))
 	{

@@ -30,15 +30,13 @@ public:
 	float GetNeutral() const;
 	float GetOzone() const;
 
-	void SetMinTemp(float );
-	void SetAvgTemp(float );
-	void SetMaxTemp(float );
-	void SetSurfacePressure(float );
-	void SetWaterLevel(float );
-	void SetOxygen(float );
-	void SetGreenhouse(float );
-	void SetNeutral(float );
-	void SetOzone(float );
+	void SetTemps(float p_min, float p_avg, float p_max);
+	void SetSurfacePressure(float p_pressure);
+	void SetWaterLevel(float p_waterLevel);
+	void SetOxygen(float p_oxygen);
+	void SetGreenhouse(float p_greenhouse);
+	void SetNeutral(float p_neutral);
+	void SetOzone(float p_ozone);
 
 	void ChangeTemps(
 		float p_minChange,

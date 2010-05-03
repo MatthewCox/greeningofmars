@@ -298,10 +298,6 @@
 						>
 					</File>
 					<File
-						RelativePath=".\ScreenChoiceStage1.cpp"
-						>
-					</File>
-					<File
 						RelativePath=".\ScreenManager.cpp"
 						>
 					</File>
@@ -309,10 +305,38 @@
 						RelativePath=".\ScreenMenu.cpp"
 						>
 					</File>
-					<File
-						RelativePath=".\ScreenStage1Asteroid.cpp"
+					<Filter
+						Name="Choices"
 						>
-					</File>
+						<File
+							RelativePath=".\ScreenChoice.cpp"
+							>
+						</File>
+						<File
+							RelativePath=".\ScreenChoiceHeat.cpp"
+							>
+						</File>
+						<File
+							RelativePath=".\ScreenChoiceWater.cpp"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Stage 1 Methods"
+						>
+						<File
+							RelativePath=".\ScreenStage1Asteroid.cpp"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Stage 2 Methods"
+						>
+						<File
+							RelativePath=".\ScreenStage2Import.cpp"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 			<Filter
@@ -472,10 +496,6 @@
 						>
 					</File>
 					<File
-						RelativePath=".\ScreenChoiceStage1.h"
-						>
-					</File>
-					<File
 						RelativePath=".\ScreenManager.h"
 						>
 					</File>
@@ -487,10 +507,38 @@
 						RelativePath=".\Screens.h"
 						>
 					</File>
-					<File
-						RelativePath=".\ScreenStage1Asteroid.h"
+					<Filter
+						Name="Choices"
 						>
-					</File>
+						<File
+							RelativePath=".\ScreenChoice.h"
+							>
+						</File>
+						<File
+							RelativePath=".\ScreenChoiceHeat.h"
+							>
+						</File>
+						<File
+							RelativePath=".\ScreenChoiceWater.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Stage 1 Methods"
+						>
+						<File
+							RelativePath=".\ScreenStage1Asteroid.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Stage 2 Methods"
+						>
+						<File
+							RelativePath=".\ScreenStage2Import.h"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
@@ -547,11 +595,11 @@
 				RelativePath=".\UI Classes.cd"
 				>
 			</File>
-			<File
-				RelativePath=".\Whole Project.cd"
-				>
-			</File>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

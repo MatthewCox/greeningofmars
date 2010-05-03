@@ -57,7 +57,7 @@ void ScreenMenu::Update(float f_dt)
 				Vector3f(0.0f, 0.0f, 15.0f));
 
 			ScreenManager* screenManager = ScreenManager::GetInstance();
-			screenManager->ChangeScreen(new ScreenChoiceStage1());
+			screenManager->ChangeScreen(new ScreenChoiceHeat());
 		}
 		else
 		{

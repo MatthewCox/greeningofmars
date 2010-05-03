@@ -2,7 +2,7 @@
 
 CConditions::CConditions(void)
 {
-	waterLevel = 4.0f;
+	waterLevel = 4.5f;
 }
 
 CConditions::~CConditions(void)
@@ -42,4 +42,14 @@ void CConditions::GetGases(float &out_oxygen,
 	out_greenhouse = gasGreenhouse;
 	out_neutral = gasNeutral;
 	out_ozone = gasOzone;
+}
+
+void CConditions::SetWaterLevel(float p_waterLevel)
+{
+	waterLevel = p_waterLevel;
+}
+
+void CConditions::ChangeWaterLevel(float p_waterLevelChange)
+{
+	waterLevel += p_waterLevelChange;
 }
