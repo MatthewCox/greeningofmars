@@ -14,6 +14,8 @@ public:
 	void Update(float f_dt);
 	void Draw();
 
+	void Velocity(Vector3f p_velocity);
+
 private:
 	Vector3f velocity;
 };

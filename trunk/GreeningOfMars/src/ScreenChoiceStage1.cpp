@@ -1,38 +1,57 @@
-#include "ScreenChoice.h"
+#include "ScreenChoiceStage1.h"
 
 #include <stdlib.h>
 
 #include <GL/freeglut.h>
+
+#include "Camera.h"
+#include "Mars.h"
+
+#include "Panel.h"
+#include "Label.h"
+#include "Button.h"
 
 #include "Screens.h"
 #include "Settings.h"
 #include "HUD.h"
 #include "MouseHandler.h"
 
-ScreenChoice::ScreenChoice(void)
+ScreenChoiceStage1::ScreenChoiceStage1(void)
 {
 }
 
-ScreenChoice::~ScreenChoice(void)
+ScreenChoiceStage1::~ScreenChoiceStage1(void)
 {
 }
 
-void ScreenChoice::Update(float f_dt)
+void ScreenChoiceStage1::Update(float f_dt)
 {
+	mars->Update(f_dt);
+
 	if (MouseHandler::Pressed(0))
 	{
 		int mouseX = 0;
 		int mouseY = 0;
 		MouseHandler::GetPosition(mouseX, mouseY);
+		if (buttonChoice1->CheckClicked(mouseX, mouseY))
+		{
+			labelTitle->Name(buttonChoice1->Name());
+		}
 		if (buttonGo->CheckClicked(mouseX, mouseY))
 		{
-			ScreenManager* screenManager = ScreenManager::GetInstance();
-			screenManager->ChangeScreen(new ScreenGame());
+			if (labelTitle->Name() == buttonChoice1->Name())
+			{
+				ScreenManager::GetInstance()->ChangeScreen(new ScreenStage1Asteroid());
+			}
+			else
+			{
+				labelTitle->Name("Please choose a method.");
+			}
 		}
 	}
 }
 
-void ScreenChoice::Draw()
+void ScreenChoiceStage1::Draw()
 {
 	camera->Display();
 
@@ -54,10 +73,10 @@ void ScreenChoice::Draw()
 	HUD::End();
 }
 
-void ScreenChoice::Load()
+void ScreenChoiceStage1::Load()
 {
 	camera = new Camera(
-		Vector3f(0.0f, 0.0f, 10.0f),
+		Vector3f(0.0f, 0.0f, 15.0f),
 		0.0f, 0.0f);
 
 	mars = new Mars();
@@ -74,13 +93,13 @@ void ScreenChoice::Load()
 		Settings::UI::PanelColour);
 	labelChoiceTitle = new Label(
 		Vector2f(20 * horzSpacing, 7 * vertSpacing),
-		"<STAGE NAME>", fontPath,
+		"Heat and Atmosphere", fontPath,
 		Settings::UI::LabelColour,
 		true);
 	buttonChoice1 = new Button(
 		Vector2f(7 * horzSpacing, 8 * vertSpacing),
 		Vector2f(5 * horzSpacing, 5 * vertSpacing),
-		"<CHOICE 1>", fontPath,
+		"Asteroid", fontPath,
 		Settings::UI::ButtonColour);
 	buttonChoice2 = new Button(
 		Vector2f(14 * horzSpacing, 8 * vertSpacing),
@@ -104,7 +123,7 @@ void ScreenChoice::Load()
 		Settings::UI::PanelColour);
 	labelTitle = new Label(
 		Vector2f(20 * horzSpacing, 20 * vertSpacing),
-		"<CHOICE TITLE>", fontPath,
+		"Please choose a method.", fontPath,
 		Settings::UI::LabelColour,
 		true);
 	panelDescription = new Panel(
@@ -124,7 +143,7 @@ void ScreenChoice::Load()
 		Settings::UI::ButtonColour);
 }
 
-void ScreenChoice::Unload()
+void ScreenChoiceStage1::Unload()
 {
 	delete camera;
 	delete mars;

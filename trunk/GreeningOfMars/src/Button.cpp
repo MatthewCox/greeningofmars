@@ -47,3 +47,13 @@ bool Button::CheckClicked(const int &p_x, const int &p_y) const
 	}
 	return false;
 }
+
+char* Button::Name() const
+{
+	return label->Name();
+}
+
+void Button::Name(char* p_name)
+{
+	label->Name(p_name);
+}

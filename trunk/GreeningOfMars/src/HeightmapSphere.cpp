@@ -34,12 +34,14 @@ void HeightmapSphere::Draw()
 {
 	shader->Bind();
 	glPushMatrix();
-		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+		glTranslatef(position.X(), position.Y(), position.Z());
 		gluQuadricTexture(quadric, GL_TRUE);
 		gluQuadricNormals(quadric, GL_TRUE);
 		glActiveTexture(GL_TEXTURE0);
 		int textureLocation = glGetUniformLocation(shader->Id(), "marsHeightmap");
 		glUniform1i(textureLocation, 0);
+		int radiusLocation = glGetUniformLocation(shader->Id(), "radius");
+		glUniform1f(radiusLocation, radius);
 		glBindTexture(GL_TEXTURE_2D, texture->TextureID);
 		glActiveTexture(GL_TEXTURE0);
 		glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);

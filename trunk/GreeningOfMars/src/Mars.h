@@ -16,6 +16,7 @@ public:
 	void Draw();
 
 	CConditions* Conditions();
+	HeightmapSphere* Sphere();
 
 private:
 	CConditions *conditions;

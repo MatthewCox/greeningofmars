@@ -22,6 +22,8 @@ ScreenMenu::~ScreenMenu(void)
 
 void ScreenMenu::Update(float f_dt)
 {
+	mars->Update(f_dt);
+
 	for (std::vector<Button*>::iterator i = buttons->begin(); i != buttons->end(); ++i)
 	{
 		(*i)->Update(f_dt);
@@ -49,19 +51,19 @@ void ScreenMenu::Update(float f_dt)
 	}
 	else
 	{
-		if (camera->Position().Z() < 10.0f)
+		if (camera->Position().Z() < 15.0f)
 		{
 			camera->Position(
-				Vector3f(0.0f, 0.0f, 10.0f));
+				Vector3f(0.0f, 0.0f, 15.0f));
 
 			ScreenManager* screenManager = ScreenManager::GetInstance();
-			screenManager->ChangeScreen(new ScreenChoice());
+			screenManager->ChangeScreen(new ScreenChoiceStage1());
 		}
 		else
 		{
 			if (camera->Position().Z() < 100.0f)
 			{
-				if (moveSpeed > 5.0f)
+				if (moveSpeed > 2.0f)
 				{
 					moveSpeed -= 15.0f * f_dt;
 				}
@@ -94,11 +96,10 @@ void ScreenMenu::Draw()
 
 void ScreenMenu::Load()
 {
-	mars = new Mars();
-
 	camera = new Camera(
 		Vector3f(0.0f, 0.0f, 200.0f),
 		0.0f, 0.0f);
+	mars = new Mars();
 
 	transitioning = false;
 	moveSpeed = 50.0f;
@@ -152,8 +153,8 @@ void ScreenMenu::Load()
 
 void ScreenMenu::Unload()
 {
-	delete mars;
 	delete camera;
+	delete mars;
 
 	delete labelThe;
 	delete labelGreening;

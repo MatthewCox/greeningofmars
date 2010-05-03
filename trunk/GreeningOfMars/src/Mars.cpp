@@ -8,7 +8,7 @@ Mars::Mars(void)
 	heightmapSphere = new HeightmapSphere();
 	waterSphere = new WaterSphere();
 	heightmapSphere->Radius(5.0f);
-	waterSphere->Radius(5.0f);
+	waterSphere->Radius(conditions->GetWaterLevel());
 }
 
 Mars::~Mars(void)
@@ -32,6 +32,7 @@ void Mars::Draw()
 			position.X(),
 			position.Y(),
 			position.Z());
+		glColor3f(1.0f, 0.8f, 0.7f);
 		heightmapSphere->Draw();
 		waterSphere->Draw();
 	glPopMatrix();
@@ -40,4 +41,9 @@ void Mars::Draw()
 CConditions* Mars::Conditions()
 {
 	return conditions;
+}
+
+HeightmapSphere* Mars::Sphere()
+{
+	return heightmapSphere;
 }

@@ -2,7 +2,7 @@
 
 CConditions::CConditions(void)
 {
-	waterLevel = 5.0f;
+	waterLevel = 4.0f;
 }
 
 CConditions::~CConditions(void)

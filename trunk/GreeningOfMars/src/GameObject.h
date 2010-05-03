@@ -13,6 +13,9 @@ public:
 	virtual void Update(float f_dt) = 0;
 	virtual void Draw(void) = 0;
 
+	Vector3f Position() const;
+	void Position(Vector3f p_position);
+
 protected:
 	Vector3f position;
 };

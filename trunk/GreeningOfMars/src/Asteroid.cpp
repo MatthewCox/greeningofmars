@@ -22,7 +22,15 @@ Asteroid::~Asteroid(void)
 
 void Asteroid::Update(float f_dt)
 {
-	position += velocity * f_dt;
+	if (position.length() >= 2.0f)
+	{
+		position += velocity * f_dt;
+	}
+	else
+	{
+		position = Vector3f(0.0f);
+		velocity = Vector3f(0.0f);
+	}
 }
 
 void Asteroid::Draw()
@@ -32,4 +40,9 @@ void Asteroid::Draw()
 
 	HeightmapSphere::Draw();
 	glPopMatrix();
+}
+
+void Asteroid::Velocity(Vector3f p_velocity)
+{
+	velocity = p_velocity;
 }

@@ -19,6 +19,9 @@ public:
 	void Draw(void);
 	bool CheckClicked(const int &p_x, const int &p_y) const;
 
+	char* Name() const;
+	void Name(char* p_name);
+
 protected:
 	Label* label;
 };

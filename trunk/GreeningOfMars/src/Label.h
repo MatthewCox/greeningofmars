@@ -21,6 +21,9 @@ public:
 	virtual void Update(float f_dt);
 	void Draw();
 
+	char* Name() const;
+	void Name(char* p_name);
+
 protected:
 	char* name;
 	bool center;
