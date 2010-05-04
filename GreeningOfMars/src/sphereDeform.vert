@@ -4,6 +4,8 @@ varying vec3 LightDirection;
 varying vec3 ViewDirection;
 varying vec3 Normal;
 
+attribute vec3 Tangent;
+
 void main()
 {
 	vec4 inPos = gl_Vertex;
@@ -26,8 +28,24 @@ void main()
     
     Normal = gl_NormalMatrix * gl_Normal;
     vec4 Pos = gl_ModelViewMatrix * inPos;
+    
     ViewDirection = vec3(gl_ModelViewMatrix * gl_Vertex);
-	LightDirection = gl_LightSource[0].position.xyz - Pos.xyz;
+    vec3 n = normalize(gl_NormalMatrix * gl_Normal);
+	vec3 t = normalize(gl_NormalMatrix * Tangent);
+	vec3 b = cross(n, t);
+	
+	vec3 LightPosition = gl_LightSource[0].position.xyz;
+	
+	vec3 v;
+	v.x = dot(LightPosition, t);
+	v.y = dot(LightPosition, b);
+    v.z = dot(LightPosition, n);
+    LightDirection = normalize(v);
+    
+    v.x = dot(ViewDirection, t);
+	v.y = dot(ViewDirection, b);
+    v.z = dot(ViewDirection, n);
+    ViewDirection = normalize(v);
 	
 	gl_TexCoord[0] = gl_MultiTexCoord0;
 	gl_FrontColor = gl_Color;

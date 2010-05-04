@@ -1,11 +1,14 @@
 uniform sampler2D marsHeightmap;
 
 varying vec3 LightDirection;
+varying vec3 ViewDirection;
 varying vec3 Normal;
 
 void main()
 {
-	float lightDiffuse = max(dot(Normal, LightDirection), 0.0);
-	lightDiffuse = lightDiffuse * 0.3;
-	gl_FragColor = gl_Color * lightDiffuse * texture2D(marsHeightmap, gl_TexCoord[0].xy);
+	vec4 lightDiffuse = gl_Color * max(dot(Normal, LightDirection), 0.0);
+	lightDiffuse += max(dot(Normal, LightDirection), 0.1);
+	lightDiffuse.w = 1.0;
+	vec4 texColor = texture2D(marsHeightmap, gl_TexCoord[0].xy);
+	gl_FragColor = texColor * lightDiffuse;
 }
