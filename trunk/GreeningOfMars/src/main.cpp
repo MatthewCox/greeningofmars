@@ -206,11 +206,11 @@ void InitGL()
 
 	glEnable(GL_TEXTURE_2D);
 
-	GLfloat DiffuseLight[] = {1.0, 1.0, 1.0};
-	GLfloat AmbientLight[] = {0.0, 0.0, 0.0};
+	GLfloat DiffuseLight[] = {1.0f, 1.0f, 1.0f};
+	GLfloat AmbientLight[] = {0.1f, 0.1f, 0.1f};
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, DiffuseLight);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, AmbientLight);
-	GLfloat LightPosition[] = {0.0, 1.0, 1.0, 0.0};
+	GLfloat LightPosition[] = {0.0f, 1.0f, 2.0f, 1.0f};
 	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 }
 

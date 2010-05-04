@@ -7,7 +7,7 @@ varying vec2 TexCoord;
 
 void main()
 {
-	vec3 SurfaceColour = vec3(0.0, 0.2, 0.5);
+	vec3 SurfaceColour = vec3(0.2, 0.4, 0.8);
 	float Specular = 0.5;
 	
 	vec3 litColour;
