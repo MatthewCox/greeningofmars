@@ -210,7 +210,7 @@ void InitGL()
 	GLfloat AmbientLight[] = {0.1f, 0.1f, 0.1f};
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, DiffuseLight);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, AmbientLight);
-	GLfloat LightPosition[] = {0.0f, 1.0f, 2.0f, 1.0f};
+	GLfloat LightPosition[] = {1.0f, 0.0f, 1.0f, 1.0f};
 	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 }
 

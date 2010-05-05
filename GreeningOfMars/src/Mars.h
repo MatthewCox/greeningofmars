@@ -19,6 +19,7 @@ public:
 	HeightmapSphere* Sphere();
 
 private:
+	float angle;
 	CConditions *conditions;
 	HeightmapSphere *heightmapSphere;
 	WaterSphere *waterSphere;

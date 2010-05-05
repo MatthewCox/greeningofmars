@@ -592,6 +592,10 @@
 			Name="Class Diagrams"
 			>
 			<File
+				RelativePath=".\ScreenSystem.cd"
+				>
+			</File>
+			<File
 				RelativePath=".\UI Classes.cd"
 				>
 			</File>
