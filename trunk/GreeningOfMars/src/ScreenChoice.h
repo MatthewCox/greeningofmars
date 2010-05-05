@@ -15,7 +15,7 @@ class ScreenChoice : public Screen
 {
 public:
 	ScreenChoice(void);
-	~ScreenChoice(void);
+	~ScreenChoice(void) = 0;
 
 	virtual void Update(float f_dt);
 	virtual void Draw();

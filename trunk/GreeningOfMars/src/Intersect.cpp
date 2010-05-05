@@ -8,15 +8,16 @@ Vector3f Intersect::RaySphere(
 		bool &out_intersect)
 {
 	float A, B, C, t1, t2, discriminant;
+	Vector3f rayMinusSphere = p_rayOrigin - p_sphereCentre;
 	A = p_rayUnitDir.X()*p_rayUnitDir.X() +
 		p_rayUnitDir.Y()*p_rayUnitDir.Y() +
-		p_rayUnitDir.Z()*p_rayUnitDir.Z();
-	B = 2.0f*(p_rayUnitDir.X() * p_rayOrigin.X() +
-		p_rayUnitDir.Y() * p_rayOrigin.Y() +
-		p_rayUnitDir.Z() * p_rayOrigin.Z());
-	C = p_rayOrigin.X()*p_rayOrigin.X() +
-		p_rayOrigin.Y()*p_rayOrigin.Y() +
-		p_rayOrigin.Z()*p_rayOrigin.Z() -
+'		p_rayUnitDir.Z()*p_rayUnitDir.Z();
+	B = 2.0f*(p_rayUnitDir.X() * rayMinusSphere.X() +
+		p_rayUnitDir.Y() * rayMinusSphere.Y() +
+		p_rayUnitDir.Z() * rayMinusSphere.Z());
+	C = rayMinusSphere.X()*rayMinusSphere.X() +
+		rayMinusSphere.Y()*rayMinusSphere.Y() +
+		rayMinusSphere.Z()*rayMinusSphere.Z() -
 		p_sphereRadius*p_sphereRadius;
 	discriminant = B*B - 4*(A*C);
 

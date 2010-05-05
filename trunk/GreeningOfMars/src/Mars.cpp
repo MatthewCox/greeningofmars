@@ -4,6 +4,7 @@
 
 Mars::Mars(void)
 {
+	angle = 0.0f;
 	conditions = new CConditions();
 	heightmapSphere = new HeightmapSphere();
 	waterSphere = new WaterSphere();
@@ -20,6 +21,7 @@ Mars::~Mars(void)
 
 void Mars::Update(float f_dt)
 {
+	angle -= 1.0f * f_dt;
 	heightmapSphere->Update(f_dt);
 	waterSphere->Update(f_dt);
 	waterSphere->Radius(conditions->GetWaterLevel());
@@ -28,6 +30,7 @@ void Mars::Update(float f_dt)
 void Mars::Draw()
 {
 	glPushMatrix();
+		glRotatef(angle, 0.0f, 1.0f, 0.0f);
 		glTranslatef(
 			position.X(),
 			position.Y(),

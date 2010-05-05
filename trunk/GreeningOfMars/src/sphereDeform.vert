@@ -1,14 +1,12 @@
 uniform float radius;
 
-varying vec3 LightDirection;
-varying vec3 ViewDirection;
+varying vec3 LightPosition;
 varying vec3 Normal;
-
-attribute vec3 Tangent;
 
 void main()
 {
 	vec4 inPos = gl_Vertex;
+    //Normal = normalize(gl_NormalMatrix * gl_Normal);
 	Normal = gl_Normal;
 	
 	float factor = 0.3;
@@ -23,29 +21,12 @@ void main()
     disp.y += Normal.y * amp * f;
     disp.z += Normal.z * amp * f;
     inPos.xyz += disp;
+    Normal += disp;
     
 	gl_Position = gl_ModelViewProjectionMatrix * inPos;
     
-    Normal = gl_NormalMatrix * gl_Normal;
-    vec4 Pos = gl_ModelViewMatrix * inPos;
-    
-    ViewDirection = vec3(gl_ModelViewMatrix * gl_Vertex);
-    vec3 n = normalize(gl_NormalMatrix * gl_Normal);
-	vec3 t = normalize(gl_NormalMatrix * Tangent);
-	vec3 b = cross(n, t);
-	
-	vec3 LightPosition = gl_LightSource[0].position.xyz;
-	
-	vec3 v;
-	v.x = dot(LightPosition, t);
-	v.y = dot(LightPosition, b);
-    v.z = dot(LightPosition, n);
-    LightDirection = normalize(v);
-    
-    v.x = dot(ViewDirection, t);
-	v.y = dot(ViewDirection, b);
-    v.z = dot(ViewDirection, n);
-    ViewDirection = normalize(v);
+    Normal = normalize(gl_NormalMatrix * Normal);
+	LightPosition = normalize(gl_LightSource[0].position.xyz);
 	
 	gl_TexCoord[0] = gl_MultiTexCoord0;
 	gl_FrontColor = gl_Color;
