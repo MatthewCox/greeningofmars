@@ -11,7 +11,7 @@ Vector3f Intersect::RaySphere(
 	Vector3f rayMinusSphere = p_rayOrigin - p_sphereCentre;
 	A = p_rayUnitDir.X()*p_rayUnitDir.X() +
 		p_rayUnitDir.Y()*p_rayUnitDir.Y() +
-'		p_rayUnitDir.Z()*p_rayUnitDir.Z();
+		p_rayUnitDir.Z()*p_rayUnitDir.Z();
 	B = 2.0f*(p_rayUnitDir.X() * rayMinusSphere.X() +
 		p_rayUnitDir.Y() * rayMinusSphere.Y() +
 		p_rayUnitDir.Z() * rayMinusSphere.Z());

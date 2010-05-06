@@ -16,6 +16,9 @@ public:
 
 	void Velocity(Vector3f p_velocity);
 
+	bool Finished();
+
 private:
 	Vector3f velocity;
+	bool finished;
 };
