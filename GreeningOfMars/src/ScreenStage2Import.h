@@ -4,6 +4,7 @@
 
 #include "Camera.h"
 #include "Mars.h"
+#include "SwishyButton.h"
 
 class ScreenStage2Import : public Screen
 {
@@ -20,4 +21,6 @@ public:
 private:
 	Camera *camera;
 	Mars *mars;
+
+	SwishyButton *buttonNextStage;
 };

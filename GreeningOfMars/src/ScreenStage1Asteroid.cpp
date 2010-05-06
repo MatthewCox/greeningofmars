@@ -5,10 +5,14 @@
 #include "Camera.h"
 #include "Mars.h"
 #include "Asteroid.h"
+#include "Vector3f.h"
+#include "SwishyButton.h"
 
+#include "HUD.h"
 #include "Settings.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
+#include "Screens.h"
 
 #include "MousePick.h"
 #include "Intersect.h"
@@ -25,33 +29,10 @@ void ScreenStage1Asteroid::Update(float f_dt)
 {
 	mars->Update(f_dt);
 
-	asteroid->Update(f_dt);
-
-	if (KeyboardHandler::KeyState('w'))
-	{
-		camera->MoveForwards(Settings::Movement::Speed * f_dt);
-	}
-	if (KeyboardHandler::KeyState('s'))
-	{
-		camera->MoveBackwards(Settings::Movement::Speed * f_dt);
-	}
-	if (KeyboardHandler::KeyState('a'))
-	{
-		camera->MoveLeft(Settings::Movement::Speed * f_dt);
-	}
-	if (KeyboardHandler::KeyState('d'))
-	{
-		camera->MoveRight(Settings::Movement::Speed * f_dt);
-	}
-
 	int mouseX, mouseY;
 	MouseHandler::GetPosition(mouseX, mouseY);
-	if (MouseHandler::Pressed(2))
-	{
-		camera->MouseLook(mouseX, mouseY, Settings::Mouse::MovementRatio * f_dt);
-	}
 	mouseY = Settings::View::Height - mouseY;
-	if (MouseHandler::Pressed(0))
+	if (!asteroid->Finished() && MouseHandler::Pressed(0))
 	{
 		Vector3f startPoint;
 		Vector3f mouseRay = MousePick::MouseRay(
@@ -68,6 +49,46 @@ void ScreenStage1Asteroid::Update(float f_dt)
 		{
 			asteroid->Position(intersectionPoint.normalize() * 10.0f);
 			asteroid->Velocity(-intersectionPoint.normalize() * 3.0f);
+		}
+	}
+
+	MouseHandler::GetPosition(mouseX, mouseY);
+	if (asteroid->Position() != Vector3f(0.0f))
+	{
+		asteroid->Update(f_dt);
+	}
+	else if (intersectionPoint != Vector3f(0.0f))
+	{
+		buttonNextStage->Update(f_dt);
+
+		if (MouseHandler::Pressed(0) && buttonNextStage->CheckClicked(mouseX, mouseY))
+		{
+			ScreenManager::GetInstance()->ChangeScreen(new ScreenChoiceWater());
+		}
+	}
+
+	if (KeyboardHandler::KeyState('v'))
+	{
+		if (KeyboardHandler::KeyState('w'))
+		{
+			camera->MoveForwards(Settings::Movement::Speed * f_dt);
+		}
+		if (KeyboardHandler::KeyState('s'))
+		{
+			camera->MoveBackwards(Settings::Movement::Speed * f_dt);
+		}
+		if (KeyboardHandler::KeyState('a'))
+		{
+			camera->MoveLeft(Settings::Movement::Speed * f_dt);
+		}
+		if (KeyboardHandler::KeyState('d'))
+		{
+			camera->MoveRight(Settings::Movement::Speed * f_dt);
+		}
+
+		if (MouseHandler::Pressed(2))
+		{
+			camera->MouseLook(mouseX, mouseY, Settings::Mouse::MovementRatio * f_dt);
 		}
 	}
 }
@@ -91,6 +112,10 @@ void ScreenStage1Asteroid::Draw()
 		intersectionPoint.Y() * 2.0f,
 		intersectionPoint.Z() * 2.0f);
 	glEnd();
+
+	HUD::Start(Settings::View::Width, Settings::View::Height);
+		buttonNextStage->Draw();
+	HUD::End();
 }
 
 void ScreenStage1Asteroid::Load()
@@ -105,10 +130,21 @@ void ScreenStage1Asteroid::Load()
 	asteroid->Radius(0.25f);
 
 	intersectionPoint = Vector3f(0.0f);
+
+	buttonNextStage = new SwishyButton(
+		Vector2f(Settings::View::Width - 160.0f, Settings::View::Height - 40.0f),
+		Vector2f(180.0f, 40.0f),
+		"Next Stage",
+		Settings::UI::FontPath,
+		Settings::UI::ButtonColour,
+		1);
+	buttonNextStage->SwishOn();
 }
 
 void ScreenStage1Asteroid::Unload()
 {
 	delete mars;
 	delete camera;
+	delete asteroid;
+	delete buttonNextStage;
 }

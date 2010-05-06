@@ -27,10 +27,6 @@ void ScreenChoiceHeat::Update(float f_dt)
 			{
 				ScreenManager::GetInstance()->ChangeScreen(new ScreenStage1Asteroid());
 			}
-			else if (labelChoiceTitle->Name() == buttonChoice2->Name())
-			{
-				ScreenManager::GetInstance()->ChangeScreen(new ScreenStage2Import());
-			}
 			else
 			{
 				labelChoiceTitle->Name("Please choose a method.");
@@ -50,7 +46,7 @@ void ScreenChoiceHeat::Load()
 
 	labelTitle->Name("Heat and Atmosphere");
 	buttonChoice1->Name("Asteroid");
-	buttonChoice2->Name("Import");
+	buttonChoice2->Name("");
 	buttonChoice3->Name("");
 	buttonChoice4->Name("");
 }

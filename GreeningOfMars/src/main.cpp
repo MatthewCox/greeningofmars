@@ -59,6 +59,7 @@ void Reshape(int w, int h)
 // Called when the program is idle
 void Idle(void)
 {
+	// Timer to make motion independent of framerate
 	time = glutGet(GLUT_ELAPSED_TIME);
 	
 	dt = (time - timebase);
@@ -76,11 +77,14 @@ void Idle(void)
 	{
 		totaldt += dt;
 	}
+	// End timer code
 
 	screenManager->Update(f_dt);
 
+	// Global controls
 	if (KeyboardHandler::KeyState(27)) // Esc Key
 	{
+		Settings::Save(".\\settings.ini");
 		exit(0);
 	}
 
@@ -108,6 +112,8 @@ void Idle(void)
 		glEnable(GL_CULL_FACE);
 	}
 
+	// Fullscreen... seems to not revert the view size when going back to windowed.
+	// Probably needs it's own width and height defined in the settings.
 	if (KeyboardHandler::SpecialKeyState(GLUT_KEY_F11))
 	{
 		if (Settings::View::Fullscreen)
@@ -224,7 +230,7 @@ int main(int argc, char **argv)
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(Settings::View::Width, Settings::View::Height);
 	glutInitWindowPosition(0, 0);
-	glutCreateWindow("MarsRTS");
+	glutCreateWindow("The Greening of Mars");
 	glewInit();
 	
 	glutDisplayFunc(Display);

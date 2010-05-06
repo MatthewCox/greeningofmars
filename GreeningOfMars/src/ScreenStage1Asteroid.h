@@ -5,6 +5,8 @@
 #include "Camera.h"
 #include "Mars.h"
 #include "Asteroid.h"
+#include "Vector3f.h"
+#include "SwishyButton.h"
 
 class ScreenStage1Asteroid : public Screen
 {
@@ -24,4 +26,6 @@ private:
 	Asteroid *asteroid;
 
 	Vector3f intersectionPoint;
+
+	SwishyButton *buttonNextStage;
 };

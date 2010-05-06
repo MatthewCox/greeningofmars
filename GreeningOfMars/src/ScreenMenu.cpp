@@ -29,6 +29,7 @@ void ScreenMenu::Update(float f_dt)
 		(*i)->Update(f_dt);
 	}
 
+	// Start button not pressed yet
 	if (!transitioning)
 	{
 		if (MouseHandler::Pressed(0))
@@ -49,6 +50,7 @@ void ScreenMenu::Update(float f_dt)
 			}
 		}
 	}
+	// Start button pressed, moving camera towards Mars
 	else
 	{
 		if (camera->Position().Z() < 15.0f)
@@ -75,10 +77,12 @@ void ScreenMenu::Update(float f_dt)
 
 void ScreenMenu::Draw()
 {
+	// Game Objects
 	camera->Display();
 
 	mars->Draw();
 
+	// UI
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 
 	labelThe->Draw();
@@ -96,6 +100,7 @@ void ScreenMenu::Draw()
 
 void ScreenMenu::Load()
 {
+	// Game object init
 	camera = new Camera(
 		Vector3f(0.0f, 0.0f, 200.0f),
 		0.0f, 0.0f);
@@ -104,6 +109,7 @@ void ScreenMenu::Load()
 	transitioning = false;
 	moveSpeed = 50.0f;
 
+	// UI init
 	float titleSpacing = Settings::View::Height / 25.0f;
 
 	ColourA red = ColourA(1.0f, 0.0f, 0.0f, 1.0f);

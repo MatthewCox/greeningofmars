@@ -8,12 +8,14 @@ Asteroid::Asteroid(void)
 {
 	position = Vector3f(0.0f);
 	velocity = Vector3f(0.0f);
+	finished = false;
 }
 
 Asteroid::Asteroid(Vector3f p_position, Vector3f p_velocity)
 {
 	position = p_position;
 	velocity = p_velocity;
+	finished = false;
 }
 
 Asteroid::~Asteroid(void)
@@ -22,14 +24,15 @@ Asteroid::~Asteroid(void)
 
 void Asteroid::Update(float f_dt)
 {
-	if (position.length() >= 2.0f)
+	if (!finished && position.length() >= 2.0f)
 	{
 		position += velocity * f_dt;
 	}
-	else
+	else if (!finished && velocity != Vector3f(0.0f))
 	{
 		position = Vector3f(0.0f);
 		velocity = Vector3f(0.0f);
+		finished = true;
 	}
 }
 
@@ -45,4 +48,9 @@ void Asteroid::Draw()
 void Asteroid::Velocity(Vector3f p_velocity)
 {
 	velocity = p_velocity;
+}
+
+bool Asteroid::Finished()
+{
+	return finished;
 }
