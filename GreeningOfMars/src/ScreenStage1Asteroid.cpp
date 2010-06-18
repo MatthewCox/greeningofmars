@@ -101,17 +101,20 @@ void ScreenStage1Asteroid::Draw()
 
 	asteroid->Draw();
 
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_LINES);
-	glVertex3f(
-		intersectionPoint.X(),
-		intersectionPoint.Y(),
-		intersectionPoint.Z());
-	glVertex3f(
-		intersectionPoint.X() * 2.0f,
-		intersectionPoint.Y() * 2.0f,
-		intersectionPoint.Z() * 2.0f);
-	glEnd();
+	if (!asteroid->Finished())
+	{
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glBegin(GL_LINES);
+		glVertex3f(
+			intersectionPoint.X(),
+			intersectionPoint.Y(),
+			intersectionPoint.Z());
+		glVertex3f(
+			intersectionPoint.X() * 2.0f,
+			intersectionPoint.Y() * 2.0f,
+			intersectionPoint.Z() * 2.0f);
+		glEnd();
+	}
 
 	HUD::Start(Settings::View::Width, Settings::View::Height);
 		buttonNextStage->Draw();
