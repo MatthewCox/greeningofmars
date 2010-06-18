@@ -46,9 +46,9 @@ void ScreenChoiceWater::Load()
 
 	labelTitle->Name("Water");
 	buttonChoice1->Name("Import");
-	buttonChoice2->Name("");
-	buttonChoice3->Name("");
-	buttonChoice4->Name("");
+	buttonChoice2->Name("Asteroids");
+	buttonChoice3->Name("Reactions");
+	buttonChoice4->Name("Ice Caps");
 }
 
 void ScreenChoiceWater::Unload()

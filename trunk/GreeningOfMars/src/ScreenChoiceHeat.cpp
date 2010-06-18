@@ -23,7 +23,7 @@ void ScreenChoiceHeat::Update(float f_dt)
 
 		if (buttonGo->CheckClicked(mouseX, mouseY))
 		{
-			if (labelChoiceTitle->Name() == buttonChoice1->Name())
+			if (labelChoiceTitle->Name() == buttonChoice2->Name())
 			{
 				ScreenManager::GetInstance()->ChangeScreen(new ScreenStage1Asteroid());
 			}
@@ -45,10 +45,10 @@ void ScreenChoiceHeat::Load()
 	ScreenChoice::Load();
 
 	labelTitle->Name("Heat and Atmosphere");
-	buttonChoice1->Name("Asteroid");
-	buttonChoice2->Name("");
-	buttonChoice3->Name("");
-	buttonChoice4->Name("");
+	buttonChoice1->Name("Greenhouse");
+	buttonChoice2->Name("Asteroid");
+	buttonChoice3->Name("Surface");
+	buttonChoice4->Name("Machines");
 }
 
 void ScreenChoiceHeat::Unload()
