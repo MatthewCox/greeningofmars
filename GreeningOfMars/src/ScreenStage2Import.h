@@ -6,7 +6,7 @@
 #include "Mars.h"
 #include "SwishyButton.h"
 
-class ScreenStage2Import : public Screen
+class ScreenStage2Import : public CScreen
 {
 public:
 	ScreenStage2Import(void);

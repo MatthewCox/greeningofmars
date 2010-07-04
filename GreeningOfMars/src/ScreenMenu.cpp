@@ -32,7 +32,7 @@ void ScreenMenu::Update(float f_dt)
 	// Start button not pressed yet
 	if (!transitioning)
 	{
-		if (MouseHandler::Pressed(0))
+		if (MouseHandler::Released(0))
 		{
 			int mouseX = 0;
 			int mouseY = 0;
@@ -58,7 +58,7 @@ void ScreenMenu::Update(float f_dt)
 			camera->Position(
 				Vector3f(0.0f, 0.0f, 15.0f));
 
-			ScreenManager* screenManager = ScreenManager::GetInstance();
+			CScreenManager* screenManager = CScreenManager::GetInstance();
 			screenManager->ChangeScreen(new ScreenChoiceHeat());
 		}
 		else

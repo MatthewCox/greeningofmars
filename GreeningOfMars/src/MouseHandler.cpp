@@ -1,36 +1,51 @@
 #include "MouseHandler.h"
 
-bool MouseHandler::buttonState[3] = { false };
+bool MouseHandler::buttonState[5] = { false };
 int MouseHandler::mouseX = 0;
 int MouseHandler::mouseY = 0;
 
-bool MouseHandler::previousButtonState[3] = { false };
-int MouseHandler::previousMouseX = 0;
-int MouseHandler::previousMouseY = 0;
+bool MouseHandler::oldButtonState[5] = { false };
+int MouseHandler::oldMouseX = 0;
+int MouseHandler::oldMouseY = 0;
 
-MouseHandler::MouseHandler(void)
+void MouseHandler::Update()
 {
-
+	for (int i = 0; i < 5; ++i)
+	{
+		oldButtonState[i] = buttonState[i];
+	}
+	oldMouseX = mouseX;
+	oldMouseY = mouseY;
 }
 
-MouseHandler::~MouseHandler(void)
-{
-}
-
-bool MouseHandler::Pressed(int button)
+bool MouseHandler::Held(int button)
 {
 	return buttonState[button];
 }
-
+bool MouseHandler::Pressed(int button)
+{
+	return (Held(button) && !oldButtonState[button]);
+}
+bool MouseHandler::Released(int button)
+{
+	return (!Held(button) && oldButtonState[button]);
+}
 void MouseHandler::GetPosition(int &outX, int &outY)
 {
 	outX = mouseX;
 	outY = mouseY;
 }
 
-void MouseHandler::SetState(int button, bool state)
+void MouseHandler::SetState(int button, int state)
 {
-	buttonState[button] = state;
+	if (state == 0)
+	{
+		buttonState[button] = true;
+	}
+	else
+	{
+		buttonState[button] = false;
+	}
 }
 
 void MouseHandler::SetPosition(int x, int y)

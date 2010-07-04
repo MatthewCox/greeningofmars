@@ -1,26 +1,38 @@
 #include "Camera.h"
 
-#include <math.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include <GL/freeglut.h>
 
+#include "Vector3f.h"
+
 Camera::Camera(void)
 {
-	m_position = Vector3f(0.0f);
-	m_rotationX = 0;
-	m_rotationY = 0;
-	m_lastX = -1;
-	m_lastY = -1;
+	position = Vector3f(0.f);
+	viewDir = Vector3f(0.f);
+	rotationX = 0;
+	rotationY = 0;
+	lastX = -1;
+	lastY = -1;
 }
-
 Camera::Camera(Vector3f p_position, float p_rotationX, float p_rotationY)
 {
-	m_position = p_position;
-	m_rotationX = p_rotationX;
-	m_rotationY = p_rotationY;
-	m_lastX = -1;
-	m_lastY = -1;
+	position = p_position;
+	viewDir = Vector3f(0.f);
+	rotationX = p_rotationX;
+	rotationY = p_rotationY;
+	lastX = -1;
+	lastY = -1;
+}
+Camera::Camera(Vector3f p_position, Vector3f p_viewDir, float p_rotationX, float p_rotationY)
+{
+	position = p_position;
+	viewDir = p_viewDir;
+	rotationX = p_rotationX;
+	rotationY = p_rotationY;
+	lastX = -1;
+	lastY = -1;
 }
 
 Camera::~Camera(void)
@@ -29,165 +41,164 @@ Camera::~Camera(void)
 
 Vector3f Camera::Position()
 {
-	return m_position;
+	return position;
 }
 
 float Camera::RotationX()
 {
-	return m_rotationX;
+	return rotationX;
 }
 
 float Camera::RotationY()
 {
-	return m_rotationY;
+	return rotationY;
 }
 
 void Camera::Position(Vector3f p_position)
 {
-	m_position = p_position;
+	position = p_position;
 }
 
 void Camera::RotationX(float p_rotationX)
 {
-	m_rotationX = p_rotationX;
+	rotationX = p_rotationX;
 }
 
 void Camera::Display()
 {
 	glRotatef(
-		m_rotationX,
+		rotationX,
 		1.0,
 		0.0,
 		0.0
 	); //rotate our camera on the x-axis (up and down)
 	glRotatef(
-		m_rotationY,
+		rotationY,
 		0.0,
 		1.0,
 		0.0
 	); //rotate our camera on the y-axis (left and right)
 	glTranslatef(
-		-m_position.X(),
-		-m_position.Y(),
-		-m_position.Z()
+		-position.X(),
+		-position.Y(),
+		-position.Z()
 	); //translate the screen to the position of our camera
 }
 
-void Camera::MoveForwards(float p_move_speed)
+void Camera::MoveForwards(float p_moveSpeed)
 {
-	float yrotrad = (m_rotationY / 180 * 3.141592654f);
-	float xrotrad = (m_rotationX / 180 * 3.141592654f);
-	m_position = Vector3f(
-		m_position.X() + (float(sin(yrotrad)) * p_move_speed),
-		m_position.Y() - (float(sin(xrotrad)) * p_move_speed),
-		m_position.Z() - (float(cos(yrotrad)) * p_move_speed)
+//	position -= viewDir * p_moveSpeed;
+ 	float yrotrad = ((rotationY / 180) * 3.141592654f);
+ 	float xrotrad = ((rotationX / 180) * 3.141592654f);
+ 	position = Vector3f(
+ 		position.X() + (float(sin(yrotrad)) * p_moveSpeed),
+ 		position.Y() - (float(sin(xrotrad)) * p_moveSpeed),
+ 		position.Z() - (float(cos(yrotrad)) * p_moveSpeed)
+ 	);
+}
+
+void Camera::MoveBackwards(float p_moveSpeed)
+{
+	MoveForwards(-p_moveSpeed);
+}
+
+void Camera::MoveLeft(float p_moveSpeed)
+{
+	float yrotrad = ((rotationY / 180) * 3.141592654f);
+	position = Vector3f(
+		position.X() - (float(cos(yrotrad)) * p_moveSpeed),
+		position.Y(),
+		position.Z() - (float(sin(yrotrad)) * p_moveSpeed)
 	);
 }
 
-void Camera::MoveBackwards(float p_move_speed)
+void Camera::MoveRight(float p_moveSpeed)
 {
-	float yrotrad = (m_rotationY / 180 * 3.141592654f);
-	float xrotrad = (m_rotationX / 180 * 3.141592654f);
-	m_position = Vector3f(
-		m_position.X() - (float(sin(yrotrad)) * p_move_speed),
-		m_position.Y() + (float(sin(xrotrad)) * p_move_speed),
-		m_position.Z() + (float(cos(yrotrad)) * p_move_speed)
-	);
+	MoveLeft(-p_moveSpeed);
 }
 
-void Camera::MoveLeft(float p_move_speed)
+void Camera::RotateUp(float p_rotateSpeed)
 {
-	float yrotrad = (m_rotationY / 180 * 3.141592654f);
-	m_position = Vector3f(
-		m_position.X() - (float(cos(yrotrad)) * p_move_speed),
-		m_position.Y(),
-		m_position.Z() - (float(sin(yrotrad)) * p_move_speed)
-	);
-}
-
-void Camera::MoveRight(float p_move_speed)
-{
-	float yrotrad = (m_rotationY / 180 * 3.141592654f);
-	m_position = Vector3f(
-		m_position.X() + (float(cos(yrotrad)) * p_move_speed),
-		m_position.Y(),
-		m_position.Z() + (float(sin(yrotrad)) * p_move_speed)
-	);
-}
-
-void Camera::RotateUp(float p_rotate_speed)
-{
-	m_rotationX -= p_rotate_speed;
-	if (m_rotationX < -360)
+	rotationX -= p_rotateSpeed;
+	if (rotationX < 0)
 	{
-		m_rotationX += 360;
+		rotationX += 360;
 	}
 }
 
-void Camera::RotateDown(float p_rotate_speed)
+void Camera::RotateDown(float p_rotateSpeed)
 {
-	m_rotationX += p_rotate_speed;
-	if (m_rotationX > 360)
+	rotationX += p_rotateSpeed;
+	if (rotationX >= 360)
 	{
-		m_rotationX -= 360;
+		rotationX -= 360;
 	}
 }
 
-void Camera::RotateLeft(float p_rotate_speed)
+void Camera::RotateLeft(float p_rotateSpeed)
 {
-	m_rotationY -= p_rotate_speed;
-	if (m_rotationY < -360)
+	rotationY -= p_rotateSpeed;
+	if (rotationY < 0)
 	{
-		m_rotationY += 360;
+		rotationY += 360;
 	}
 }
 
-void Camera::RotateRight(float p_rotate_speed)
+void Camera::RotateRight(float p_rotateSpeed)
 {
-	m_rotationY += p_rotate_speed;
-	if (m_rotationY > 360)
+	rotationY += p_rotateSpeed;
+	if (rotationY >= 360)
 	{
-		m_rotationY -= 360;
+		rotationY -= 360;
 	}
 }
 
-void Camera::MouseLook(int p_x, int p_y, float p_movement_ratio)
+void Camera::MouseLook(int p_x, int p_y, float p_movementRatio)
 {
-	if (m_lastX < 0 && m_lastY < 0)
+	if (lastX < 0 && lastY < 0)
 	{
-		m_lastX = p_x;
-		m_lastY = p_y;
+		lastX = p_x;
+		lastY = p_y;
 	}
 
-	int dx = p_x - m_lastX;
-	int dy = p_y - m_lastY;
+	float dx = (float)(p_x - lastX) * p_movementRatio;
+	float dy = (float)(p_y - lastY) * p_movementRatio;
 
-	m_lastX = p_x;
-	m_lastY = p_y;
+	lastX = p_x;
+	lastY = p_y;
 
-	if (dx == 0 && dy == 0)
+	if (dx == 0.f && dy == 0.f)
 	{
 		return;
 	}
+
+	/*viewDir = Vector3f(
+		viewDir.Z() * sin(dx) + viewDir.X() * cos(dx),
+		viewDir.Y(),
+		viewDir.Z() * cos(dx) - viewDir.X() * sin(dx));
+	viewDir = Vector3f(
+		viewDir.X(),
+		viewDir.Y() * cos(dy) - viewDir.Z() * sin(dy),
+		viewDir.Y() * sin(dy) + viewDir.Z() * cos(dy));*/
 
 	int windowLeft = 0;
 	int windowTop = 0;
 	int windowRight = glutGet(GLUT_WINDOW_WIDTH);
 	int windowBottom = glutGet(GLUT_WINDOW_HEIGHT);
 
-	m_lastX = windowRight/2;
-	m_lastY = windowBottom/2;
-	glutWarpPointer(m_lastX, m_lastY);
+	lastX = windowRight/2;
+	lastY = windowBottom/2;
+	glutWarpPointer(lastX, lastY);
 
-	m_rotationX += (float)dy * p_movement_ratio;
-	m_rotationY += (float)dx * p_movement_ratio;
+	rotationX += (float)dy;
+	rotationY += (float)dx;
 
-	if (m_rotationX > 90)
+	if (rotationX > 90)
 	{
-		m_rotationX = 90;
+		rotationX = 90;
 	}
-	else if (m_rotationX < -90)
+	else if (rotationX < -90)
 	{
-		m_rotationX = -90;
+		rotationX = -90;
 	}
 }

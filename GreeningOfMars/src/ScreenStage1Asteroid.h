@@ -8,7 +8,7 @@
 #include "Vector3f.h"
 #include "SwishyButton.h"
 
-class ScreenStage1Asteroid : public Screen
+class ScreenStage1Asteroid : public CScreen
 {
 public:
 	ScreenStage1Asteroid(void);

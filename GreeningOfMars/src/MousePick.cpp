@@ -1,5 +1,7 @@
 #include "MousePick.h"
 
+#include <GL/freeglut.h>
+
 Vector3f MousePick::MouseRay(int p_mouseX, int p_mouseY,
 							 Vector3f &out_startPoint)
 {

@@ -14,12 +14,12 @@ int time = 0, timebase = 0;
 int dt, totaldt, frames;
 float f_dt;
 
-ScreenManager* screenManager;
+CScreenManager* screenManager;
 
 // Initialize all of the various objects that are to be used
 void Init(char **argv)
 {
-	screenManager = ScreenManager::GetInstance();
+	screenManager = CScreenManager::GetInstance();
 	screenManager->ChangeScreen(new ScreenMenu());
 }
 
@@ -82,39 +82,39 @@ void Idle(void)
 	screenManager->Update(f_dt);
 
 	// Global controls
-	if (KeyboardHandler::KeyState(27)) // Esc Key
+	if (KeyboardHandler::Pressed(27)) // Esc Key
 	{
 		Settings::Save(".\\settings.ini");
 		exit(0);
 	}
 
-	if (KeyboardHandler::KeyState('1'))
+	if (KeyboardHandler::Pressed('1'))
 	{
 		screenManager->ChangeScreen(new ScreenMenu());
 	}
-	if (KeyboardHandler::KeyState('2'))
+	if (KeyboardHandler::Pressed('2'))
 	{
 		screenManager->ChangeScreen(new ScreenChoiceHeat());
 	}
-	if (KeyboardHandler::KeyState('3'))
+	if (KeyboardHandler::Pressed('3'))
 	{
 		screenManager->ChangeScreen(new ScreenStage1Asteroid());
 	}
 
-	if (KeyboardHandler::KeyState('q'))
+	if (KeyboardHandler::Pressed('q'))
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		glDisable(GL_CULL_FACE);
 	}
-	if (KeyboardHandler::KeyState('e'))
+	if (KeyboardHandler::Released('q'))
 	{
-		glPolygonMode(GL_FRONT, GL_FILL);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glEnable(GL_CULL_FACE);
 	}
 
 	// Fullscreen... seems to not revert the view size when going back to windowed.
 	// Probably needs it's own width and height defined in the settings.
-	if (KeyboardHandler::SpecialKeyState(GLUT_KEY_F11))
+	if (KeyboardHandler::SpecialPressed(GLUT_KEY_F11))
 	{
 		if (Settings::View::Fullscreen)
 		{
@@ -128,6 +128,9 @@ void Idle(void)
 			Settings::View::Fullscreen = true;
 		}
 	}
+
+	KeyboardHandler::Update();
+	MouseHandler::Update();
 
 	glutPostRedisplay();
 }
@@ -157,16 +160,7 @@ void SpecialKeyboardUp(int key, int x, int y)
 // Called when the mouse is clicked
 void Mouse(int button, int state, int x, int y)
 {
-	bool bState;
-	if (state == 0)
-	{
-		bState = true;
-	}
-	else
-	{
-		bState = false;
-	}
-	MouseHandler::SetState(button, bState);
+	MouseHandler::SetState(button, state);
 	MouseHandler::SetPosition(x, y);
 }
 

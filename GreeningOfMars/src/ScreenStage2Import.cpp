@@ -35,9 +35,9 @@ void ScreenStage2Import::Update(float f_dt)
 
 		int mouseX, mouseY;
 		MouseHandler::GetPosition(mouseX, mouseY);
-		if (MouseHandler::Pressed(0) && buttonNextStage->CheckClicked(mouseX, mouseY))
+		if (MouseHandler::Released(0) && buttonNextStage->CheckClicked(mouseX, mouseY))
 		{
-			ScreenManager::GetInstance()->ChangeScreen(new ScreenMenu());
+			CScreenManager::GetInstance()->ChangeScreen(new ScreenMenu());
 		}
 	}
 }

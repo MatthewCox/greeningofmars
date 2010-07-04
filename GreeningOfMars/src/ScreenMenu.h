@@ -9,7 +9,7 @@
 #include "SwishyButton.h"
 #include "Label.h"
 
-class ScreenMenu : public Screen
+class ScreenMenu : public CScreen
 {
 public:
 	ScreenMenu(void);

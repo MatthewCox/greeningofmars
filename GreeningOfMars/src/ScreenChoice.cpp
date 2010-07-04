@@ -28,7 +28,7 @@ void ScreenChoice::Update(float f_dt)
 {
 	mars->Update(f_dt);
 
-	if (MouseHandler::Pressed(0))
+	if (MouseHandler::Released(0))
 	{
 		int mouseX = 0;
 		int mouseY = 0;

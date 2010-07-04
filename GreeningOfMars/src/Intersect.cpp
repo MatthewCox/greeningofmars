@@ -2,6 +2,8 @@
 
 #include <math.h>
 
+#include "Vector3f.h"
+
 Vector3f Intersect::RaySphere(
 		Vector3f p_rayOrigin, Vector3f p_rayUnitDir,
 		Vector3f p_sphereCentre, float p_sphereRadius,
