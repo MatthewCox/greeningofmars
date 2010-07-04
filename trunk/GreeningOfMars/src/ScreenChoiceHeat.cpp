@@ -15,7 +15,7 @@ void ScreenChoiceHeat::Update(float f_dt)
 {
 	ScreenChoice::Update(f_dt);
 
-	if (MouseHandler::Pressed(0))
+	if (MouseHandler::Released(0))
 	{
 		int mouseX = 0;
 		int mouseY = 0;
@@ -25,7 +25,7 @@ void ScreenChoiceHeat::Update(float f_dt)
 		{
 			if (labelChoiceTitle->Name() == buttonChoice2->Name())
 			{
-				ScreenManager::GetInstance()->ChangeScreen(new ScreenStage1Asteroid());
+				CScreenManager::GetInstance()->ChangeScreen(new ScreenStage1Asteroid());
 			}
 			else
 			{

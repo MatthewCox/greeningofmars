@@ -11,7 +11,7 @@
 #include "Label.h"
 #include "Button.h"
 
-class ScreenChoice : public Screen
+class ScreenChoice : public CScreen
 {
 public:
 	ScreenChoice(void);

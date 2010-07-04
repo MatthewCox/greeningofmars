@@ -1,10 +1,10 @@
 #pragma once
 
-class Screen
+class CScreen
 {
 public:
-	Screen(void);
-	virtual ~Screen(void);
+	CScreen(void);
+	virtual ~CScreen(void);
 
 	virtual void Update(float f_dt) = 0;
 	virtual void Draw() = 0;

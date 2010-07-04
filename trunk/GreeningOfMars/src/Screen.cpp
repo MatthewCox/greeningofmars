@@ -1,9 +1,9 @@
 #include "Screen.h"
 
-Screen::Screen(void)
+CScreen::CScreen(void)
 {
 }
 
-Screen::~Screen(void)
+CScreen::~CScreen(void)
 {
 }

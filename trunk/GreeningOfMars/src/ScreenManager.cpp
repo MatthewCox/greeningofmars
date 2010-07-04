@@ -1,45 +1,69 @@
 #include "ScreenManager.h"
 
+#include <vector>
+
 #include "Screen.h"
 
-ScreenManager* ScreenManager::thisInstance = new ScreenManager();
+CScreenManager* CScreenManager::thisInstance = new CScreenManager();
 
-ScreenManager::ScreenManager(void)
-{
-	currentScreen = 0;
-}
-
-ScreenManager::~ScreenManager(void)
+CScreenManager::CScreenManager(void)
 {
 }
 
-ScreenManager* ScreenManager::GetInstance()
+CScreenManager::~CScreenManager(void)
+{
+}
+
+CScreenManager* CScreenManager::GetInstance()
 {
 	if (thisInstance == 0)
 	{
-		thisInstance = new ScreenManager();
+		thisInstance = new CScreenManager();
 	}
 	return thisInstance;
 }
 
-void ScreenManager::Update(float f_dt)
+void CScreenManager::Update(float f_dt)
 {
-	currentScreen->Update(f_dt);
+	// Update only the top-most screen in the stack
+	screens.back()->Update(f_dt);
 }
 
-void ScreenManager::Draw()
+void CScreenManager::Draw()
 {
-	currentScreen->Draw();
-}
-
-void ScreenManager::ChangeScreen(Screen* newScreen)
-{
-	if (currentScreen != 0)
+	// Draw all screens in the stack, starting from the bottom
+	for (std::vector<CScreen*>::iterator i = screens.begin(); i != screens.end(); ++i)
 	{
-		currentScreen->Unload();
-		delete currentScreen;
-		currentScreen = 0;
+		(*i)->Draw();
 	}
-	newScreen->Load();
-	currentScreen = newScreen;
+}
+
+void CScreenManager::ChangeScreen(CScreen* newScreen)
+{
+	if (!screens.empty())
+	{
+		PopScreen();
+	}
+
+	PushScreen(newScreen);
+}
+
+void CScreenManager::PushScreen(CScreen* newScreen)
+{
+	screens.push_back(newScreen);
+	screens.back()->Load();
+}
+
+void CScreenManager::PopScreen()
+{
+	screens.back()->Unload();
+	screens.pop_back();
+}
+
+void CScreenManager::Unload()
+{
+	while (!screens.empty())
+	{
+		PopScreen();
+	}
 }

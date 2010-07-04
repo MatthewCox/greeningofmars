@@ -1,21 +1,30 @@
 #pragma once
 
+#include <vector>
+
 #include "Screen.h"
 
-class ScreenManager
+class CScreenManager
 {
-private:
-	static ScreenManager* thisInstance;
-	Screen* currentScreen;
-
 public:
-	ScreenManager(void);
-	~ScreenManager(void);
+	~CScreenManager(void);
 
-	static ScreenManager* GetInstance();
+	static CScreenManager* GetInstance();
 
 	void Update(float f_dt);
 	void Draw();
 
-	void ChangeScreen(Screen* newScreen);
+	void ChangeScreen(CScreen* newScreen);
+	void PushScreen(CScreen* newScreen);
+	void PopScreen();
+
+	void Unload();
+
+protected:
+	CScreenManager(void);
+
+private:
+	static CScreenManager* thisInstance;
+
+	std::vector<CScreen*> screens;
 };

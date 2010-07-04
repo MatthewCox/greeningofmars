@@ -32,7 +32,7 @@ void ScreenStage1Asteroid::Update(float f_dt)
 	int mouseX, mouseY;
 	MouseHandler::GetPosition(mouseX, mouseY);
 	mouseY = Settings::View::Height - mouseY;
-	if (!asteroid->Finished() && MouseHandler::Pressed(0))
+	if (!asteroid->Finished() && MouseHandler::Held(0))
 	{
 		Vector3f startPoint;
 		Vector3f mouseRay = MousePick::MouseRay(
@@ -61,32 +61,32 @@ void ScreenStage1Asteroid::Update(float f_dt)
 	{
 		buttonNextStage->Update(f_dt);
 
-		if (MouseHandler::Pressed(0) && buttonNextStage->CheckClicked(mouseX, mouseY))
+		if (MouseHandler::Released(0) && buttonNextStage->CheckClicked(mouseX, mouseY))
 		{
-			ScreenManager::GetInstance()->ChangeScreen(new ScreenChoiceWater());
+			CScreenManager::GetInstance()->ChangeScreen(new ScreenChoiceWater());
 		}
 	}
 
-	if (KeyboardHandler::KeyState('v'))
+	if (KeyboardHandler::Held('v'))
 	{
-		if (KeyboardHandler::KeyState('w'))
+		if (KeyboardHandler::Held('w'))
 		{
 			camera->MoveForwards(Settings::Movement::Speed * f_dt);
 		}
-		if (KeyboardHandler::KeyState('s'))
+		if (KeyboardHandler::Held('s'))
 		{
 			camera->MoveBackwards(Settings::Movement::Speed * f_dt);
 		}
-		if (KeyboardHandler::KeyState('a'))
+		if (KeyboardHandler::Held('a'))
 		{
 			camera->MoveLeft(Settings::Movement::Speed * f_dt);
 		}
-		if (KeyboardHandler::KeyState('d'))
+		if (KeyboardHandler::Held('d'))
 		{
 			camera->MoveRight(Settings::Movement::Speed * f_dt);
 		}
 
-		if (MouseHandler::Pressed(2))
+		if (MouseHandler::Held(2))
 		{
 			camera->MouseLook(mouseX, mouseY, Settings::Mouse::MovementRatio * f_dt);
 		}
