@@ -4,140 +4,140 @@
     <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAkAAQAAAAAAAABBAAAAAIAQABCBEAAQA=</HashCode>
-      <FileName>Colour.h</FileName>
+      <FileName>graphics\colour.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ColourA" Collapsed="true">
     <Position X="8" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAAAAAgABAAAAAgCAAAIAAAAAA=</HashCode>
-      <FileName>ColourA.h</FileName>
+      <FileName>graphics\coloura.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Files" Collapsed="true">
     <Position X="4" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Files.h</FileName>
+      <FileName>core\files.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IniHandler" Collapsed="true">
     <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAgAQAAAAAABAAQAAAEACgAAAAAA=</HashCode>
-      <FileName>IniHandler.h</FileName>
+      <FileName>core\inihandler.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Intersect" Collapsed="true">
     <Position X="2.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Intersect.h</FileName>
+      <FileName>maths\intersect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Shader" Collapsed="true">
     <Position X="8" Y="7.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>QAACgAAAQAAAAAAAAAAAAAAAAAAAAAAABAAGAAAEAgA=</HashCode>
-      <FileName>Shader.h</FileName>
+      <FileName>Graphics\Shader.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextureLoader" Collapsed="true">
     <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QBAAAAAQCAAAAAYAABQQAigAAAAAAAAAAKBABABBgBQ=</HashCode>
-      <FileName>TextureLoader\TextureLoader.h</FileName>
+      <FileName>Core\TextureLoader\TextureLoader.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Utilities" Collapsed="true">
     <Position X="2.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAA=</HashCode>
-      <FileName>Utilities.h</FileName>
+      <FileName>Core\Utilities.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Vector2f" Collapsed="true">
     <Position X="4" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>GgAIAAAAAAAAAAAAYEEIAAEAAAAAAAAAAABgQAAAYiI=</HashCode>
-      <FileName>Vector2f.h</FileName>
+      <FileName>maths\vector2f.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Vector3f" Collapsed="true">
     <Position X="5.75" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>GgAAAAAAAAAQAAQAYEEIAAEAAAAAAIAAAABggQAAYiE=</HashCode>
-      <FileName>Vector3f.h</FileName>
+      <FileName>maths\vector3f.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KeyboardHandler" Collapsed="true">
     <Position X="4" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAQAAAAAgQIAAAgCAAAAQAAAAAAAACAAABAAAAA=</HashCode>
-      <FileName>KeyboardHandler.h</FileName>
+      <HashCode>BAQAAEAAAAAAgYIAAAgAAAACQAAAEAEIAQAAAAAEAAA=</HashCode>
+      <FileName>control\keyboardhandler.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MouseHandler" Collapsed="true">
     <Position X="5.75" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAACQAAAAABAAAAEAAAAAAAiCAAAAAEAAEAAA=</HashCode>
-      <FileName>MouseHandler.h</FileName>
+      <HashCode>AAQABAgAACQAAIAAAAAAAEAAAAAAAgEAAAAAACAEAAA=</HashCode>
+      <FileName>control\mousehandler.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Asteroid" Collapsed="true">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgABAAAAAAAAAAAAAAABAAQAAAAEAAA=</HashCode>
-      <FileName>Asteroid.h</FileName>
+      <HashCode>AAQAAAAAAAAAAgABAAQAAAAEAAAAAAABAAQAAAAEAAA=</HashCode>
+      <FileName>game components\asteroid.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Camera" Collapsed="true">
     <Position X="0.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAACgAAIAgQAAAAQAAAAEMgAAIQBAAAACiIAA=</HashCode>
-      <FileName>Camera.h</FileName>
+      <HashCode>AEACAAQAAAgAAIAgQACAIQAAAAEAgAAIQBAAAACCIAA=</HashCode>
+      <FileName>game components\camera.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CConditions" Collapsed="true">
     <Position X="2.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIYIQIQABEAAAEIEJAAQACAAEASBEQQAAAAgAAAEKAw=</HashCode>
-      <FileName>CConditions.h</FileName>
+      <FileName>game components\cconditions.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DrawableObject" Collapsed="true">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DrawableObject.h</FileName>
+      <FileName>game components\drawableobject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameObject" Collapsed="true">
     <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABQAAAAAAAAAAgAgAAAAIAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>GameObject.h</FileName>
+      <FileName>game components\gameobject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HeightmapSphere" Collapsed="true">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQJAAAACAAAAgABAAAAAAAIAAAAAgAACAAAAEAAAAA=</HashCode>
-      <FileName>HeightmapSphere.h</FileName>
+      <FileName>game components\heightmapsphere.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Map" Collapsed="true">
     <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAABAAAgABAAAAAAAAAAAAAACAAAAKAAAAAQA=</HashCode>
-      <FileName>Map.h</FileName>
+      <FileName>game components\map.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mars" Collapsed="true">
     <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAEAEgAAABQBAAAAAAAAAAAQAAAAAADAAAA=</HashCode>
-      <FileName>Mars.h</FileName>
+      <FileName>game components\mars.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MousePick" Collapsed="true">
@@ -147,57 +147,35 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MousePick.h</FileName>
+      <FileName>game components\mousepick.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Settings" Collapsed="true">
     <Position X="4" Y="8" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="Settings::View" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Settings::Mouse" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Settings::Movement" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Settings::UI" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Settings.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Settings.h</FileName>
+      <FileName>game components\settings.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WaterSphere" Collapsed="true">
     <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQJAAQACAAAAgAAAAAAAAAIABAAAgAACAAAAEAAAAA=</HashCode>
-      <FileName>WaterSphere.h</FileName>
+      <FileName>Game Components\WaterSphere.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HUD" Collapsed="true">
     <Position X="5.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQIAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HUD.h</FileName>
+      <FileName>ui\hud.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UIObject" Collapsed="true">
     <Position X="10.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAQgAAAAAAAAAAAAAAAAIAAAABQAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>UIObject.h</FileName>
+      <FileName>ui\uiobject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScreenManager" Collapsed="true">
