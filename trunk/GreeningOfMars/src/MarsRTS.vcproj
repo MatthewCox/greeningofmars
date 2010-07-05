@@ -513,15 +513,15 @@
 					Name="Choices"
 					>
 					<File
-						RelativePath=".\Screens\ScreenChoice.h"
+						RelativePath=".\Screens\Choices\ScreenChoice.h"
 						>
 					</File>
 					<File
-						RelativePath=".\Screens\ScreenChoiceHeat.h"
+						RelativePath=".\Screens\Choices\ScreenChoiceHeat.h"
 						>
 					</File>
 					<File
-						RelativePath=".\Screens\ScreenChoiceWater.h"
+						RelativePath=".\Screens\Choices\ScreenChoiceWater.h"
 						>
 					</File>
 				</Filter>
@@ -529,7 +529,7 @@
 					Name="Stage 1 Methods"
 					>
 					<File
-						RelativePath=".\Screens\ScreenStage1Asteroid.h"
+						RelativePath=".\Screens\Stage 1 Methods\ScreenStage1Asteroid.h"
 						>
 					</File>
 				</Filter>
@@ -537,7 +537,7 @@
 					Name="Stage 2 Methods"
 					>
 					<File
-						RelativePath=".\Screens\ScreenStage2Import.h"
+						RelativePath=".\Screens\Stage 2 Methods\ScreenStage2Import.h"
 						>
 					</File>
 				</Filter>
