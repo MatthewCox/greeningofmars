@@ -4,27 +4,30 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
-#include "Settings.h"
-#include "Camera.h"
-#include "Screens.h"
-#include "KeyboardHandler.h"
-#include "MouseHandler.h"
+#include "Control/KeyboardHandler.h"
+#include "Control/MouseHandler.h"
 
-int time = 0, timebase = 0;
-int dt, totaldt, frames;
-float f_dt;
+#include "Core/GLUTTimer.h"
+
+#include "Game Components/Settings.h"
+#include "Game Components/Camera.h"
+
+#include "Screens/Screens.h"
 
 CScreenManager* screenManager;
+CGLUTTimer drawTimer, updateTimer;
 
 // Initialize all of the various objects that are to be used
-void Init(char **argv)
+void Init()
 {
+	drawTimer = CGLUTTimer(60.f);
+	updateTimer = CGLUTTimer(200.f);
 	screenManager = CScreenManager::GetInstance();
-	screenManager->ChangeScreen(new ScreenMenu());
+	screenManager->PushScreen(new ScreenMenu());
 }
 
 // Render the scene
-void Display(void)
+void Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_BLEND);
@@ -43,43 +46,25 @@ void Reshape(int w, int h)
 	glViewport(
 		0, 0,
 		(GLsizei)w, (GLsizei)h
-	);
+		);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(
 		Settings::View::FOV,	// fov
 		(GLfloat)w / (GLfloat)h,	// width/height ratio
 		0.01, 1000.0	// near/far draw distances
-	);
+		);
 	Settings::View::Width = w;
 	Settings::View::Height = h;
 	glMatrixMode(GL_MODELVIEW);
 }
 
 // Called when the program is idle
-void Idle(void)
+void Idle()
 {
-	// Timer to make motion independent of framerate
-	time = glutGet(GLUT_ELAPSED_TIME);
-	
-	dt = (time - timebase);
-	f_dt = (float)dt / 1000;
-	timebase = time;
+	updateTimer.Update();
 
-	frames++;
-	if (frames == 100)
-	{
-		frames = 0;
-		std::cout << "FPS: " << (int)(1000 / ((float)totaldt / 100)) << std::endl;
-		totaldt = 0;
-	}
-	else
-	{
-		totaldt += dt;
-	}
-	// End timer code
-
-	screenManager->Update(f_dt);
+	screenManager->Update(updateTimer.DT());
 
 	// Global controls
 	if (KeyboardHandler::Pressed(27)) // Esc Key
@@ -176,18 +161,6 @@ void PassiveMotion(int x, int y)
 	MouseHandler::SetPosition(x, y);
 }
 
-// Called when the mouse enters or leaves the window
-void EnterLeave(int state)
-{
-	if (state == GLUT_LEFT)
-	{
-		glutWarpPointer(
-			glutGet(GLUT_WINDOW_WIDTH) / 2,
-			glutGet(GLUT_WINDOW_HEIGHT) /2
-		);
-	}
-}
-
 // Initialize OpenGL settings
 void InitGL()
 {
@@ -195,7 +168,7 @@ void InitGL()
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
-	
+
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 	glEnable(GL_CULL_FACE);
@@ -226,7 +199,7 @@ int main(int argc, char **argv)
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("The Greening of Mars");
 	glewInit();
-	
+
 	glutDisplayFunc(Display);
 	glutIdleFunc(Idle);
 	glutReshapeFunc(Reshape);
@@ -243,10 +216,10 @@ int main(int argc, char **argv)
 
 	InitGL();
 
-	Init(argv);
+	Init();
 
 	//FreeConsole();
-	
+
 	glutMainLoop();
 
 	return 0;

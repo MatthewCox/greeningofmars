@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)\objs"
+			OutputDirectory="$(SolutionDir)test"
+			IntermediateDirectory="$(SolutionDir)build"
 			ConfigurationType="1"
 			CharacterSet="2"
 			>
@@ -87,8 +87,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)\objs"
+			OutputDirectory="$(SolutionDir)bin"
+			IntermediateDirectory="$(SolutionDir)build"
 			ConfigurationType="1"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
@@ -135,6 +135,7 @@
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
+				Profile="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -175,179 +176,195 @@
 				Name="Core"
 				>
 				<File
-					RelativePath=".\Colour.cpp"
+					RelativePath=".\Core\Files.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\ColourA.cpp"
+					RelativePath=".\Core\GLUTTimer.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\Files.cpp"
+					RelativePath=".\Core\IniHandler.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\IniHandler.cpp"
+					RelativePath=".\Core\Utilities.cpp"
 					>
 				</File>
-				<File
-					RelativePath=".\Intersect.cpp"
+				<Filter
+					Name="TextureLoader"
 					>
-				</File>
-				<File
-					RelativePath=".\Shader.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\TextureLoader\TextureLoader.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Utilities.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Vector2f.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Vector3f.cpp"
-					>
-				</File>
+					<File
+						RelativePath=".\Core\TextureLoader\TextureLoader.cpp"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="Game Components"
 				>
 				<File
-					RelativePath=".\Asteroid.cpp"
+					RelativePath=".\Game Components\Asteroid.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\Camera.cpp"
+					RelativePath=".\Game Components\Camera.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\CConditions.cpp"
+					RelativePath=".\Game Components\CConditions.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\DrawableObject.cpp"
+					RelativePath=".\Game Components\DrawableObject.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\GameObject.cpp"
+					RelativePath=".\Game Components\GameObject.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\HeightmapSphere.cpp"
+					RelativePath=".\Game Components\HeightmapSphere.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\Map.cpp"
+					RelativePath=".\Game Components\Map.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\Mars.cpp"
+					RelativePath=".\Game Components\Mars.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\MousePick.cpp"
+					RelativePath=".\Game Components\MousePick.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\Settings.cpp"
+					RelativePath=".\Game Components\Settings.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\WaterSphere.cpp"
+					RelativePath=".\Game Components\WaterSphere.cpp"
 					>
 				</File>
-				<Filter
-					Name="UI"
-					>
-					<File
-						RelativePath=".\Button.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\HUD.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\Label.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\Panel.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\SwishyButton.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\UIObject.cpp"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="Screens"
-					>
-					<File
-						RelativePath=".\Screen.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\ScreenManager.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\ScreenMenu.cpp"
-						>
-					</File>
-					<Filter
-						Name="Choices"
-						>
-						<File
-							RelativePath=".\ScreenChoice.cpp"
-							>
-						</File>
-						<File
-							RelativePath=".\ScreenChoiceHeat.cpp"
-							>
-						</File>
-						<File
-							RelativePath=".\ScreenChoiceWater.cpp"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="Stage 1 Methods"
-						>
-						<File
-							RelativePath=".\ScreenStage1Asteroid.cpp"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="Stage 2 Methods"
-						>
-						<File
-							RelativePath=".\ScreenStage2Import.cpp"
-							>
-						</File>
-					</Filter>
-				</Filter>
 			</Filter>
 			<Filter
 				Name="Control"
 				>
 				<File
-					RelativePath=".\KeyboardHandler.cpp"
+					RelativePath=".\Control\KeyboardHandler.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\MouseHandler.cpp"
+					RelativePath=".\Control\MouseHandler.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Screens"
+				>
+				<File
+					RelativePath=".\Screens\Screen.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Screens\ScreenManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Screens\ScreenMenu.cpp"
+					>
+				</File>
+				<Filter
+					Name="Choices"
+					>
+					<File
+						RelativePath=".\Screens\Choices\ScreenChoice.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\Screens\Choices\ScreenChoiceHeat.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\Screens\Choices\ScreenChoiceWater.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Stage 1 Methods"
+					>
+					<File
+						RelativePath=".\Screens\Stage 1 Methods\ScreenStage1Asteroid.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Stage 2 Methods"
+					>
+					<File
+						RelativePath=".\Screens\Stage 2 Methods\ScreenStage2Import.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="UI"
+				>
+				<File
+					RelativePath=".\UI\Button.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\HUD.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\Label.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\Panel.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\SwishyButton.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\UIObject.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Maths"
+				>
+				<File
+					RelativePath=".\Maths\Intersect.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Maths\Vector2f.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Maths\Vector3f.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Graphics"
+				>
+				<File
+					RelativePath=".\Graphics\Colour.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Graphics\ColourA.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Graphics\Shader.cpp"
 					>
 				</File>
 			</Filter>
@@ -361,55 +378,39 @@
 				Name="Core"
 				>
 				<File
-					RelativePath=".\Colour.h"
+					RelativePath=".\Core\Files.h"
 					>
 				</File>
 				<File
-					RelativePath=".\ColourA.h"
+					RelativePath=".\Core\GLUTTimer.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Files.h"
+					RelativePath=".\Core\IniHandler.h"
 					>
 				</File>
 				<File
-					RelativePath=".\IniHandler.h"
+					RelativePath=".\Core\Utilities.h"
 					>
 				</File>
-				<File
-					RelativePath=".\Intersect.h"
+				<Filter
+					Name="TextureLoader"
 					>
-				</File>
-				<File
-					RelativePath=".\Shader.h"
-					>
-				</File>
-				<File
-					RelativePath=".\TextureLoader\TextureLoader.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Utilities.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Vector2f.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Vector3f.h"
-					>
-				</File>
+					<File
+						RelativePath=".\Core\TextureLoader\TextureLoader.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="Control"
 				>
 				<File
-					RelativePath=".\KeyboardHandler.h"
+					RelativePath=".\Control\KeyboardHandler.h"
 					>
 				</File>
 				<File
-					RelativePath=".\MouseHandler.h"
+					RelativePath=".\Control\MouseHandler.h"
 					>
 				</File>
 			</Filter>
@@ -417,129 +418,161 @@
 				Name="Game Components"
 				>
 				<File
-					RelativePath=".\Asteroid.h"
+					RelativePath=".\Game Components\Asteroid.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Camera.h"
+					RelativePath=".\Game Components\Camera.h"
 					>
 				</File>
 				<File
-					RelativePath=".\CConditions.h"
+					RelativePath=".\Game Components\CConditions.h"
 					>
 				</File>
 				<File
-					RelativePath=".\DrawableObject.h"
+					RelativePath=".\Game Components\DrawableObject.h"
 					>
 				</File>
 				<File
-					RelativePath=".\GameObject.h"
+					RelativePath=".\Game Components\GameObject.h"
 					>
 				</File>
 				<File
-					RelativePath=".\HeightmapSphere.h"
+					RelativePath=".\Game Components\HeightmapSphere.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Map.h"
+					RelativePath=".\Game Components\Map.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Mars.h"
+					RelativePath=".\Game Components\Mars.h"
 					>
 				</File>
 				<File
-					RelativePath=".\MousePick.h"
+					RelativePath=".\Game Components\MousePick.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Settings.h"
+					RelativePath=".\Game Components\Settings.h"
 					>
 				</File>
 				<File
-					RelativePath=".\WaterSphere.h"
+					RelativePath=".\Game Components\WaterSphere.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="UI"
+				>
+				<File
+					RelativePath=".\UI\Button.h"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\HUD.h"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\Label.h"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\Panel.h"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\SwishyButton.h"
+					>
+				</File>
+				<File
+					RelativePath=".\UI\UIObject.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Screens"
+				>
+				<File
+					RelativePath=".\Screens\Screen.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Screens\ScreenManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Screens\ScreenMenu.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Screens\Screens.h"
 					>
 				</File>
 				<Filter
-					Name="UI"
+					Name="Choices"
 					>
 					<File
-						RelativePath=".\Button.h"
+						RelativePath=".\Screens\ScreenChoice.h"
 						>
 					</File>
 					<File
-						RelativePath=".\HUD.h"
+						RelativePath=".\Screens\ScreenChoiceHeat.h"
 						>
 					</File>
 					<File
-						RelativePath=".\Label.h"
-						>
-					</File>
-					<File
-						RelativePath=".\Panel.h"
-						>
-					</File>
-					<File
-						RelativePath=".\SwishyButton.h"
-						>
-					</File>
-					<File
-						RelativePath=".\UIObject.h"
+						RelativePath=".\Screens\ScreenChoiceWater.h"
 						>
 					</File>
 				</Filter>
 				<Filter
-					Name="Screens"
+					Name="Stage 1 Methods"
 					>
 					<File
-						RelativePath=".\Screen.h"
+						RelativePath=".\Screens\ScreenStage1Asteroid.h"
 						>
 					</File>
-					<File
-						RelativePath=".\ScreenManager.h"
-						>
-					</File>
-					<File
-						RelativePath=".\ScreenMenu.h"
-						>
-					</File>
-					<File
-						RelativePath=".\Screens.h"
-						>
-					</File>
-					<Filter
-						Name="Choices"
-						>
-						<File
-							RelativePath=".\ScreenChoice.h"
-							>
-						</File>
-						<File
-							RelativePath=".\ScreenChoiceHeat.h"
-							>
-						</File>
-						<File
-							RelativePath=".\ScreenChoiceWater.h"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="Stage 1 Methods"
-						>
-						<File
-							RelativePath=".\ScreenStage1Asteroid.h"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="Stage 2 Methods"
-						>
-						<File
-							RelativePath=".\ScreenStage2Import.h"
-							>
-						</File>
-					</Filter>
 				</Filter>
+				<Filter
+					Name="Stage 2 Methods"
+					>
+					<File
+						RelativePath=".\Screens\ScreenStage2Import.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="Graphics"
+				>
+				<File
+					RelativePath=".\Graphics\Colour.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Graphics\ColourA.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Graphics\Shader.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Maths"
+				>
+				<File
+					RelativePath=".\Maths\Intersect.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Maths\Vector2f.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Maths\Vector3f.h"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -548,42 +581,46 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\land.txt"
-				>
-			</File>
-			<File
-				RelativePath=".\MarsHeight.bmp"
-				>
-			</File>
-			<File
-				RelativePath=".\rings.txt"
-				>
-			</File>
-			<File
 				RelativePath=".\settings.ini"
-				>
-			</File>
-			<File
-				RelativePath=".\WaterNormal.bmp"
 				>
 			</File>
 			<Filter
 				Name="Shaders"
 				>
 				<File
-					RelativePath=".\sphereDeform.frag"
+					RelativePath=".\Shaders\sphereDeform.frag"
 					>
 				</File>
 				<File
-					RelativePath=".\sphereDeform.vert"
+					RelativePath=".\Shaders\sphereDeform.vert"
 					>
 				</File>
 				<File
-					RelativePath=".\water.frag"
+					RelativePath=".\Shaders\water.frag"
 					>
 				</File>
 				<File
-					RelativePath=".\water.vert"
+					RelativePath=".\Shaders\water.vert"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Resources"
+				>
+				<File
+					RelativePath=".\Resources\land.txt"
+					>
+				</File>
+				<File
+					RelativePath=".\Resources\MarsHeight.bmp"
+					>
+				</File>
+				<File
+					RelativePath=".\Resources\rings.txt"
+					>
+				</File>
+				<File
+					RelativePath=".\Resources\WaterNormal.bmp"
 					>
 				</File>
 			</Filter>
@@ -591,6 +628,10 @@
 		<Filter
 			Name="Class Diagrams"
 			>
+			<File
+				RelativePath=".\ClassDiagram1.cd"
+				>
+			</File>
 			<File
 				RelativePath=".\ScreenSystem.cd"
 				>
@@ -600,10 +641,6 @@
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\ClassDiagram1.cd"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>
