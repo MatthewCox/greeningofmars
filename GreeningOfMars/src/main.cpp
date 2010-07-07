@@ -187,7 +187,7 @@ void InitGL()
 	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 }
 
-// Initialize (free)glut settings, registers the callback functions,
+// Initializes (free)glut settings, registers the callback functions,
 // enters the opengl event loop
 int main(int argc, char **argv)
 {

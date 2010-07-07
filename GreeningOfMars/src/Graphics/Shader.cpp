@@ -3,12 +3,17 @@
 #include <stdlib.h>
 #include <iostream>
 
+#define GLEW_STATIC
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #include <GL/glext.h>
 
 #include "../Core/Files.h"
 
+/*
+ * Validates the (compiled) shader supplied to it
+ * Outputs any errors to the standard error buffer
+ */
 static void ValidateShader(GLuint shader, const char* file = 0)
 {
 	const unsigned int BUFFER_SIZE = 512;
@@ -23,6 +28,10 @@ static void ValidateShader(GLuint shader, const char* file = 0)
 	}
 }
 
+/*
+ * Validates the linked vertex and fragment shader programs
+ * Outputs any errors to the standard error buffer
+ */
 static void ValidateProgram(GLuint program)
 {
 	const unsigned int BUFFER_SIZE = 512;
@@ -46,11 +55,11 @@ static void ValidateProgram(GLuint program)
 	}
 }
 
-Shader::Shader(void)
+CShader::CShader(void)
 {
 }
 
-Shader::Shader(const char *vertexShaderPath, const char *fragmentShaderPath)
+CShader::CShader(const char *vertexShaderPath, const char *fragmentShaderPath)
 {
 	id = 0;
 	vertexProgram = 0;
@@ -58,7 +67,7 @@ Shader::Shader(const char *vertexShaderPath, const char *fragmentShaderPath)
 	Init(vertexShaderPath, fragmentShaderPath);
 }
 
-Shader::~Shader(void)
+CShader::~CShader(void)
 {
 	glDetachShader(id, vertexProgram);
 	glDetachShader(id, fragmentProgram);
@@ -68,7 +77,7 @@ Shader::~Shader(void)
 	glDeleteProgram(id);
 }
 
-void Shader::Init(const char *vertexShaderPath, const char *fragmentShaderPath)
+void CShader::Init(const char *vertexShaderPath, const char *fragmentShaderPath)
 {
 	vertexProgram = glCreateShader(GL_VERTEX_SHADER);
 	fragmentProgram = glCreateShader(GL_FRAGMENT_SHADER);
@@ -96,17 +105,17 @@ void Shader::Init(const char *vertexShaderPath, const char *fragmentShaderPath)
 	ValidateProgram(id);
 }
 
-unsigned int Shader::Id()
-{
-	return id;
-}
-
-void Shader::Bind()
+void CShader::Bind()
 {
 	glUseProgram(id);
 }
 
-void Shader::Unbind()
+void CShader::Unbind()
 {
 	glUseProgram(0);
+}
+
+unsigned int CShader::Id()
+{
+	return id;
 }

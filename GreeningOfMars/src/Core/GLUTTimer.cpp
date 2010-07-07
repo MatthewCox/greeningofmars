@@ -4,18 +4,17 @@
 
 CGLUTTimer::CGLUTTimer(void)
 {
-	Init(60.f);
 }
 
-CGLUTTimer::CGLUTTimer(float p_timeCount)
+CGLUTTimer::CGLUTTimer(const float& p_timeCount)
 {
 	Init(p_timeCount);
 }
 
-void CGLUTTimer::Init(float p_timeCount)
+void CGLUTTimer::Init(const float& p_timeCount)
 {
 	dt = 1;
-	f_dt = 0.01f;
+	f_dt = 0.001f;
 	timeLast = glutGet(GLUT_ELAPSED_TIME);
 	timeIncrement = (int)((1.f / p_timeCount) * 1000.f);
 	timeLastReady = timeLast;
@@ -48,7 +47,7 @@ bool CGLUTTimer::Ready()
 	return false;
 }
 
-float CGLUTTimer::DT()
+float CGLUTTimer::DT() const
 {
 	return f_dt;
 }

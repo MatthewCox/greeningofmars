@@ -18,25 +18,32 @@ void MouseHandler::Update()
 	oldMouseY = mouseY;
 }
 
-bool MouseHandler::Held(int button)
+bool MouseHandler::Held(const int& button)
 {
 	return buttonState[button];
 }
-bool MouseHandler::Pressed(int button)
+bool MouseHandler::Pressed(const int& button)
 {
 	return (Held(button) && !oldButtonState[button]);
 }
-bool MouseHandler::Released(int button)
+bool MouseHandler::Released(const int& button)
 {
 	return (!Held(button) && oldButtonState[button]);
 }
+
 void MouseHandler::GetPosition(int &outX, int &outY)
 {
 	outX = mouseX;
 	outY = mouseY;
 }
 
-void MouseHandler::SetState(int button, int state)
+void MouseHandler::GetPositionChange(int& outDX, int& outDY)
+{
+	outDX = mouseX - oldMouseX;
+	outDY = mouseY - oldMouseY;
+}
+
+void MouseHandler::SetState(const int& button, const int& state)
 {
 	if (state == 0)
 	{
@@ -48,7 +55,7 @@ void MouseHandler::SetState(int button, int state)
 	}
 }
 
-void MouseHandler::SetPosition(int x, int y)
+void MouseHandler::SetPosition(const int& x, const int& y)
 {
 	mouseX = x;
 	mouseY = y;
