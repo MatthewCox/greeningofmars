@@ -84,7 +84,7 @@ float Vector2f::dot(const Vector2f& p_v) const
 
 float Vector2f::length(void) const
 {
-    return sqrt((x * x) + (y * y));
+    return sqrt(length2());
 }
 
 float Vector2f::length2(void) const
@@ -92,7 +92,7 @@ float Vector2f::length2(void) const
     return (x * x) + (y * y);
 }
 
-Vector2f Vector2f::normalise(void) const
+Vector2f Vector2f::normalize(void) const
 {
     return *this * (1 / length());
 }

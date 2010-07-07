@@ -18,52 +18,52 @@ void KeyboardHandler::Update()
 	}
 }
 
-bool KeyboardHandler::Held(unsigned char key)
+bool KeyboardHandler::Held(const unsigned char& key)
 {
 	return keyState[key];
 }
-bool KeyboardHandler::Pressed(unsigned char key)
+bool KeyboardHandler::Pressed(const unsigned char& key)
 {
 	return (Held(key) && !oldKeyState[key]);
 }
-bool KeyboardHandler::Released(unsigned char key)
+bool KeyboardHandler::Released(const unsigned char& key)
 {
 	return (!Held(key) && oldKeyState[key]);
 }
 
-bool KeyboardHandler::SpecialHeld(int key)
+bool KeyboardHandler::SpecialHeld(const int& key)
 {
 	return specialKeyState[key];
 }
-bool KeyboardHandler::SpecialPressed(int key)
+bool KeyboardHandler::SpecialPressed(const int& key)
 {
 	return (specialKeyState[key] == true && oldSpecialKeyState[key] == false);
 }
-bool KeyboardHandler::SpecialReleased(int key)
+bool KeyboardHandler::SpecialReleased(const int& key)
 {
 	return (specialKeyState[key] == false && oldSpecialKeyState[key] == true);
 }
 
-void KeyboardHandler::KeyDown(unsigned char key)
+void KeyboardHandler::KeyDown(const unsigned char& key, const int& x, const int& y)
 {
 #ifdef OUTPUT_KEYCODES
-	std::cout << "Norm: " << key << std::endl;
+	std::cout << "Norm: " << key << " (" << (int)key << ")" << std::endl;
 #endif
 	keyState[key] = true;
 }
-void KeyboardHandler::KeyUp(unsigned char key)
+void KeyboardHandler::KeyUp(const unsigned char& key, const int& x, const int& y)
 {
 	keyState[key] = false;
 }
 
-void KeyboardHandler::SpecialKeyDown(int key)
+void KeyboardHandler::SpecialKeyDown(const int& key, const int& x, const int& y)
 {
 #ifdef OUTPUT_KEYCODES
 	std::cout << "Spec: " << key << std::endl;
 #endif
 	specialKeyState[key] = true;
 }
-void KeyboardHandler::SpecialKeyUp(int key)
+void KeyboardHandler::SpecialKeyUp(const int& key, const int& x, const int& y)
 {
 	specialKeyState[key] = false;
 }

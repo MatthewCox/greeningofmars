@@ -4,17 +4,22 @@
 
 ColourA::ColourA(void)
 {
-	SetA(1.0f);
+	A(1.0f);
 }
 
-ColourA::ColourA(float p_r, float p_g, float p_b, float p_a) : Colour(p_r, p_g, p_b)
+ColourA::ColourA(const float& p_rgba) : Colour(p_rgba)
 {
-	SetA(p_a);
+	A(p_rgba);
 }
 
-ColourA::ColourA(float p_colour) : Colour(p_colour)
+ColourA::ColourA(const float& p_rgb, const float& p_alpha) : Colour(p_rgb)
 {
-	SetA(p_colour);
+	A(p_alpha);
+}
+
+ColourA::ColourA(const float& p_r, const float& p_g, const float& p_b, const float& p_a) : Colour(p_r, p_g, p_b)
+{
+	A(p_a);
 }
 
 ColourA::~ColourA(void)
@@ -23,12 +28,12 @@ ColourA::~ColourA(void)
 
 float ColourA::A() const {return a;}
 
-void ColourA::SetA(float p_a) {a = p_a;}
+void ColourA::A(const float& p_a) {a = p_a;}
 
-void ColourA::SetColour(float p_r, float p_g, float p_b, float p_a)
+void ColourA::SetColour(const float& p_r, const float& p_g, const float& p_b, const float& p_a)
 {
 	Colour::SetColour(p_r, p_g, p_b);
-	SetA(p_a);
+	A(p_a);
 }
 
 void ColourA::Apply() const
