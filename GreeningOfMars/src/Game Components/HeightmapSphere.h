@@ -22,5 +22,5 @@ private:
 	TextureLoader* texLoader;
 	glTexture* texture;
 	GLUquadric* quadric;
-	Shader* shader;
+	CShader* shader;
 };

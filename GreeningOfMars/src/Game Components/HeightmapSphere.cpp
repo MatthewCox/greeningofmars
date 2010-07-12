@@ -15,7 +15,7 @@ HeightmapSphere::HeightmapSphere(void)
 	texLoader = new TextureLoader();
 	texLoader->LoadTextureFromDisk(".\\Resources\\MarsHeight.bmp", texture);
 	quadric = gluNewQuadric();
-	shader = new Shader(".\\Shaders\\sphereDeform.vert", ".\\Shaders\\sphereDeform.frag");
+	shader = new CShader(".\\Shaders\\sphereDeform.vert", ".\\Shaders\\sphereDeform.frag");
 }
 
 HeightmapSphere::~HeightmapSphere(void)

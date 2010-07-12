@@ -36,11 +36,11 @@ public:
 	static void GetPositionChange(int& outDX, int& outDY);
 
 	// Bind this to glutMouseFunc()
-	static void Mouse(const int& button, const int& state, const int& x, const int& y);
+	static void Mouse(int button, int state, int x, int y);
 	// Used by Mouse to set the state of each button
-	static void SetState(const int& button, const int& state);
+	static void SetState(int button, int state);
 	// Bind this to glutMotionFunc() and glutPassiveMotionFunc()
-	static void SetPosition(const int& x, const int& y);
+	static void SetPosition(int x, int y);
 
 private:
 	static bool buttonState[5];

@@ -44,26 +44,26 @@ bool KeyboardHandler::SpecialReleased(const int& key)
 	return (specialKeyState[key] == false && oldSpecialKeyState[key] == true);
 }
 
-void KeyboardHandler::KeyDown(const unsigned char& key, const int& x, const int& y)
+void KeyboardHandler::KeyDown(unsigned char key, int x, int y)
 {
 #ifdef OUTPUT_KEYCODES
 	std::cout << "Norm: " << key << " (" << (int)key << ")" << std::endl;
 #endif
-	keyState[key] = true;
+	keyState[(int)key] = true;
 }
-void KeyboardHandler::KeyUp(const unsigned char& key, const int& x, const int& y)
+void KeyboardHandler::KeyUp(unsigned char key, int x, int y)
 {
-	keyState[key] = false;
+	keyState[(int)key] = false;
 }
 
-void KeyboardHandler::SpecialKeyDown(const int& key, const int& x, const int& y)
+void KeyboardHandler::SpecialKeyDown(int key, int x, int y)
 {
 #ifdef OUTPUT_KEYCODES
 	std::cout << "Spec: " << key << std::endl;
 #endif
 	specialKeyState[key] = true;
 }
-void KeyboardHandler::SpecialKeyUp(const int& key, const int& x, const int& y)
+void KeyboardHandler::SpecialKeyUp(int key, int x, int y)
 {
 	specialKeyState[key] = false;
 }

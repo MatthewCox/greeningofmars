@@ -2,8 +2,10 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #include <GL/glext.h>
@@ -81,17 +83,19 @@ void CShader::Init(const char *vertexShaderPath, const char *fragmentShaderPath)
 {
 	vertexProgram = glCreateShader(GL_VERTEX_SHADER);
 	fragmentProgram = glCreateShader(GL_FRAGMENT_SHADER);
-	const char* vertexShaderText = Files::ReadText(vertexShaderPath);
-	const char* fragmentShaderText = Files::ReadText(fragmentShaderPath);
 
-	if (vertexShaderText == NULL || fragmentShaderText == NULL)
+	std::string vertexShaderText;
+	std::string fragmentShaderText;
+	if (!ReadShader(vertexShaderPath, vertexShaderText) || !ReadShader(fragmentShaderPath, fragmentShaderText))
 	{
 		std::cerr << "Either vertex shader or fragment shader file not found." << std::endl;
 		return;
 	}
+	const char* constVST = vertexShaderText.c_str();
+	const char* constFST = fragmentShaderText.c_str();
 
-	glShaderSource(vertexProgram, 1, &vertexShaderText, 0);
-	glShaderSource(fragmentProgram, 1, &fragmentShaderText, 0);
+	glShaderSource(vertexProgram, 1, &constVST, 0);
+	glShaderSource(fragmentProgram, 1, &constFST, 0);
 
 	glCompileShader(vertexProgram);
 	ValidateShader(vertexProgram, vertexShaderPath);
@@ -118,4 +122,27 @@ void CShader::Unbind()
 unsigned int CShader::Id()
 {
 	return id;
+}
+
+bool CShader::ReadShader(const char* fileName, std::string& outShader)
+{
+	std::ifstream file(fileName);
+
+	if (file.is_open())
+	{
+		std::stringstream stream;
+
+		stream << file.rdbuf();
+
+		file.close();
+
+		outShader = stream.str();
+
+		return true;
+	}
+	else
+	{
+		std::cerr << "Unable to open file '" << fileName << "' for reading." << std::endl;
+	}
+	return false;
 }

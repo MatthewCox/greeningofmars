@@ -49,14 +49,14 @@ public:
 	 * but they need to be parameters to allow you to bind them
 	 */
 	// Bind this to glutKeyboardFunc()
-	static void KeyDown(const unsigned char& key, const int& x, const int& y);
+	static void KeyDown(unsigned char key, int x, int y);
 	// Bind this to glutKeyboardUpFunc()
-	static void KeyUp(const unsigned char& key, const int& x, const int& y);
+	static void KeyUp(unsigned char key, int x, int y);
 
 	// Bind this to glutSpecialFunc()
-	static void SpecialKeyDown(const int& key, const int& x, const int& y);
+	static void SpecialKeyDown(int key, const int x, const int y);
 	// Bind this to glutSpecialUpFunc()
-	static void SpecialKeyUp(const int& key, const int& x, const int& y);
+	static void SpecialKeyUp(int key, const int x, const int y);
 
 private:
 	static bool keyState[256];

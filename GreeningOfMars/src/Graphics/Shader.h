@@ -1,4 +1,7 @@
 #pragma once
+
+#include <string>
+
 /****************************************************************************
 * 																			*
 * Shader																	*
@@ -41,5 +44,7 @@ private:
 	unsigned int id;
 	unsigned int vertexProgram;
 	unsigned int fragmentProgram;
+
+	bool ReadShader(const char* fileName, std::string& outShader);
 
 };

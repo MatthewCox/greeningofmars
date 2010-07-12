@@ -120,47 +120,6 @@ void Idle()
 	glutPostRedisplay();
 }
 
-// Called when a regular (character-producing) key is pressed
-void KeyboardDown(unsigned char key, int x, int y)
-{
-	KeyboardHandler::KeyDown(key);
-}
-// Called when a regular (character-producing) key is released
-void KeyboardUp(unsigned char key, int x, int y)
-{
-	KeyboardHandler::KeyUp(key);
-}
-
-// Called when a special (non character-producing) key is pressed
-void SpecialKeyboardDown(int key, int x, int y)
-{
-	KeyboardHandler::SpecialKeyDown(key);
-}
-// Called when a special (non character-producing) key is released
-void SpecialKeyboardUp(int key, int x, int y)
-{
-	KeyboardHandler::SpecialKeyUp(key);
-}
-
-// Called when the mouse is clicked
-void Mouse(int button, int state, int x, int y)
-{
-	MouseHandler::SetState(button, state);
-	MouseHandler::SetPosition(x, y);
-}
-
-// Called when the mouse is moved while a button is held down
-void Motion(int x, int y)
-{
-	MouseHandler::SetPosition(x, y);
-}
-
-// Called when the mouse is moved without a button held down
-void PassiveMotion(int x, int y)
-{
-	MouseHandler::SetPosition(x, y);
-}
-
 // Initialize OpenGL settings
 void InitGL()
 {
@@ -203,13 +162,13 @@ int main(int argc, char **argv)
 	glutDisplayFunc(Display);
 	glutIdleFunc(Idle);
 	glutReshapeFunc(Reshape);
-	glutKeyboardFunc(KeyboardDown);
-	glutKeyboardUpFunc(KeyboardUp);
-	glutSpecialFunc(SpecialKeyboardDown);
-	glutSpecialUpFunc(SpecialKeyboardUp);
-	glutMouseFunc(Mouse);
-	glutMotionFunc(Motion);
-	glutPassiveMotionFunc(PassiveMotion);
+	glutKeyboardFunc(KeyboardHandler::KeyDown);
+	glutKeyboardUpFunc(KeyboardHandler::KeyUp);
+	glutSpecialFunc(KeyboardHandler::SpecialKeyDown);
+	glutSpecialUpFunc(KeyboardHandler::SpecialKeyUp);
+	glutMouseFunc(MouseHandler::Mouse);
+	glutMotionFunc(MouseHandler::SetPosition);
+	glutPassiveMotionFunc(MouseHandler::SetPosition);
 
 	glutIgnoreKeyRepeat(true);
 	//glutSetCursor(GLUT_CURSOR_NONE);
