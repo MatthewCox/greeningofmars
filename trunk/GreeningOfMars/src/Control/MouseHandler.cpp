@@ -43,7 +43,13 @@ void MouseHandler::GetPositionChange(int& outDX, int& outDY)
 	outDY = mouseY - oldMouseY;
 }
 
-void MouseHandler::SetState(const int& button, const int& state)
+void MouseHandler::Mouse(int button, int state, int x, int y)
+{
+	SetState(button, state);
+	SetPosition(x, y);
+}
+
+void MouseHandler::SetState(int button, int state)
 {
 	if (state == 0)
 	{
@@ -55,7 +61,7 @@ void MouseHandler::SetState(const int& button, const int& state)
 	}
 }
 
-void MouseHandler::SetPosition(const int& x, const int& y)
+void MouseHandler::SetPosition(int x, int y)
 {
 	mouseX = x;
 	mouseY = y;

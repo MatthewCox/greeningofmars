@@ -17,7 +17,7 @@ WaterSphere::WaterSphere(void)
 	texLoader = new TextureLoader();
 	texLoader->LoadTextureFromDisk(".\\Resources\\WaterNormal.bmp", texture);
 	quadric = gluNewQuadric();
-	shader = new Shader(".\\Shaders\\water.vert", ".\\Shaders\\water.frag");
+	shader = new CShader(".\\Shaders\\water.vert", ".\\Shaders\\water.frag");
 }
 
 WaterSphere::~WaterSphere(void)

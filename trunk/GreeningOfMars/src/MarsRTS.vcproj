@@ -129,7 +129,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ftgl.lib glew32.lib"
+				AdditionalDependencies="ftgl.lib glew32.lib glew32s.lib"
 				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
@@ -175,10 +175,6 @@
 			<Filter
 				Name="Core"
 				>
-				<File
-					RelativePath=".\Core\Files.cpp"
-					>
-				</File>
 				<File
 					RelativePath=".\Core\GLUTTimer.cpp"
 					>
@@ -377,10 +373,6 @@
 			<Filter
 				Name="Core"
 				>
-				<File
-					RelativePath=".\Core\Files.h"
-					>
-				</File>
 				<File
 					RelativePath=".\Core\GLUTTimer.h"
 					>
